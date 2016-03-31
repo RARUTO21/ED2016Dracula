@@ -16,6 +16,7 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
@@ -25,9 +26,10 @@ QT_BEGIN_NAMESPACE
 class Ui_Juego
 {
 public:
+    QWidget *centralWidget;
+    QPushButton *pushButton;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
-    QWidget *centralWidget;
     QStatusBar *statusBar;
 
     void setupUi(QMainWindow *Juego)
@@ -35,15 +37,19 @@ public:
         if (Juego->objectName().isEmpty())
             Juego->setObjectName(QStringLiteral("Juego"));
         Juego->resize(400, 300);
+        centralWidget = new QWidget(Juego);
+        centralWidget->setObjectName(QStringLiteral("centralWidget"));
+        pushButton = new QPushButton(centralWidget);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+        pushButton->setGeometry(QRect(140, 120, 113, 32));
+        Juego->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(Juego);
         menuBar->setObjectName(QStringLiteral("menuBar"));
+        menuBar->setGeometry(QRect(0, 0, 400, 22));
         Juego->setMenuBar(menuBar);
         mainToolBar = new QToolBar(Juego);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
-        Juego->addToolBar(mainToolBar);
-        centralWidget = new QWidget(Juego);
-        centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        Juego->setCentralWidget(centralWidget);
+        Juego->addToolBar(Qt::TopToolBarArea, mainToolBar);
         statusBar = new QStatusBar(Juego);
         statusBar->setObjectName(QStringLiteral("statusBar"));
         Juego->setStatusBar(statusBar);
@@ -56,6 +62,7 @@ public:
     void retranslateUi(QMainWindow *Juego)
     {
         Juego->setWindowTitle(QApplication::translate("Juego", "Juego", 0));
+        pushButton->setText(QApplication::translate("Juego", "PushButton", 0));
     } // retranslateUi
 
 };
