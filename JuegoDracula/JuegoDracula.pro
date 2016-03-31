@@ -15,6 +15,7 @@ TEMPLATE = app
 SOURCES += main.cpp\
         juego.cpp
 
-HEADERS  += juego.h
+HEADERS  += juego.h \
+    carta.h
 
 FORMS    += juego.ui
