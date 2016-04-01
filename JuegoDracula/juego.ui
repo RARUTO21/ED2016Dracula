@@ -6,25 +6,93 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>1200</width>
+    <height>800</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Juego</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../../hongo.ico</normaloff>../../hongo.ico</iconset>
+  </property>
+  <property name="layoutDirection">
+   <enum>Qt::LeftToRight</enum>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-image: url(:/other/cards/background.jpg);
+</string>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>120</y>
-      <width>113</width>
-      <height>32</height>
+      <x>40</x>
+      <y>100</y>
+      <width>91</width>
+      <height>121</height>
      </rect>
     </property>
+    <property name="acceptDrops">
+     <bool>true</bool>
+    </property>
     <property name="text">
-     <string>PushButton</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="images.qrc">
+      <normaloff>:/cards/cards/10_bastos.png</normaloff>:/cards/cards/10_bastos.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>100</width>
+      <height>100</height>
+     </size>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>90</y>
+      <width>91</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="acceptDrops">
+     <bool>true</bool>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="images.qrc">
+      <normaloff>:/cards/cards/back.png</normaloff>:/cards/cards/back.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>100</width>
+      <height>100</height>
+     </size>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
   </widget>
@@ -33,7 +101,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>400</width>
+     <width>1200</width>
      <height>22</height>
     </rect>
    </property>
@@ -46,9 +114,10 @@
     <bool>false</bool>
    </attribute>
   </widget>
-  <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="images.qrc"/>
+ </resources>
  <connections/>
 </ui>

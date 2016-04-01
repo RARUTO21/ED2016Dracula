@@ -49,9 +49,11 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = ../JuegoDracula/main.cpp \
-		../JuegoDracula/juego.cpp moc_juego.cpp
+		../JuegoDracula/juego.cpp qrc_images.cpp \
+		moc_juego.cpp
 OBJECTS       = main.o \
 		juego.o \
+		qrc_images.o \
 		moc_juego.o
 DIST          = ../../../Qt/5.5/clang_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.5/clang_64/mkspecs/qdevice.pri \
@@ -174,6 +176,7 @@ DIST          = ../../../Qt/5.5/clang_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.5/clang_64/mkspecs/features/qt_config.prf \
 		../../../Qt/5.5/clang_64/mkspecs/macx-clang/qmake.conf \
 		../../../Qt/5.5/clang_64/mkspecs/features/spec_post.prf \
+		../JuegoDracula/.qmake.stash \
 		../../../Qt/5.5/clang_64/mkspecs/features/exclusive_builds.prf \
 		../../../Qt/5.5/clang_64/mkspecs/features/default_pre.prf \
 		../../../Qt/5.5/clang_64/mkspecs/features/mac/default_pre.prf \
@@ -195,7 +198,8 @@ DIST          = ../../../Qt/5.5/clang_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.5/clang_64/mkspecs/features/exceptions.prf \
 		../../../Qt/5.5/clang_64/mkspecs/features/yacc.prf \
 		../../../Qt/5.5/clang_64/mkspecs/features/lex.prf \
-		../JuegoDracula/JuegoDracula.pro ../JuegoDracula/juego.h ../JuegoDracula/main.cpp \
+		../JuegoDracula/JuegoDracula.pro ../JuegoDracula/juego.h \
+		../JuegoDracula/carta.h ../JuegoDracula/main.cpp \
 		../JuegoDracula/juego.cpp
 QMAKE_TARGET  = JuegoDracula
 DESTDIR       = #avoid trailing-slash linebreak
@@ -359,6 +363,7 @@ Makefile: ../JuegoDracula/JuegoDracula.pro ../../../Qt/5.5/clang_64/mkspecs/macx
 		../../../Qt/5.5/clang_64/mkspecs/features/qt_config.prf \
 		../../../Qt/5.5/clang_64/mkspecs/macx-clang/qmake.conf \
 		../../../Qt/5.5/clang_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../../Qt/5.5/clang_64/mkspecs/features/exclusive_builds.prf \
 		../../../Qt/5.5/clang_64/mkspecs/features/default_pre.prf \
 		../../../Qt/5.5/clang_64/mkspecs/features/mac/default_pre.prf \
@@ -381,6 +386,7 @@ Makefile: ../JuegoDracula/JuegoDracula.pro ../../../Qt/5.5/clang_64/mkspecs/macx
 		../../../Qt/5.5/clang_64/mkspecs/features/yacc.prf \
 		../../../Qt/5.5/clang_64/mkspecs/features/lex.prf \
 		../JuegoDracula/JuegoDracula.pro \
+		../JuegoDracula/images.qrc \
 		/Users/macretinai7/Qt/5.5/clang_64/lib/QtWidgets.framework/QtWidgets.prl \
 		/Users/macretinai7/Qt/5.5/clang_64/lib/QtGui.framework/QtGui.prl \
 		/Users/macretinai7/Qt/5.5/clang_64/lib/QtCore.framework/QtCore.prl
@@ -506,6 +512,7 @@ Makefile: ../JuegoDracula/JuegoDracula.pro ../../../Qt/5.5/clang_64/mkspecs/macx
 ../../../Qt/5.5/clang_64/mkspecs/features/qt_config.prf:
 ../../../Qt/5.5/clang_64/mkspecs/macx-clang/qmake.conf:
 ../../../Qt/5.5/clang_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../../Qt/5.5/clang_64/mkspecs/features/exclusive_builds.prf:
 ../../../Qt/5.5/clang_64/mkspecs/features/default_pre.prf:
 ../../../Qt/5.5/clang_64/mkspecs/features/mac/default_pre.prf:
@@ -528,6 +535,7 @@ Makefile: ../JuegoDracula/JuegoDracula.pro ../../../Qt/5.5/clang_64/mkspecs/macx
 ../../../Qt/5.5/clang_64/mkspecs/features/yacc.prf:
 ../../../Qt/5.5/clang_64/mkspecs/features/lex.prf:
 ../JuegoDracula/JuegoDracula.pro:
+../JuegoDracula/images.qrc:
 /Users/macretinai7/Qt/5.5/clang_64/lib/QtWidgets.framework/QtWidgets.prl:
 /Users/macretinai7/Qt/5.5/clang_64/lib/QtGui.framework/QtGui.prl:
 /Users/macretinai7/Qt/5.5/clang_64/lib/QtCore.framework/QtCore.prl:
@@ -560,7 +568,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../JuegoDracula/juego.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../JuegoDracula/images.qrc $(DISTDIR)/
+	$(COPY_FILE) --parents ../JuegoDracula/juego.h ../JuegoDracula/carta.h $(DISTDIR)/
 	$(COPY_FILE) --parents ../JuegoDracula/main.cpp ../JuegoDracula/juego.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../JuegoDracula/juego.ui $(DISTDIR)/
 
@@ -586,8 +595,68 @@ check: first
 
 compiler_objective_c_make_all:
 compiler_objective_c_clean:
-compiler_rcc_make_all:
+compiler_rcc_make_all: qrc_images.cpp
 compiler_rcc_clean:
+	-$(DEL_FILE) qrc_images.cpp
+qrc_images.cpp: ../JuegoDracula/images.qrc \
+		../JuegoDracula/cards/background.jpg \
+		../JuegoDracula/cards/5_bastos.png \
+		../JuegoDracula/cards/4_flores.png \
+		../JuegoDracula/cards/6_flores.png \
+		../JuegoDracula/cards/back.png \
+		../JuegoDracula/cards/q_corazones.png \
+		../JuegoDracula/cards/k_flores.png \
+		../JuegoDracula/cards/7_oros.png \
+		../JuegoDracula/cards/10_bastos.png \
+		../JuegoDracula/cards/3_oros.png \
+		../JuegoDracula/cards/3_corazones.png \
+		../JuegoDracula/cards/4_bastos.png \
+		../JuegoDracula/cards/9_flores.png \
+		../JuegoDracula/cards/as_flores.png \
+		../JuegoDracula/cards/3_flores.png \
+		../JuegoDracula/cards/5_flores.png \
+		../JuegoDracula/cards/as_corazones.png \
+		../JuegoDracula/cards/k_bastos.png \
+		../JuegoDracula/cards/j_flores.png \
+		../JuegoDracula/cards/j_oros.png \
+		../JuegoDracula/cards/9_oros.png \
+		../JuegoDracula/cards/10_oros.png \
+		../JuegoDracula/cards/2_corazones.png \
+		../JuegoDracula/cards/10_corazones.png \
+		../JuegoDracula/cards/4_corazones.png \
+		../JuegoDracula/cards/as_bastos.png \
+		../JuegoDracula/cards/9_bastos.png \
+		../JuegoDracula/cards/3_bastos.png \
+		../JuegoDracula/cards/8_flores.png \
+		../JuegoDracula/cards/6_oros.png \
+		../JuegoDracula/cards/2_flores.png \
+		../JuegoDracula/cards/6_corazones.png \
+		../JuegoDracula/cards/q_flores.png \
+		../JuegoDracula/cards/j_bastos.png \
+		../JuegoDracula/cards/8_corazones.png \
+		../JuegoDracula/cards/2_oros.png \
+		../JuegoDracula/cards/q_oros.png \
+		../JuegoDracula/cards/j_corazones.png \
+		../JuegoDracula/cards/7_of_spades.png \
+		../JuegoDracula/cards/joker_negro.png \
+		../JuegoDracula/cards/8_oros.png \
+		../JuegoDracula/cards/6_bastos.png \
+		../JuegoDracula/cards/8_bastos.png \
+		../JuegoDracula/cards/2_bastos.png \
+		../JuegoDracula/cards/7_flores.png \
+		../JuegoDracula/cards/5_corazones.png \
+		../JuegoDracula/cards/q_bastos.png \
+		../JuegoDracula/cards/4_oros.png \
+		../JuegoDracula/cards/9_corazones.png \
+		../JuegoDracula/cards/7_of_hearts.png \
+		../JuegoDracula/cards/5_oros.png \
+		../JuegoDracula/cards/as_oros.png \
+		../JuegoDracula/cards/k_corazones.png \
+		../JuegoDracula/cards/joker_rojo.png \
+		../JuegoDracula/cards/k_oros.png \
+		../JuegoDracula/cards/10_flores.png
+	/Users/macretinai7/Qt/5.5/clang_64/bin/rcc -name images ../JuegoDracula/images.qrc -o qrc_images.cpp
+
 compiler_moc_header_make_all: moc_juego.cpp
 compiler_moc_header_clean:
 	-$(DEL_FILE) moc_juego.cpp
@@ -612,7 +681,7 @@ compiler_yacc_impl_make_all:
 compiler_yacc_impl_clean:
 compiler_lex_make_all:
 compiler_lex_clean:
-compiler_clean: compiler_moc_header_clean compiler_uic_clean 
+compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean 
 
 ####### Compile
 
@@ -620,7 +689,8 @@ main.o: ../JuegoDracula/main.cpp ../JuegoDracula/juego.h \
 		../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QApplication \
-		../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qapplication.h
+		../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qapplication.h \
+		../JuegoDracula/carta.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../JuegoDracula/main.cpp
 
 juego.o: ../JuegoDracula/juego.cpp ../JuegoDracula/juego.h \
@@ -628,6 +698,9 @@ juego.o: ../JuegoDracula/juego.cpp ../JuegoDracula/juego.h \
 		../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		ui_juego.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o juego.o ../JuegoDracula/juego.cpp
+
+qrc_images.o: qrc_images.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_images.o qrc_images.cpp
 
 moc_juego.o: moc_juego.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_juego.o moc_juego.cpp

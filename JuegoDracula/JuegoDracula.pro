@@ -19,3 +19,6 @@ HEADERS  += juego.h \
     carta.h
 
 FORMS    += juego.ui
+
+RESOURCES += \
+    images.qrc
