@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
     //cout<<carta.getColor();
     //cout<<carta.getNombre();
     //cout<<carta.getValor();
-    cout<<carta.getCarta();
+    //cout<<carta.getCarta();
 
 
 
