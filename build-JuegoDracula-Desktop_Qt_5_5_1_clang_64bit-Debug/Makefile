@@ -199,7 +199,9 @@ DIST          = ../../../Qt/5.5/clang_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.5/clang_64/mkspecs/features/yacc.prf \
 		../../../Qt/5.5/clang_64/mkspecs/features/lex.prf \
 		../JuegoDracula/JuegoDracula.pro ../JuegoDracula/juego.h \
-		../JuegoDracula/carta.h ../JuegoDracula/main.cpp \
+		../JuegoDracula/carta.h \
+		../JuegoDracula/mazo.h \
+		../JuegoDracula/arraylist.h ../JuegoDracula/main.cpp \
 		../JuegoDracula/juego.cpp
 QMAKE_TARGET  = JuegoDracula
 DESTDIR       = #avoid trailing-slash linebreak
@@ -569,7 +571,7 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../JuegoDracula/images.qrc $(DISTDIR)/
-	$(COPY_FILE) --parents ../JuegoDracula/juego.h ../JuegoDracula/carta.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../JuegoDracula/juego.h ../JuegoDracula/carta.h ../JuegoDracula/mazo.h ../JuegoDracula/arraylist.h $(DISTDIR)/
 	$(COPY_FILE) --parents ../JuegoDracula/main.cpp ../JuegoDracula/juego.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../JuegoDracula/juego.ui $(DISTDIR)/
 
@@ -690,7 +692,10 @@ main.o: ../JuegoDracula/main.cpp ../JuegoDracula/juego.h \
 		../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QApplication \
 		../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qapplication.h \
-		../JuegoDracula/carta.h
+		../JuegoDracula/carta.h \
+		../JuegoDracula/mazo.h \
+		../JuegoDracula/Carta.h \
+		../JuegoDracula/ArrayList.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../JuegoDracula/main.cpp
 
 juego.o: ../JuegoDracula/juego.cpp ../JuegoDracula/juego.h \

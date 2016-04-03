@@ -136,7 +136,7 @@ public:
         btnCarta3Jugador2->setFlat(false);
         lblDuracion = new QLabel(centralWidget);
         lblDuracion->setObjectName(QStringLiteral("lblDuracion"));
-        lblDuracion->setGeometry(QRect(40, 60, 161, 51));
+        lblDuracion->setGeometry(QRect(30, 50, 161, 51));
         QFont font;
         font.setFamily(QStringLiteral("Arial"));
         font.setPointSize(36);
