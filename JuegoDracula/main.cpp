@@ -2,6 +2,7 @@
 #include <QApplication>
 #include <iostream>
 #include "carta.h"
+#include "mazo.h"
 
 using namespace std;
 

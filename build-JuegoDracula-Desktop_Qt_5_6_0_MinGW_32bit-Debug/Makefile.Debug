@@ -50,7 +50,9 @@ OBJECTS       = debug/main.o \
 		debug/moc_juego.o
 
 DIST          =  ..\JuegoDracula\juego.h \
-		..\JuegoDracula\carta.h ..\JuegoDracula\main.cpp \
+		..\JuegoDracula\carta.h \
+		..\JuegoDracula\mazo.h \
+		..\JuegoDracula\arraylist.h ..\JuegoDracula\main.cpp \
 		..\JuegoDracula\juego.cpp
 QMAKE_TARGET  = JuegoDracula
 DESTDIR        = debug\ #avoid trailing-slash linebreak
@@ -338,7 +340,10 @@ debug/main.o: ../JuegoDracula/main.cpp ../JuegoDracula/juego.h \
 		C:/Qt/5.6/mingw49_32/include/QtWidgets/qdesktopwidget.h \
 		C:/Qt/5.6/mingw49_32/include/QtGui/qguiapplication.h \
 		C:/Qt/5.6/mingw49_32/include/QtGui/qinputmethod.h \
-		../JuegoDracula/carta.h
+		../JuegoDracula/carta.h \
+		../JuegoDracula/mazo.h \
+		../JuegoDracula/Carta.h \
+		../JuegoDracula/ArrayList.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\main.o ..\JuegoDracula\main.cpp
 
 debug/juego.o: ../JuegoDracula/juego.cpp ../JuegoDracula/juego.h \

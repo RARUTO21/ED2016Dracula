@@ -16,6 +16,8 @@ SOURCES += main.cpp\
         juego.cpp
 
 HEADERS  += juego.h \
-    carta.h
+    carta.h \
+    mazo.h \
+    arraylist.h
 
 FORMS    += juego.ui
