@@ -21,3 +21,6 @@ HEADERS  += juego.h \
     arraylist.h
 
 FORMS    += juego.ui
+
+RESOURCES += \
+    images.qrc
