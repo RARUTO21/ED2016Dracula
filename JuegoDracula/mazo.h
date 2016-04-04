@@ -17,6 +17,7 @@ class Mazo
 private:
 
     ArrayList<E> Baraja; //Arreglo que guardará las cartas del naipe
+    int size; //Lleva el control del tamaño del mazo.
 
 
 public:
@@ -31,6 +32,7 @@ public:
           */
 
         Baraja= new E[54]; //Inicialización del arreglo baraja de 54 elementos.
+        size=0;
         crearBaraja(); //Llamado a la función que agregará las cartas a la baraja.
         revolver(); //Llamado  la función que revuelve los elementos de la baraja.
 
@@ -63,6 +65,8 @@ public:
         //Añade las cartas Joker al mazo.
         Baraja.append(joker1);
         Baraja.append(joker2);
+
+        size = 54;
 
     }
 
@@ -150,7 +154,8 @@ public:
         Baraja.goToPos(posicion);
         E result= Baraja.remove();
         Baraja.goToStart();
-        
+        size--;
+
         return result;
         
     }
@@ -164,6 +169,11 @@ public:
          */
 
         Baraja.append(pCarta);
+        size++;
+    }
+
+    int getSize(){
+        return size;
     }
     
 
