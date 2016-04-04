@@ -3,8 +3,16 @@
 #include <iostream>
 #include "carta.h"
 #include "mazo.h"
+#include <QTimer>
+
 
 using namespace std;
+
+/*void iniciarTiempo(){
+    QTimer * reloj = new QTimer();
+}*/
+
+
 
 int main(int argc, char *argv[])
 {

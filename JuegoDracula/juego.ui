@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1000</width>
-    <height>800</height>
+    <width>992</width>
+    <height>723</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -30,12 +30,18 @@
      <rect>
       <x>330</x>
       <y>50</y>
-      <width>91</width>
-      <height>108</height>
+      <width>81</width>
+      <height>111</height>
      </rect>
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>100</width>
+      <height>105</height>
+     </size>
     </property>
     <property name="flat">
      <bool>false</bool>
@@ -46,12 +52,18 @@
      <rect>
       <x>450</x>
       <y>50</y>
-      <width>91</width>
-      <height>108</height>
+      <width>81</width>
+      <height>111</height>
      </rect>
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>100</width>
+      <height>105</height>
+     </size>
     </property>
     <property name="flat">
      <bool>false</bool>
@@ -62,12 +74,18 @@
      <rect>
       <x>570</x>
       <y>50</y>
-      <width>91</width>
-      <height>108</height>
+      <width>81</width>
+      <height>111</height>
      </rect>
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>100</width>
+      <height>105</height>
+     </size>
     </property>
     <property name="flat">
      <bool>false</bool>
@@ -77,13 +95,19 @@
     <property name="geometry">
      <rect>
       <x>450</x>
-      <y>180</y>
-      <width>91</width>
-      <height>108</height>
+      <y>200</y>
+      <width>81</width>
+      <height>111</height>
      </rect>
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>100</width>
+      <height>105</height>
+     </size>
     </property>
     <property name="flat">
      <bool>false</bool>
@@ -93,13 +117,19 @@
     <property name="geometry">
      <rect>
       <x>570</x>
-      <y>180</y>
-      <width>91</width>
-      <height>108</height>
+      <y>200</y>
+      <width>81</width>
+      <height>111</height>
      </rect>
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>100</width>
+      <height>105</height>
+     </size>
     </property>
     <property name="flat">
      <bool>false</bool>
@@ -109,13 +139,19 @@
     <property name="geometry">
      <rect>
       <x>330</x>
-      <y>180</y>
-      <width>91</width>
-      <height>108</height>
+      <y>200</y>
+      <width>81</width>
+      <height>111</height>
      </rect>
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>100</width>
+      <height>105</height>
+     </size>
     </property>
     <property name="flat">
      <bool>false</bool>
@@ -125,13 +161,19 @@
     <property name="geometry">
      <rect>
       <x>450</x>
-      <y>310</y>
-      <width>91</width>
-      <height>108</height>
+      <y>350</y>
+      <width>81</width>
+      <height>111</height>
      </rect>
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>100</width>
+      <height>105</height>
+     </size>
     </property>
     <property name="flat">
      <bool>false</bool>
@@ -141,13 +183,19 @@
     <property name="geometry">
      <rect>
       <x>570</x>
-      <y>310</y>
-      <width>91</width>
-      <height>108</height>
+      <y>350</y>
+      <width>81</width>
+      <height>111</height>
      </rect>
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>100</width>
+      <height>105</height>
+     </size>
     </property>
     <property name="flat">
      <bool>false</bool>
@@ -157,13 +205,19 @@
     <property name="geometry">
      <rect>
       <x>330</x>
-      <y>310</y>
-      <width>91</width>
-      <height>108</height>
+      <y>350</y>
+      <width>81</width>
+      <height>111</height>
      </rect>
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>100</width>
+      <height>105</height>
+     </size>
     </property>
     <property name="flat">
      <bool>false</bool>
@@ -172,14 +226,27 @@
    <widget class="QPushButton" name="btnMazo">
     <property name="geometry">
      <rect>
-      <x>880</x>
-      <y>310</y>
-      <width>91</width>
-      <height>108</height>
+      <x>900</x>
+      <y>350</y>
+      <width>81</width>
+      <height>111</height>
      </rect>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="images.qrc">
+      <normaloff>:/cards/cards/back.png</normaloff>:/cards/cards/back.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>100</width>
+      <height>100</height>
+     </size>
     </property>
     <property name="flat">
      <bool>false</bool>
@@ -190,12 +257,18 @@
      <rect>
       <x>230</x>
       <y>550</y>
-      <width>91</width>
-      <height>108</height>
+      <width>81</width>
+      <height>111</height>
      </rect>
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>100</width>
+      <height>105</height>
+     </size>
     </property>
     <property name="flat">
      <bool>false</bool>
@@ -206,12 +279,18 @@
      <rect>
       <x>10</x>
       <y>550</y>
-      <width>91</width>
-      <height>108</height>
+      <width>81</width>
+      <height>111</height>
      </rect>
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>100</width>
+      <height>105</height>
+     </size>
     </property>
     <property name="flat">
      <bool>false</bool>
@@ -222,12 +301,18 @@
      <rect>
       <x>120</x>
       <y>550</y>
-      <width>91</width>
-      <height>108</height>
+      <width>81</width>
+      <height>111</height>
      </rect>
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>100</width>
+      <height>105</height>
+     </size>
     </property>
     <property name="flat">
      <bool>false</bool>
@@ -238,12 +323,18 @@
      <rect>
       <x>340</x>
       <y>550</y>
-      <width>91</width>
-      <height>108</height>
+      <width>81</width>
+      <height>111</height>
      </rect>
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>100</width>
+      <height>105</height>
+     </size>
     </property>
     <property name="flat">
      <bool>false</bool>
@@ -252,14 +343,20 @@
    <widget class="QPushButton" name="btnCarta4Jugador2">
     <property name="geometry">
      <rect>
-      <x>880</x>
+      <x>900</x>
       <y>550</y>
-      <width>91</width>
-      <height>108</height>
+      <width>81</width>
+      <height>111</height>
      </rect>
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>100</width>
+      <height>105</height>
+     </size>
     </property>
     <property name="flat">
      <bool>false</bool>
@@ -268,14 +365,20 @@
    <widget class="QPushButton" name="btnCarta1Jugador2">
     <property name="geometry">
      <rect>
-      <x>550</x>
+      <x>570</x>
       <y>550</y>
-      <width>91</width>
-      <height>108</height>
+      <width>81</width>
+      <height>111</height>
      </rect>
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>100</width>
+      <height>105</height>
+     </size>
     </property>
     <property name="flat">
      <bool>false</bool>
@@ -284,14 +387,20 @@
    <widget class="QPushButton" name="btnCarta2Jugador2">
     <property name="geometry">
      <rect>
-      <x>660</x>
+      <x>680</x>
       <y>550</y>
-      <width>91</width>
-      <height>108</height>
+      <width>81</width>
+      <height>111</height>
      </rect>
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>100</width>
+      <height>105</height>
+     </size>
     </property>
     <property name="flat">
      <bool>false</bool>
@@ -300,14 +409,20 @@
    <widget class="QPushButton" name="btnCarta3Jugador2">
     <property name="geometry">
      <rect>
-      <x>770</x>
+      <x>790</x>
       <y>550</y>
-      <width>91</width>
-      <height>108</height>
+      <width>81</width>
+      <height>111</height>
      </rect>
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>100</width>
+      <height>105</height>
+     </size>
     </property>
     <property name="flat">
      <bool>false</bool>
@@ -337,13 +452,32 @@
      <bool>false</bool>
     </property>
    </widget>
+   <widget class="QLabel" name="lblTiempo">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>120</y>
+      <width>161</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>24</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff; vertical-align:sub;&quot;&gt;00&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1000</width>
+     <width>992</width>
      <height>22</height>
     </rect>
    </property>
@@ -358,6 +492,8 @@
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="images.qrc"/>
+ </resources>
  <connections/>
 </ui>
