@@ -2,8 +2,8 @@
 #define MAZO_H
 #define DEFAULT_MAX_SIZE 1024
 #include <stdexcept>
-#include "Carta.h"
-#include "ArrayList.h"
+#include "carta.h"
+#include "arraylist.h"
 #include <time.h>
 
 
