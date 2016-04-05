@@ -10,17 +10,15 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
-    Juego w;
-    w.show();
+    //QApplication a(argc, argv);
+    //Juego w;
+    //w.show();
 
-    //Mazo<Carta> miMazo;// = new Mazo();
-
-    //miMazo.crearBaraja();
-
-    //cout<<miMazo.getSize();
+    Mazo miMazo;
+    cout<<miMazo.getSize();
 
 
 
-    return a.exec();
-}
+    //return a.exec();
+    return 0;
+};
