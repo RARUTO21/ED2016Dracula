@@ -2,15 +2,21 @@
 #define CARTA_H
 #include <stdio.h>
 #include <stdlib.h>
- using namespace std;
-template <typename E>
+#include <stdexcept>
+
+using namespace std;
+
 class Carta
 {
 private:
-    E * carta; //Arreglo de tipo string que incluirá el color, símbolo y nombre de la carta
+    string *carta; //Arreglo de tipo string que incluirá el color, símbolo y nombre de la carta
     int valor; //Valor numérico entero de la carta
 public:
-    Carta(E pColor, E pSimbolo, E pNombre, int pValor){
+    Carta(){
+
+    }
+
+    Carta(string pColor, string pSimbolo, string pNombre, int pValor){
         /**Constructor de la clase carta
         Descripción: Inicializa la clase carta.
 
@@ -21,8 +27,7 @@ public:
             valor: variable de tipo string que representa el valor númerico de una cartadel naipe.
 
         Salidas: No tiene, solo inicializa la clase carta y los atributos.**/
-
-        carta= new E[3]; //Se crea un arreglo de tres elementos para almacenar la información de la carta.
+        carta = new string[3];
         carta[0]= pColor; //En la primera posición del arreglo se coloca el color.
         carta[1]= pSimbolo; //En la segunda posición del arreglo se coloca el símbolo.
         carta[2]= pNombre; //En la tercera posición se coloca el valor numérico.
@@ -36,12 +41,12 @@ public:
     Entradas: No tiene.
     Salidas: No tiene.**/
 
-        delete []carta;
-        valor = 0;
+        //delete []carta;
+        //valor = 0;
     }
 
 
-    E getColor(){
+    string getColor(){
     /**Descripción: Devuelve un string con el color de la carta.
 
     Entradas: No tiene.
@@ -50,7 +55,7 @@ public:
     return carta[0];
     }
 
-    E getSimbolo(){
+    string getSimbolo(){
     /**Descripción: Devuelve un string con el símbolo de la carta.
 
     Entradas: No tiene.
@@ -59,13 +64,11 @@ public:
     return carta[1];
     }
 
-    E getNombre(){
+    string getNombre(){
     /**Descripción: Devuelve un string con el símbolo de la carta.
 
     Entradas: No tiene.
     Salidas: Un string que dice el nombre de la carta.**/
-
-
 
     return carta[2];
 
@@ -91,7 +94,7 @@ public:
         valor = pValor;
     }
 
-    E getCarta(){
+    string getCarta(){
     /**Descripción: Devuelve un string que indica el nombre y símbolo de la carta.
 
        Entradas: No tiene.

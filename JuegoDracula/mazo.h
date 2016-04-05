@@ -10,19 +10,17 @@
 
 using namespace std;
 
-template <typename E>
-
 class Mazo
 {
 private:
 
-    ArrayList<E> Baraja; //Arreglo que guardará las cartas del naipe
+    ArrayList<Carta> Baraja; //Arreglo que guardará las cartas del naipe
     int size; //Lleva el control del tamaño del mazo.
 
 
 public:
-
-    Mazo(){
+    Mazo(): Baraja()
+    {
         /*
           Descripción: Constructor de la clase.
 
@@ -30,9 +28,8 @@ public:
 
           Salidas: No tiene.
           */
-
-        Baraja= new E[54]; //Inicialización del arreglo baraja de 54 elementos.
-        size=0;
+        //Baraja = new ArrayList<Carta>(54); //Inicialización del arreglo baraja de 54 elementos.
+        size = 0;
         crearBaraja(); //Llamado a la función que agregará las cartas a la baraja.
         revolver(); //Llamado  la función que revuelve los elementos de la baraja.
 
@@ -58,8 +55,8 @@ public:
         crearPalo("negro", "Bastos"); //Invoca a la función que agrega las cartas del palo Bastos al mazo de cartas.
         crearPalo("negro", "Flores"); //Invoca a la función que agrega las cartas del palo Flores al mazo de cartas.
 
-        Carta<string> joker1("rojo","Joker","Joker rojo",0); //Crea la carta Joker de color rojo.
-        Carta<string> joker2("negro","Joker","Joker negro",0); //Crea la carta Joker de color negro.
+        Carta joker1("rojo","Joker","Joker rojo",0); //Crea la carta Joker de color rojo.
+        Carta joker2("negro","Joker","Joker negro",0); //Crea la carta Joker de color negro.
 
 
         //Añade las cartas Joker al mazo.
@@ -80,19 +77,19 @@ public:
          */
 
         //Este bloque crea las cartas de un palo, desde As hasta la K
-        Carta<string> as(pColor,pSimbolo,"As",1);
-        Carta<string> dos(pColor,pSimbolo,"2",2);
-        Carta<string> tres(pColor,pSimbolo,"3",3);
-        Carta<string> cuatro(pColor,pSimbolo,"4",4);
-        Carta<string> cinco(pColor,pSimbolo,"5",5);
-        Carta<string> seis(pColor,pSimbolo,"6",6);
-        Carta<string> siete(pColor,pSimbolo,"7",7);
-        Carta<string> ocho(pColor,pSimbolo,"8",8);
-        Carta<string> nueve(pColor,pSimbolo,"9",9);
-        Carta<string> diez(pColor,pSimbolo,"10",10);
-        Carta<string> j(pColor,pSimbolo,"J",0);
-        Carta<string> q(pColor,pSimbolo,"Q",10);
-        Carta<string> k(pColor,pSimbolo,"K",10);
+        Carta as(pColor,pSimbolo,"As",1);
+        Carta dos(pColor,pSimbolo,"2",2);
+        Carta tres(pColor,pSimbolo,"3",3);
+        Carta cuatro(pColor,pSimbolo,"4",4);
+        Carta cinco(pColor,pSimbolo,"5",5);
+        Carta seis(pColor,pSimbolo,"6",6);
+        Carta siete(pColor,pSimbolo,"7",7);
+        Carta ocho(pColor,pSimbolo,"8",8);
+        Carta nueve(pColor,pSimbolo,"9",9);
+        Carta diez(pColor,pSimbolo,"10",10);
+        Carta j(pColor,pSimbolo,"J",0);
+        Carta q(pColor,pSimbolo,"Q",10);
+        Carta k(pColor,pSimbolo,"K",10);
 
 
         //Las cartas creadas son añadidas al mazo.
@@ -132,16 +129,20 @@ public:
             /*Variables temporales para guardar los elementos que se encuentran en las posiciones
             obtenidas anteriormente
             */
-            E temp1= Baraja[posicion1];
-            E temp2= Baraja[posicion2];
+            Baraja.goToPos(posicion1);
+            Carta temp1= Baraja.getElement();
+            Baraja.goToPos(posicion2);
+            Carta temp2= Baraja.getElement();
 
             //Intercambio de los dos elementos.
-            Baraja[posicion1]= temp2;
-            Baraja[posicion2]= temp1;
+            Baraja.goToPos(posicion2);
+            Baraja.insert(temp1);
+            Baraja.goToPos(posicion1);
+            Baraja.insert(temp2);
         }
     }
     
-    E sacarCartaInicial(){
+    Carta sacarCartaInicial(){
         /*
          Descripción: Obtiene una carta.
 
@@ -152,7 +153,7 @@ public:
         srand(time(0));
         int posicion= rand()%53;
         Baraja.goToPos(posicion);
-        E result= Baraja.remove();
+        Carta result= Baraja.remove();
         Baraja.goToStart();
         size--;
 
@@ -160,7 +161,7 @@ public:
         
     }
 
-    void devolverCarta(E pCarta){
+    void devolverCarta(Carta pCarta){
         /*
          Descripción: Devuelve una carta al mazo, la añade al final del mazo.
 
