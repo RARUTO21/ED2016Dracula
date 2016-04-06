@@ -13,12 +13,14 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        juego.cpp
+        juego.cpp \
+    jugador.cpp
 
 HEADERS  += juego.h \
     carta.h \
     mazo.h \
-    arraylist.h
+    arraylist.h \
+    jugador.h
 
 FORMS    += juego.ui
 
