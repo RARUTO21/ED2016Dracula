@@ -142,7 +142,7 @@ public:
         }
     }
     
-    Carta sacarCartaInicial(){
+    Carta sacarCarta(){
         /*
          Descripción: Obtiene una carta.
 

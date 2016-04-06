@@ -3,9 +3,9 @@
 #include "carta.h"
 #include <string>
 
-Jugador::Jugador(): Mano(4)
+Jugador::Jugador()
 {
-    //Mano();
+    Mano = ArrayList<Carta>(4);
     Orientacion = "";
 }
 Jugador::~Jugador(){
