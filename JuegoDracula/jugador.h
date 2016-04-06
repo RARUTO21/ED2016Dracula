@@ -10,14 +10,15 @@ private:
     string Orientacion;
 
 public:
-    //constructor
+    //constructor y destructor
     Jugador();
-
+    ~Jugador();
     //metodos
     void putCard(Carta carta);
     Carta getCard(int posicion);
     void delCarta(int posicion);
     void setOrientacion(string orientacion);
+    int getSizeMano();
 };
 
 #endif // JUGADOR_H

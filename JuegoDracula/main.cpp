@@ -25,6 +25,7 @@
         jugador.putCard(prueba);
         cout<<jugador.getCard(0).getNombre()<<endl;
         cout<<jugador.getCard(0).getSimbolo()<<endl;
+        cout<<jugador.getSizeMano()<<endl;
 
 
         //return a.exec();

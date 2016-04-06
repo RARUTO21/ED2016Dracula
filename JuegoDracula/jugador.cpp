@@ -3,10 +3,17 @@
 #include "carta.h"
 #include <string>
 
-Jugador::Jugador()
+Jugador::Jugador(): Mano(4)
 {
-    Mano;
+    //Mano();
     Orientacion = "";
+}
+Jugador::~Jugador(){
+    /**
+      Destructor
+    */
+    Mano.clear();
+    Orientacion.clear();
 }
 
 void Jugador::putCard(Carta carta){
@@ -59,4 +66,8 @@ void Jugador::setOrientacion(string orientacion){
         ninguna
     */
     Orientacion = orientacion;
+}
+
+int Jugador::getSizeMano(){
+    return Mano.getSize();
 }
