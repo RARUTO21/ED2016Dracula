@@ -49,10 +49,14 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = ../JuegoDracula/main.cpp \
-		../JuegoDracula/juego.cpp qrc_images.cpp \
+		../JuegoDracula/juego.cpp \
+		../JuegoDracula/jugador.cpp \
+		../JuegoDracula/campodejuego.cpp qrc_images.cpp \
 		moc_juego.cpp
 OBJECTS       = main.o \
 		juego.o \
+		jugador.o \
+		campodejuego.o \
 		qrc_images.o \
 		moc_juego.o
 DIST          = ../../../Qt/5.5/clang_64/mkspecs/features/spec_pre.prf \
@@ -201,8 +205,12 @@ DIST          = ../../../Qt/5.5/clang_64/mkspecs/features/spec_pre.prf \
 		../JuegoDracula/JuegoDracula.pro ../JuegoDracula/juego.h \
 		../JuegoDracula/carta.h \
 		../JuegoDracula/mazo.h \
-		../JuegoDracula/arraylist.h ../JuegoDracula/main.cpp \
-		../JuegoDracula/juego.cpp
+		../JuegoDracula/arraylist.h \
+		../JuegoDracula/jugador.h \
+		../JuegoDracula/campodejuego.h ../JuegoDracula/main.cpp \
+		../JuegoDracula/juego.cpp \
+		../JuegoDracula/jugador.cpp \
+		../JuegoDracula/campodejuego.cpp
 QMAKE_TARGET  = JuegoDracula
 DESTDIR       = #avoid trailing-slash linebreak
 TARGET        = JuegoDracula.app/Contents/MacOS/JuegoDracula
@@ -571,8 +579,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../JuegoDracula/images.qrc $(DISTDIR)/
-	$(COPY_FILE) --parents ../JuegoDracula/juego.h ../JuegoDracula/carta.h ../JuegoDracula/mazo.h ../JuegoDracula/arraylist.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../JuegoDracula/main.cpp ../JuegoDracula/juego.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../JuegoDracula/juego.h ../JuegoDracula/carta.h ../JuegoDracula/mazo.h ../JuegoDracula/arraylist.h ../JuegoDracula/jugador.h ../JuegoDracula/campodejuego.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../JuegoDracula/main.cpp ../JuegoDracula/juego.cpp ../JuegoDracula/jugador.cpp ../JuegoDracula/campodejuego.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../JuegoDracula/juego.ui $(DISTDIR)/
 
 
@@ -601,6 +609,7 @@ compiler_rcc_make_all: qrc_images.cpp
 compiler_rcc_clean:
 	-$(DEL_FILE) qrc_images.cpp
 qrc_images.cpp: ../JuegoDracula/images.qrc \
+		../JuegoDracula/cards/undo.png \
 		../JuegoDracula/cards/background.jpg \
 		../JuegoDracula/cards/5_bastos.png \
 		../JuegoDracula/cards/4_flores.png \
@@ -1020,9 +1029,9 @@ main.o: ../JuegoDracula/main.cpp ../JuegoDracula/juego.h \
 		../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qapplication.h \
 		../JuegoDracula/carta.h \
 		../JuegoDracula/mazo.h \
-		../JuegoDracula/Carta.h \
-		../JuegoDracula/ArrayList.h \
-		../../../Qt/5.5/clang_64/lib/QtCore.framework/Headers/QTimer
+		../JuegoDracula/arraylist.h \
+		../../../Qt/5.5/clang_64/lib/QtCore.framework/Headers/QTimer \
+		../JuegoDracula/jugador.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../JuegoDracula/main.cpp
 
 juego.o: ../JuegoDracula/juego.cpp ../JuegoDracula/juego.h \
@@ -1194,6 +1203,18 @@ juego.o: ../JuegoDracula/juego.cpp ../JuegoDracula/juego.h \
 		ui_juego.h \
 		../../../Qt/5.5/clang_64/lib/QtCore.framework/Headers/QtDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o juego.o ../JuegoDracula/juego.cpp
+
+jugador.o: ../JuegoDracula/jugador.cpp ../JuegoDracula/jugador.h \
+		../JuegoDracula/carta.h \
+		../JuegoDracula/arraylist.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o jugador.o ../JuegoDracula/jugador.cpp
+
+campodejuego.o: ../JuegoDracula/campodejuego.cpp ../JuegoDracula/campodejuego.h \
+		../JuegoDracula/jugador.h \
+		../JuegoDracula/carta.h \
+		../JuegoDracula/arraylist.h \
+		../JuegoDracula/mazo.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o campodejuego.o ../JuegoDracula/campodejuego.cpp
 
 qrc_images.o: qrc_images.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_images.o qrc_images.cpp

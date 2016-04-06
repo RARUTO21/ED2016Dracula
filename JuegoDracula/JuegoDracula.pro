@@ -14,7 +14,7 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         juego.cpp \
-    jugador.cpp \
+        jugador.cpp \
     campodejuego.cpp
 
 HEADERS  += juego.h \
@@ -23,6 +23,7 @@ HEADERS  += juego.h \
     arraylist.h \
     jugador.h \
     campodejuego.h
+
 
 FORMS    += juego.ui
 
