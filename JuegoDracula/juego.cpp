@@ -1,13 +1,16 @@
 #include "juego.h"
 #include "ui_juego.h"
+#include "carta.h"
 
 #include <QtCore>
 #include <QtDebug>
 
+#include "qdialog.h"
+
 //Atributos para manejar el reloj del juego
 int segundos = 0;
-int minutos = 10;
-int horas = 10;
+int minutos = 0;
+int horas = 0;
 
 Juego::Juego(QWidget *parent) :
     QMainWindow(parent),
@@ -50,3 +53,77 @@ Juego::~Juego()
 {
     delete ui;
 }
+
+
+/* Descripción: Función que retorna el nombre del archivo .png donde se va a mostrar el ícono en el botón del juego
+ * Entradas: Una carta de tipo Carta
+ * Salidas: Un QString con el nombre del archivo que se va a utilizar para ponerle un ícono al botón
+
+
+QString Juego::generarPathIcono(Carta carta){
+    if(carta.getNombre() == "joker"){
+        QString fileName = carta.getNombre() + "_" + carta.getColor() + ".png";
+    }
+    else{
+        QString fileName = carta.getNombre() + "_" + carta.getSimbolo() + ".png";
+    }
+    return fileName;
+}
+
+void Juego::ponerIcono(QString nombreArchivo, QPushButton boton){
+
+}
+    */
+
+//-------------------------------------- ACCIONES DE LOS BOTONES (DON'T TOUCH THEM :) )-------------------------
+
+void Juego::on_btnMatriz1_clicked()
+{
+    qDebug()<<"Boton 1 de la matriz";
+    //ui->btnMatriz1->setIcon();
+    qDebug() << qApp->applicationDirPath().remove("/build-JuegoDracula-Desktop_Qt_5_5_1_clang_64bit-Debug/JuegoDracula.app/Contents/MacOS");
+}
+
+void Juego::on_btnMatriz2_clicked()
+{
+    qDebug()<<"Boton 2 de la matriz";
+}
+
+void Juego::on_btnMatriz3_clicked()
+{
+    qDebug()<<"Boton 3 de la matriz";
+}
+
+void Juego::on_btnMatriz4_clicked()
+{
+    qDebug()<<"Boton 4 de la matriz";
+}
+
+void Juego::on_btnMatriz5_clicked()
+{
+    qDebug()<<"Boton 5 de la matriz";
+}
+
+void Juego::on_btnMatriz6_clicked()
+{
+    qDebug()<<"Boton 6 de la matriz";
+}
+
+void Juego::on_btnMatriz7_clicked()
+{
+    qDebug()<<"Boton 7 de la matriz";
+}
+
+void Juego::on_btnMatriz8_clicked()
+{
+    qDebug()<<"Boton 8 de la matriz";
+}
+
+void Juego::on_btnMatriz9_clicked()
+{
+    qDebug()<<"Boton 9 de la matriz";
+}
+
+
+
+//------------------------------------ FIN DE LAS ACCIONES DE LOS BOTONES --------------------------------------

@@ -12,13 +12,13 @@
 
     int main(int argc, char *argv[])
     {
-        //QApplication a(argc, argv);
-        //Juego w;
-        //w.show();
+        QApplication a(argc, argv);
+        Juego w;
+        w.show();
 
         Mazo miMazo;
         cout<<miMazo.getSize()<<endl;
-        Carta prueba = miMazo.sacarCartaInicial();
+        Carta prueba = miMazo.sacarCarta();
         cout<<prueba.getSimbolo()<<endl;
         cout<<prueba.getNombre()<<endl;
         Jugador jugador;
@@ -28,6 +28,6 @@
         cout<<jugador.getSizeMano()<<endl;
 
 
-        //return a.exec();
-        return 0;
-    };
+        return a.exec();
+        //return 0;
+    }

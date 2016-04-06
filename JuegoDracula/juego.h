@@ -25,6 +25,25 @@ public slots: //Método que se puede utilizar para conectar con otro objeto y re
               //Como un contenedor de señales programable :)
     void miSlot();
 
+private slots:
+    void on_btnMatriz1_clicked();
+
+    void on_btnMatriz2_clicked();
+
+    void on_btnMatriz3_clicked();
+
+    void on_btnMatriz4_clicked();
+
+    void on_btnMatriz5_clicked();
+
+    void on_btnMatriz6_clicked();
+
+    void on_btnMatriz7_clicked();
+
+    void on_btnMatriz8_clicked();
+
+    void on_btnMatriz9_clicked();
+
 private:
     Ui::Juego *ui;
 

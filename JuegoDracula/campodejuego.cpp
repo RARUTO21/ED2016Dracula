@@ -26,7 +26,7 @@ void CampoDeJuego::reparteCartas(int etapa){
     }
 
     else if(etapa == 2){
-        for(int contador = 0; i < 4; contador++){
+        for(int contador = 0; contador < 4; contador++){
             jugador1.putCard(mazo.sacarCarta());
             jugador2.putCard(mazo.sacarCarta());
         }
@@ -48,7 +48,7 @@ void CampoDeJuego::reparteCartasInversa(int etapa){
     }
 
     else if(etapa == 2){
-        for(int contador = 0; i < 4; contador++){
+        for(int contador = 0; contador < 4; contador++){
             mazo.devolverCarta(jugador1.getCard(contador));
             jugador1.delCarta(contador);
             mazo.devolverCarta(jugador2.getCard(contador));
