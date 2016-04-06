@@ -19,6 +19,7 @@ public:
     void delCarta(int posicion);
     void setOrientacion(string orientacion);
     int getSizeMano();
+    ArrayList<Carta> getMano();
 };
 
 #endif // JUGADOR_H

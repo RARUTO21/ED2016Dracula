@@ -62,12 +62,14 @@ void Jugador::setOrientacion(string orientacion){
         Actualiza la orientacion de la carta
       Entrada:
         orientacion: string que nos dice la orientacion
-      Salida:
-        ninguna
     */
     Orientacion = orientacion;
 }
 
 int Jugador::getSizeMano(){
     return Mano.getSize();
+}
+
+ArrayList<Carta> Jugador::getMano(){
+    return Mano;
 }

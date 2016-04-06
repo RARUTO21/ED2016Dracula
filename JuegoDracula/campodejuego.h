@@ -19,9 +19,9 @@ public:
     ~CampoDeJuego();
     void reparteCartas(int etapa);
     void reparteCartasInversa(int etapa);
-    ArrayList<Carta> getManoJugador(int cartaIndex);
-    void moverCartaJugadorACampo(int numeroJugador, Carta carta, int posMano, int posCampo);
-    void moverCartaCampoAJugador(int numeroJugador, Carta carta, int posCampo);
+    ArrayList<Carta> getManoJugador(int jugador);
+    void moverCartaJugadorACampo(int numeroJugador,  int posMano, int posCampo);
+    void moverCartaCampoAJugador(int numeroJugador, int posCampo);
     Jugador getJugador(int jugador);
     int evaluaCampo(int etapa);
     void evaluaCampoReversa(int etapa);

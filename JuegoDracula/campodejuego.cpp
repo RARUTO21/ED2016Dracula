@@ -15,7 +15,10 @@ CampoDeJuego::CampoDeJuego()
 
 void CampoDeJuego::reparteCartas(int etapa){
     /**
-      reparte las cartas a las manos de los jugadores
+      Descripcion:
+        reparte las cartas a las manos de los jugadores
+      Entrada:
+        int etapa: etapa del juego
     */
     if(etapa == 1){
         jugador1.putCard(mazo.sacarCarta());
@@ -32,7 +35,10 @@ void CampoDeJuego::reparteCartas(int etapa){
 
 void CampoDeJuego::reparteCartasInversa(int etapa){
     /**
-      deshace el repartimiento de las cartas
+      Descripcion:
+        deshace el repartimiento de las cartas
+      Entradas:
+        int etapa: etapa del juego
     */
     if(etapa == 1){
         mazo.devolverCarta(jugador1.getCard(0));
@@ -48,5 +54,65 @@ void CampoDeJuego::reparteCartasInversa(int etapa){
             mazo.devolverCarta(jugador2.getCard(contador));
             jugador2.delCarta(contador);
         }
+    }
+}
+
+ArrayList<Carta> CampoDeJuego::getManoJugador(int jugador){
+    if(jugador =1){
+        return jugador1.getMano();
+    }
+    else if(jugador = 2){
+        return jugador2.getMano();
+    }
+}
+
+void CampoDeJuego::moverCartaJugadorACampo(int numeroJugador, int posMano, int posCampo){
+    if (numeroJugador == 1){
+        campo[posCampo] = jugador1.getCard(posMano);
+        jugador1.delCarta(posMano);
+    }
+    else if(numeroJugador == 2){
+        campo[posCampo] = jugador2.getCard(posMano);
+        jugador2.delCarta(posMano);
+    }
+}
+
+void CampoDeJuego::moverCartaCampoAJugador(int numeroJugador, int posCampo){
+    if (numeroJugador == 1){
+        jugador1.putCard(campo[posCampo]);
+        campo[posCampo] = null;
+    }
+    else if(numeroJugador == 2){
+        jugador1.putCard(campo[posCampo]);
+        campo[posCampo] = null;
+    }
+}
+
+Jugador CampoDeJuego::getJugador(int jugador){
+    if (jugador== 1){
+        return jugador1;
+    }
+    else if(jugador == 2){
+        return jugador2;
+    }
+}
+
+int CampoDeJuego::evaluaCampo(int etapa){
+    int puntuacion = 0;
+    if (etapa == 1){
+        //TODO
+    }
+    else if (etapa == 2){
+        //TODO
+    }
+    return puntuacion
+}
+
+void CampoDeJuego::evaluaCampoReversa(int etapa){
+    if (etapa == 1){
+        //TODO
+    }
+    else if (etapa == 2 ){
+        //TODO
     }
 }
