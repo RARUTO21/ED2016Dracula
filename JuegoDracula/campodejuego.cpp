@@ -58,10 +58,10 @@ void CampoDeJuego::reparteCartasInversa(int etapa){
 }
 
 ArrayList<Carta> CampoDeJuego::getManoJugador(int jugador){
-    if(jugador =1){
+    if(jugador  == 1){
         return jugador1.getMano();
     }
-    else if(jugador = 2){
+    else if(jugador == 2){
         return jugador2.getMano();
     }
 }
@@ -78,13 +78,14 @@ void CampoDeJuego::moverCartaJugadorACampo(int numeroJugador, int posMano, int p
 }
 
 void CampoDeJuego::moverCartaCampoAJugador(int numeroJugador, int posCampo){
+    Carta cartaVacia = Carta("vacio", "vacio", "vacio", 0);
     if (numeroJugador == 1){
         jugador1.putCard(campo[posCampo]);
-        campo[posCampo] = null;
+        campo[posCampo] = cartaVacia;
     }
     else if(numeroJugador == 2){
         jugador1.putCard(campo[posCampo]);
-        campo[posCampo] = null;
+        campo[posCampo] = cartaVacia;
     }
 }
 
@@ -105,7 +106,7 @@ int CampoDeJuego::evaluaCampo(int etapa){
     else if (etapa == 2){
         //TODO
     }
-    return puntuacion
+    return puntuacion;
 }
 
 void CampoDeJuego::evaluaCampoReversa(int etapa){

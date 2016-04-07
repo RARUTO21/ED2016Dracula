@@ -12,8 +12,8 @@ private:
     string *carta; //Arreglo de tipo string que incluirá el color, símbolo y nombre de la carta
     int valor; //Valor numérico entero de la carta
 public:
-    Carta(){
 
+    Carta(){
     }
 
     Carta(string pColor, string pSimbolo, string pNombre, int pValor){

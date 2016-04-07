@@ -47,6 +47,7 @@ public:
     QPushButton *btnCarta3Jugador2;
     QLabel *lblDuracion;
     QLabel *lblTiempo;
+    QPushButton *pushButton;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
 
@@ -54,10 +55,10 @@ public:
     {
         if (Juego->objectName().isEmpty())
             Juego->setObjectName(QStringLiteral("Juego"));
+        Juego->setEnabled(true);
         Juego->resize(992, 723);
-        QIcon icon;
-        icon.addFile(QStringLiteral("../../hongo.ico"), QSize(), QIcon::Normal, QIcon::Off);
-        Juego->setWindowIcon(icon);
+        Juego->setMinimumSize(QSize(992, 723));
+        Juego->setMaximumSize(QSize(992, 723));
         Juego->setLayoutDirection(Qt::LeftToRight);
         Juego->setStyleSheet(QLatin1String("background-image: url(:/other/cards/background.jpg);\n"
 ""));
@@ -80,6 +81,7 @@ public:
         btnMatriz3->setFlat(false);
         btnMatriz5 = new QPushButton(centralWidget);
         btnMatriz5->setObjectName(QStringLiteral("btnMatriz5"));
+        btnMatriz5->setEnabled(false);
         btnMatriz5->setGeometry(QRect(450, 200, 81, 111));
         btnMatriz5->setIconSize(QSize(100, 105));
         btnMatriz5->setFlat(false);
@@ -112,9 +114,9 @@ public:
         btnMazo->setObjectName(QStringLiteral("btnMazo"));
         btnMazo->setGeometry(QRect(900, 350, 81, 111));
         btnMazo->setLayoutDirection(Qt::LeftToRight);
-        QIcon icon1;
-        icon1.addFile(QStringLiteral(":/cards/cards/back.png"), QSize(), QIcon::Normal, QIcon::Off);
-        btnMazo->setIcon(icon1);
+        QIcon icon;
+        icon.addFile(QStringLiteral(":/cards/cards/back.png"), QSize(), QIcon::Normal, QIcon::Off);
+        btnMazo->setIcon(icon);
         btnMazo->setIconSize(QSize(100, 100));
         btnMazo->setFlat(false);
         btnCarta3Jugador1 = new QPushButton(centralWidget);
@@ -174,6 +176,25 @@ public:
         font1.setFamily(QStringLiteral("Arial"));
         font1.setPointSize(24);
         lblTiempo->setFont(font1);
+        pushButton = new QPushButton(centralWidget);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+        pushButton->setGeometry(QRect(850, 50, 131, 41));
+        QPalette palette;
+        QBrush brush(QColor(255, 255, 255, 255));
+        brush.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::Button, brush);
+        palette.setBrush(QPalette::Inactive, QPalette::Button, brush);
+        palette.setBrush(QPalette::Disabled, QPalette::Button, brush);
+        pushButton->setPalette(palette);
+        QFont font2;
+        font2.setFamily(QStringLiteral("Arial"));
+        font2.setPointSize(18);
+        pushButton->setFont(font2);
+        pushButton->setAutoFillBackground(false);
+        QIcon icon1;
+        icon1.addFile(QStringLiteral(":/other/cards/undo.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton->setIcon(icon1);
+        pushButton->setIconSize(QSize(20, 50));
         Juego->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(Juego);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -211,6 +232,7 @@ public:
         btnCarta3Jugador2->setText(QString());
         lblDuracion->setText(QApplication::translate("Juego", "<html><head/><body><p><span style=\" color:#ffffff;\">Duraci\303\263n</span></p></body></html>", 0));
         lblTiempo->setText(QApplication::translate("Juego", "<html><head/><body><p><span style=\" color:#ffffff; vertical-align:sub;\">00</span></p></body></html>", 0));
+        pushButton->setText(QApplication::translate("Juego", "Deshacer", 0));
     } // retranslateUi
 
 };

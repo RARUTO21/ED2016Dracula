@@ -50,11 +50,13 @@ OBJECTS_DIR   = ./
 
 SOURCES       = ../JuegoDracula/main.cpp \
 		../JuegoDracula/juego.cpp \
-		../JuegoDracula/jugador.cpp qrc_images.cpp \
+		../JuegoDracula/jugador.cpp \
+		../JuegoDracula/campodejuego.cpp qrc_images.cpp \
 		moc_juego.cpp
 OBJECTS       = main.o \
 		juego.o \
 		jugador.o \
+		campodejuego.o \
 		qrc_images.o \
 		moc_juego.o
 DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
@@ -67,9 +69,11 @@ DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		/usr/lib/qt/mkspecs/common/g++-unix.conf \
 		/usr/lib/qt/mkspecs/qconfig.pri \
 		/usr/lib/qt/mkspecs/modules/qt_Attica.pri \
+		/usr/lib/qt/mkspecs/modules/qt_KActivities.pri \
 		/usr/lib/qt/mkspecs/modules/qt_KArchive.pri \
 		/usr/lib/qt/mkspecs/modules/qt_KAuth.pri \
 		/usr/lib/qt/mkspecs/modules/qt_KBookmarks.pri \
+		/usr/lib/qt/mkspecs/modules/qt_KCMUtils.pri \
 		/usr/lib/qt/mkspecs/modules/qt_KCodecs.pri \
 		/usr/lib/qt/mkspecs/modules/qt_KCompletion.pri \
 		/usr/lib/qt/mkspecs/modules/qt_KConfigCore.pri \
@@ -78,6 +82,9 @@ DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		/usr/lib/qt/mkspecs/modules/qt_KCoreAddons.pri \
 		/usr/lib/qt/mkspecs/modules/qt_KCrash.pri \
 		/usr/lib/qt/mkspecs/modules/qt_KDBusAddons.pri \
+		/usr/lib/qt/mkspecs/modules/qt_KDeclarative.pri \
+		/usr/lib/qt/mkspecs/modules/qt_KDEWebKit.pri \
+		/usr/lib/qt/mkspecs/modules/qt_KEmoticons.pri \
 		/usr/lib/qt/mkspecs/modules/qt_KGlobalAccel.pri \
 		/usr/lib/qt/mkspecs/modules/qt_KGuiAddons.pri \
 		/usr/lib/qt/mkspecs/modules/qt_KI18n.pri \
@@ -86,14 +93,18 @@ DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		/usr/lib/qt/mkspecs/modules/qt_KIOFileWidgets.pri \
 		/usr/lib/qt/mkspecs/modules/qt_KIOGui.pri \
 		/usr/lib/qt/mkspecs/modules/qt_KIOWidgets.pri \
+		/usr/lib/qt/mkspecs/modules/qt_KItemModels.pri \
 		/usr/lib/qt/mkspecs/modules/qt_KItemViews.pri \
 		/usr/lib/qt/mkspecs/modules/qt_KJobWidgets.pri \
+		/usr/lib/qt/mkspecs/modules/qt_KNewStuff.pri \
 		/usr/lib/qt/mkspecs/modules/qt_KNotifications.pri \
 		/usr/lib/qt/mkspecs/modules/qt_KNTLM.pri \
 		/usr/lib/qt/mkspecs/modules/qt_KParts.pri \
+		/usr/lib/qt/mkspecs/modules/qt_KPlotting.pri \
 		/usr/lib/qt/mkspecs/modules/qt_KPty.pri \
 		/usr/lib/qt/mkspecs/modules/qt_KService.pri \
 		/usr/lib/qt/mkspecs/modules/qt_KTextWidgets.pri \
+		/usr/lib/qt/mkspecs/modules/qt_KUnitConversion.pri \
 		/usr/lib/qt/mkspecs/modules/qt_KWallet.pri \
 		/usr/lib/qt/mkspecs/modules/qt_KWidgetsAddons.pri \
 		/usr/lib/qt/mkspecs/modules/qt_KWindowSystem.pri \
@@ -169,6 +180,7 @@ DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		/usr/lib/qt/mkspecs/modules/qt_lib_xmlpatterns_private.pri \
 		/usr/lib/qt/mkspecs/modules/qt_phonon4qt5.pri \
 		/usr/lib/qt/mkspecs/modules/qt_QGpgme.pri \
+		/usr/lib/qt/mkspecs/modules/qt_QuickAddons.pri \
 		/usr/lib/qt/mkspecs/modules/qt_Solid.pri \
 		/usr/lib/qt/mkspecs/modules/qt_SonnetCore.pri \
 		/usr/lib/qt/mkspecs/modules/qt_SonnetUi.pri \
@@ -196,9 +208,11 @@ DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		../JuegoDracula/carta.h \
 		../JuegoDracula/mazo.h \
 		../JuegoDracula/arraylist.h \
-		../JuegoDracula/jugador.h ../JuegoDracula/main.cpp \
+		../JuegoDracula/jugador.h \
+		../JuegoDracula/campodejuego.h ../JuegoDracula/main.cpp \
 		../JuegoDracula/juego.cpp \
-		../JuegoDracula/jugador.cpp
+		../JuegoDracula/jugador.cpp \
+		../JuegoDracula/campodejuego.cpp
 QMAKE_TARGET  = JuegoDracula
 DESTDIR       = 
 TARGET        = JuegoDracula
@@ -220,9 +234,11 @@ Makefile: ../JuegoDracula/JuegoDracula.pro /usr/lib/qt/mkspecs/linux-g++/qmake.c
 		/usr/lib/qt/mkspecs/common/g++-unix.conf \
 		/usr/lib/qt/mkspecs/qconfig.pri \
 		/usr/lib/qt/mkspecs/modules/qt_Attica.pri \
+		/usr/lib/qt/mkspecs/modules/qt_KActivities.pri \
 		/usr/lib/qt/mkspecs/modules/qt_KArchive.pri \
 		/usr/lib/qt/mkspecs/modules/qt_KAuth.pri \
 		/usr/lib/qt/mkspecs/modules/qt_KBookmarks.pri \
+		/usr/lib/qt/mkspecs/modules/qt_KCMUtils.pri \
 		/usr/lib/qt/mkspecs/modules/qt_KCodecs.pri \
 		/usr/lib/qt/mkspecs/modules/qt_KCompletion.pri \
 		/usr/lib/qt/mkspecs/modules/qt_KConfigCore.pri \
@@ -231,6 +247,9 @@ Makefile: ../JuegoDracula/JuegoDracula.pro /usr/lib/qt/mkspecs/linux-g++/qmake.c
 		/usr/lib/qt/mkspecs/modules/qt_KCoreAddons.pri \
 		/usr/lib/qt/mkspecs/modules/qt_KCrash.pri \
 		/usr/lib/qt/mkspecs/modules/qt_KDBusAddons.pri \
+		/usr/lib/qt/mkspecs/modules/qt_KDeclarative.pri \
+		/usr/lib/qt/mkspecs/modules/qt_KDEWebKit.pri \
+		/usr/lib/qt/mkspecs/modules/qt_KEmoticons.pri \
 		/usr/lib/qt/mkspecs/modules/qt_KGlobalAccel.pri \
 		/usr/lib/qt/mkspecs/modules/qt_KGuiAddons.pri \
 		/usr/lib/qt/mkspecs/modules/qt_KI18n.pri \
@@ -239,14 +258,18 @@ Makefile: ../JuegoDracula/JuegoDracula.pro /usr/lib/qt/mkspecs/linux-g++/qmake.c
 		/usr/lib/qt/mkspecs/modules/qt_KIOFileWidgets.pri \
 		/usr/lib/qt/mkspecs/modules/qt_KIOGui.pri \
 		/usr/lib/qt/mkspecs/modules/qt_KIOWidgets.pri \
+		/usr/lib/qt/mkspecs/modules/qt_KItemModels.pri \
 		/usr/lib/qt/mkspecs/modules/qt_KItemViews.pri \
 		/usr/lib/qt/mkspecs/modules/qt_KJobWidgets.pri \
+		/usr/lib/qt/mkspecs/modules/qt_KNewStuff.pri \
 		/usr/lib/qt/mkspecs/modules/qt_KNotifications.pri \
 		/usr/lib/qt/mkspecs/modules/qt_KNTLM.pri \
 		/usr/lib/qt/mkspecs/modules/qt_KParts.pri \
+		/usr/lib/qt/mkspecs/modules/qt_KPlotting.pri \
 		/usr/lib/qt/mkspecs/modules/qt_KPty.pri \
 		/usr/lib/qt/mkspecs/modules/qt_KService.pri \
 		/usr/lib/qt/mkspecs/modules/qt_KTextWidgets.pri \
+		/usr/lib/qt/mkspecs/modules/qt_KUnitConversion.pri \
 		/usr/lib/qt/mkspecs/modules/qt_KWallet.pri \
 		/usr/lib/qt/mkspecs/modules/qt_KWidgetsAddons.pri \
 		/usr/lib/qt/mkspecs/modules/qt_KWindowSystem.pri \
@@ -322,6 +345,7 @@ Makefile: ../JuegoDracula/JuegoDracula.pro /usr/lib/qt/mkspecs/linux-g++/qmake.c
 		/usr/lib/qt/mkspecs/modules/qt_lib_xmlpatterns_private.pri \
 		/usr/lib/qt/mkspecs/modules/qt_phonon4qt5.pri \
 		/usr/lib/qt/mkspecs/modules/qt_QGpgme.pri \
+		/usr/lib/qt/mkspecs/modules/qt_QuickAddons.pri \
 		/usr/lib/qt/mkspecs/modules/qt_Solid.pri \
 		/usr/lib/qt/mkspecs/modules/qt_SonnetCore.pri \
 		/usr/lib/qt/mkspecs/modules/qt_SonnetUi.pri \
@@ -361,9 +385,11 @@ Makefile: ../JuegoDracula/JuegoDracula.pro /usr/lib/qt/mkspecs/linux-g++/qmake.c
 /usr/lib/qt/mkspecs/common/g++-unix.conf:
 /usr/lib/qt/mkspecs/qconfig.pri:
 /usr/lib/qt/mkspecs/modules/qt_Attica.pri:
+/usr/lib/qt/mkspecs/modules/qt_KActivities.pri:
 /usr/lib/qt/mkspecs/modules/qt_KArchive.pri:
 /usr/lib/qt/mkspecs/modules/qt_KAuth.pri:
 /usr/lib/qt/mkspecs/modules/qt_KBookmarks.pri:
+/usr/lib/qt/mkspecs/modules/qt_KCMUtils.pri:
 /usr/lib/qt/mkspecs/modules/qt_KCodecs.pri:
 /usr/lib/qt/mkspecs/modules/qt_KCompletion.pri:
 /usr/lib/qt/mkspecs/modules/qt_KConfigCore.pri:
@@ -372,6 +398,9 @@ Makefile: ../JuegoDracula/JuegoDracula.pro /usr/lib/qt/mkspecs/linux-g++/qmake.c
 /usr/lib/qt/mkspecs/modules/qt_KCoreAddons.pri:
 /usr/lib/qt/mkspecs/modules/qt_KCrash.pri:
 /usr/lib/qt/mkspecs/modules/qt_KDBusAddons.pri:
+/usr/lib/qt/mkspecs/modules/qt_KDeclarative.pri:
+/usr/lib/qt/mkspecs/modules/qt_KDEWebKit.pri:
+/usr/lib/qt/mkspecs/modules/qt_KEmoticons.pri:
 /usr/lib/qt/mkspecs/modules/qt_KGlobalAccel.pri:
 /usr/lib/qt/mkspecs/modules/qt_KGuiAddons.pri:
 /usr/lib/qt/mkspecs/modules/qt_KI18n.pri:
@@ -380,14 +409,18 @@ Makefile: ../JuegoDracula/JuegoDracula.pro /usr/lib/qt/mkspecs/linux-g++/qmake.c
 /usr/lib/qt/mkspecs/modules/qt_KIOFileWidgets.pri:
 /usr/lib/qt/mkspecs/modules/qt_KIOGui.pri:
 /usr/lib/qt/mkspecs/modules/qt_KIOWidgets.pri:
+/usr/lib/qt/mkspecs/modules/qt_KItemModels.pri:
 /usr/lib/qt/mkspecs/modules/qt_KItemViews.pri:
 /usr/lib/qt/mkspecs/modules/qt_KJobWidgets.pri:
+/usr/lib/qt/mkspecs/modules/qt_KNewStuff.pri:
 /usr/lib/qt/mkspecs/modules/qt_KNotifications.pri:
 /usr/lib/qt/mkspecs/modules/qt_KNTLM.pri:
 /usr/lib/qt/mkspecs/modules/qt_KParts.pri:
+/usr/lib/qt/mkspecs/modules/qt_KPlotting.pri:
 /usr/lib/qt/mkspecs/modules/qt_KPty.pri:
 /usr/lib/qt/mkspecs/modules/qt_KService.pri:
 /usr/lib/qt/mkspecs/modules/qt_KTextWidgets.pri:
+/usr/lib/qt/mkspecs/modules/qt_KUnitConversion.pri:
 /usr/lib/qt/mkspecs/modules/qt_KWallet.pri:
 /usr/lib/qt/mkspecs/modules/qt_KWidgetsAddons.pri:
 /usr/lib/qt/mkspecs/modules/qt_KWindowSystem.pri:
@@ -463,6 +496,7 @@ Makefile: ../JuegoDracula/JuegoDracula.pro /usr/lib/qt/mkspecs/linux-g++/qmake.c
 /usr/lib/qt/mkspecs/modules/qt_lib_xmlpatterns_private.pri:
 /usr/lib/qt/mkspecs/modules/qt_phonon4qt5.pri:
 /usr/lib/qt/mkspecs/modules/qt_QGpgme.pri:
+/usr/lib/qt/mkspecs/modules/qt_QuickAddons.pri:
 /usr/lib/qt/mkspecs/modules/qt_Solid.pri:
 /usr/lib/qt/mkspecs/modules/qt_SonnetCore.pri:
 /usr/lib/qt/mkspecs/modules/qt_SonnetUi.pri:
@@ -506,8 +540,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../JuegoDracula/images.qrc $(DISTDIR)/
-	$(COPY_FILE) --parents ../JuegoDracula/juego.h ../JuegoDracula/carta.h ../JuegoDracula/mazo.h ../JuegoDracula/arraylist.h ../JuegoDracula/jugador.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../JuegoDracula/main.cpp ../JuegoDracula/juego.cpp ../JuegoDracula/jugador.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../JuegoDracula/juego.h ../JuegoDracula/carta.h ../JuegoDracula/mazo.h ../JuegoDracula/arraylist.h ../JuegoDracula/jugador.h ../JuegoDracula/campodejuego.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../JuegoDracula/main.cpp ../JuegoDracula/juego.cpp ../JuegoDracula/jugador.cpp ../JuegoDracula/campodejuego.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../JuegoDracula/juego.ui $(DISTDIR)/
 
 
@@ -533,6 +567,7 @@ compiler_rcc_make_all: qrc_images.cpp
 compiler_rcc_clean:
 	-$(DEL_FILE) qrc_images.cpp
 qrc_images.cpp: ../JuegoDracula/images.qrc \
+		../JuegoDracula/cards/undo.png \
 		../JuegoDracula/cards/background.jpg \
 		../JuegoDracula/cards/5_bastos.png \
 		../JuegoDracula/cards/4_flores.png \
@@ -623,13 +658,21 @@ main.o: ../JuegoDracula/main.cpp ../JuegoDracula/juego.h \
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../JuegoDracula/main.cpp
 
 juego.o: ../JuegoDracula/juego.cpp ../JuegoDracula/juego.h \
-		ui_juego.h
+		ui_juego.h \
+		../JuegoDracula/carta.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o juego.o ../JuegoDracula/juego.cpp
 
 jugador.o: ../JuegoDracula/jugador.cpp ../JuegoDracula/jugador.h \
-		../JuegoDracula/arraylist.h \
-		../JuegoDracula/carta.h
+		../JuegoDracula/carta.h \
+		../JuegoDracula/arraylist.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o jugador.o ../JuegoDracula/jugador.cpp
+
+campodejuego.o: ../JuegoDracula/campodejuego.cpp ../JuegoDracula/campodejuego.h \
+		../JuegoDracula/jugador.h \
+		../JuegoDracula/carta.h \
+		../JuegoDracula/arraylist.h \
+		../JuegoDracula/mazo.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o campodejuego.o ../JuegoDracula/campodejuego.cpp
 
 qrc_images.o: qrc_images.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_images.o qrc_images.cpp
