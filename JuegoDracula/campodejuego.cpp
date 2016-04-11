@@ -4,6 +4,8 @@
 #include "carta.h"
 #include <string>
 
+
+
 CampoDeJuego::CampoDeJuego()
 {
     jugador1 = Jugador();
@@ -14,12 +16,12 @@ CampoDeJuego::CampoDeJuego()
 
 
 void CampoDeJuego::reparteCartas(int etapa){
-    /**
-      Descripcion:
-        reparte las cartas a las manos de los jugadores
-      Entrada:
-        int etapa: etapa del juego
-    */
+
+      //Descripcion:
+      //reparte las cartas a las manos de los jugadores
+      //Entrada:
+        //int etapa: etapa del juego
+
     if(etapa == 1){
         jugador1.putCard(mazo.sacarCarta());
         jugador2.putCard(mazo.sacarCarta());
@@ -33,13 +35,15 @@ void CampoDeJuego::reparteCartas(int etapa){
     }
 }
 
+
+
 void CampoDeJuego::reparteCartasInversa(int etapa){
-    /**
-      Descripcion:
-        deshace el repartimiento de las cartas
-      Entradas:
-        int etapa: etapa del juego
-    */
+
+      //Descripcion:
+        //deshace el repartimiento de las cartas
+      //Entradas:
+        //int etapa: etapa del juego
+
     if(etapa == 1){
         mazo.devolverCarta(jugador1.getCard(0));
         jugador1.delCarta(0);
@@ -117,3 +121,4 @@ void CampoDeJuego::evaluaCampoReversa(int etapa){
         //TODO
     }
 }
+

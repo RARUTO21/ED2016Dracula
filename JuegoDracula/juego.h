@@ -2,7 +2,8 @@
 #define JUEGO_H
 
 #include <QMainWindow>
-
+#include "carta.h"
+#include "qpushbutton.h"
 #include <QtCore>
 
 
@@ -24,6 +25,9 @@ public:
 public slots: //Método que se puede utilizar para conectar con otro objeto y recibir señales.
               //Como un contenedor de señales programable :)
     void miSlot();
+    //QString generarPathIcono(Carta carta);
+    void ponerIcono(QString nombreArchivo);
+
 
 private slots:
     void on_btnMatriz1_clicked();

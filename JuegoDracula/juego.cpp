@@ -55,11 +55,9 @@ Juego::~Juego()
 }
 
 
-/* Descripción: Función que retorna el nombre del archivo .png donde se va a mostrar el ícono en el botón del juego
- * Entradas: Una carta de tipo Carta
- * Salidas: Un QString con el nombre del archivo que se va a utilizar para ponerle un ícono al botón
-
-
+ //Descripción: Función que retorna el nombre del archivo .png donde se va a mostrar el ícono en el botón del juego
+ //Entradas: Una carta de tipo Carta
+ /*Salidas: Un QString con el nombre del archivo que se va a utilizar para ponerle un ícono al botón
 QString Juego::generarPathIcono(Carta carta){
     if(carta.getNombre() == "joker"){
         QString fileName = carta.getNombre() + "_" + carta.getColor() + ".png";
@@ -69,11 +67,11 @@ QString Juego::generarPathIcono(Carta carta){
     }
     return fileName;
 }
-
-void Juego::ponerIcono(QString nombreArchivo, QPushButton boton){
-
+*/
+void Juego::ponerIcono(QString nombreArchivo){
+    QString nada = nombreArchivo;
 }
-    */
+
 
 //-------------------------------------- ACCIONES DE LOS BOTONES (DON'T TOUCH THEM :) )-------------------------
 
@@ -81,7 +79,7 @@ void Juego::on_btnMatriz1_clicked()
 {
     qDebug()<<"Boton 1 de la matriz";
     //ui->btnMatriz1->setIcon();
-    qDebug() << qApp->applicationDirPath().remove("/build-JuegoDracula-Desktop_Qt_5_5_1_clang_64bit-Debug/JuegoDracula.app/Contents/MacOS");
+    qDebug() << "";//url(:/other/cards/undo.png);//qApp->applicationDirPath().remove("/build-JuegoDracula-Desktop_Qt_5_5_1_clang_64bit-Debug/JuegoDracula.app/Contents/MacOS");
 }
 
 void Juego::on_btnMatriz2_clicked()
