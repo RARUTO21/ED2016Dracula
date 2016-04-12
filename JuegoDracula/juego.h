@@ -25,7 +25,7 @@ public:
 public slots: //Método que se puede utilizar para conectar con otro objeto y recibir señales.
               //Como un contenedor de señales programable :)
     void miSlot();
-    //QString generarPathIcono(Carta carta);
+    string generarPathIcono(Carta carta);
     void ponerIcono(QString nombreArchivo);
 
 

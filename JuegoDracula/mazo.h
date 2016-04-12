@@ -50,10 +50,10 @@ public:
          Entradas: No tiene.
          Salidas: No tiene.
          */
-        crearPalo("rojo", "Oros"); //Invoca a la función que agrega las cartas del palo Oros al mazo de cartas.
-        crearPalo("rojo", "Corazones"); //Invoca a la función que agrega las cartas del palo Corzaones al mazo de cartas.
-        crearPalo("negro", "Bastos"); //Invoca a la función que agrega las cartas del palo Bastos al mazo de cartas.
-        crearPalo("negro", "Flores"); //Invoca a la función que agrega las cartas del palo Flores al mazo de cartas.
+        crearPalo("rojo", "oros"); //Invoca a la función que agrega las cartas del palo Oros al mazo de cartas.
+        crearPalo("rojo", "corazones"); //Invoca a la función que agrega las cartas del palo Corzaones al mazo de cartas.
+        crearPalo("negro", "bastos"); //Invoca a la función que agrega las cartas del palo Bastos al mazo de cartas.
+        crearPalo("negro", "flores"); //Invoca a la función que agrega las cartas del palo Flores al mazo de cartas.
 
         Carta joker1("rojo","Joker","Joker rojo",0); //Crea la carta Joker de color rojo.
         Carta joker2("negro","Joker","Joker negro",0); //Crea la carta Joker de color negro.

@@ -5,16 +5,26 @@
 #include "mazo.h"
 #include <QTimer>
 #include "jugador.h"
-
+#include "escogerjugador.h"
+#include "escogerdireccion.h"
 
 
     using namespace std;
 
     int main(int argc, char *argv[])
     {
+
         QApplication a(argc, argv);
+
+        EscogerJugador pantallaInicio;
+        pantallaInicio.exec();
+
+        EscogerDireccion pantallaDireccion;
+        pantallaDireccion.exec();
+
         Juego w;
         w.show();
+
 
         Mazo miMazo;
         cout<<miMazo.getSize()<<endl;
@@ -26,6 +36,10 @@
         cout<<jugador.getCard(0).getNombre()<<endl;
         cout<<jugador.getCard(0).getSimbolo()<<endl;
         cout<<jugador.getSizeMano()<<endl;
+
+        Juego dracula;
+
+        cout<<"La ruta de la carta es: "<<dracula.generarPathIcono(prueba)<<endl;
 
 
         return a.exec();

@@ -51,14 +51,22 @@ OBJECTS_DIR   = ./
 SOURCES       = ../JuegoDracula/main.cpp \
 		../JuegoDracula/juego.cpp \
 		../JuegoDracula/jugador.cpp \
-		../JuegoDracula/campodejuego.cpp qrc_images.cpp \
-		moc_juego.cpp
+		../JuegoDracula/campodejuego.cpp \
+		../JuegoDracula/escogerjugador.cpp \
+		../JuegoDracula/escogerdireccion.cpp qrc_images.cpp \
+		moc_juego.cpp \
+		moc_escogerjugador.cpp \
+		moc_escogerdireccion.cpp
 OBJECTS       = main.o \
 		juego.o \
 		jugador.o \
 		campodejuego.o \
+		escogerjugador.o \
+		escogerdireccion.o \
 		qrc_images.o \
-		moc_juego.o
+		moc_juego.o \
+		moc_escogerjugador.o \
+		moc_escogerdireccion.o
 DIST          = ../../../Qt/5.5/clang_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.5/clang_64/mkspecs/qdevice.pri \
 		../../../Qt/5.5/clang_64/mkspecs/features/device_config.prf \
@@ -207,10 +215,14 @@ DIST          = ../../../Qt/5.5/clang_64/mkspecs/features/spec_pre.prf \
 		../JuegoDracula/mazo.h \
 		../JuegoDracula/arraylist.h \
 		../JuegoDracula/jugador.h \
-		../JuegoDracula/campodejuego.h ../JuegoDracula/main.cpp \
+		../JuegoDracula/campodejuego.h \
+		../JuegoDracula/escogerjugador.h \
+		../JuegoDracula/escogerdireccion.h ../JuegoDracula/main.cpp \
 		../JuegoDracula/juego.cpp \
 		../JuegoDracula/jugador.cpp \
-		../JuegoDracula/campodejuego.cpp
+		../JuegoDracula/campodejuego.cpp \
+		../JuegoDracula/escogerjugador.cpp \
+		../JuegoDracula/escogerdireccion.cpp
 QMAKE_TARGET  = JuegoDracula
 DESTDIR       = #avoid trailing-slash linebreak
 TARGET        = JuegoDracula.app/Contents/MacOS/JuegoDracula
@@ -248,7 +260,7 @@ first: all
 
 ####### Build rules
 
-$(TARGET): ui_juego.h $(OBJECTS)  
+$(TARGET): ui_juego.h ui_escogerjugador.h ui_escogerdireccion.h $(OBJECTS)  
 	@test -d JuegoDracula.app/Contents/MacOS/ || mkdir -p JuegoDracula.app/Contents/MacOS/
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
@@ -579,9 +591,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../JuegoDracula/images.qrc $(DISTDIR)/
-	$(COPY_FILE) --parents ../JuegoDracula/juego.h ../JuegoDracula/carta.h ../JuegoDracula/mazo.h ../JuegoDracula/arraylist.h ../JuegoDracula/jugador.h ../JuegoDracula/campodejuego.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../JuegoDracula/main.cpp ../JuegoDracula/juego.cpp ../JuegoDracula/jugador.cpp ../JuegoDracula/campodejuego.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../JuegoDracula/juego.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../JuegoDracula/juego.h ../JuegoDracula/carta.h ../JuegoDracula/mazo.h ../JuegoDracula/arraylist.h ../JuegoDracula/jugador.h ../JuegoDracula/campodejuego.h ../JuegoDracula/escogerjugador.h ../JuegoDracula/escogerdireccion.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../JuegoDracula/main.cpp ../JuegoDracula/juego.cpp ../JuegoDracula/jugador.cpp ../JuegoDracula/campodejuego.cpp ../JuegoDracula/escogerjugador.cpp ../JuegoDracula/escogerdireccion.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../JuegoDracula/juego.ui ../JuegoDracula/escogerjugador.ui ../JuegoDracula/escogerdireccion.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -668,11 +680,13 @@ qrc_images.cpp: ../JuegoDracula/images.qrc \
 		../JuegoDracula/cards/10_flores.png
 	/Users/macretinai7/Qt/5.5/clang_64/bin/rcc -name images ../JuegoDracula/images.qrc -o qrc_images.cpp
 
-compiler_moc_header_make_all: moc_juego.cpp
+compiler_moc_header_make_all: moc_juego.cpp moc_escogerjugador.cpp moc_escogerdireccion.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_juego.cpp
+	-$(DEL_FILE) moc_juego.cpp moc_escogerjugador.cpp moc_escogerdireccion.cpp
 moc_juego.cpp: ../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../JuegoDracula/carta.h \
+		../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qpushbutton.h \
 		../../../Qt/5.5/clang_64/lib/QtCore.framework/Headers/QtCore \
 		../../../Qt/5.5/clang_64/lib/QtCore.framework/Headers/qabstractanimation.h \
 		../../../Qt/5.5/clang_64/lib/QtCore.framework/Headers/qanimationgroup.h \
@@ -839,13 +853,29 @@ moc_juego.cpp: ../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QMainWin
 		../JuegoDracula/juego.h
 	/Users/macretinai7/Qt/5.5/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -I/Users/macretinai7/Qt/5.5/clang_64/mkspecs/macx-clang -I/Users/macretinai7/Desktop/ED2016Dracula/JuegoDracula -I/Users/macretinai7/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers -I/Users/macretinai7/Qt/5.5/clang_64/lib/QtGui.framework/Headers -I/Users/macretinai7/Qt/5.5/clang_64/lib/QtCore.framework/Headers -I. -F/Users/macretinai7/Qt/5.5/clang_64/lib ../JuegoDracula/juego.h -o moc_juego.cpp
 
+moc_escogerjugador.cpp: ../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		../JuegoDracula/escogerjugador.h
+	/Users/macretinai7/Qt/5.5/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -I/Users/macretinai7/Qt/5.5/clang_64/mkspecs/macx-clang -I/Users/macretinai7/Desktop/ED2016Dracula/JuegoDracula -I/Users/macretinai7/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers -I/Users/macretinai7/Qt/5.5/clang_64/lib/QtGui.framework/Headers -I/Users/macretinai7/Qt/5.5/clang_64/lib/QtCore.framework/Headers -I. -F/Users/macretinai7/Qt/5.5/clang_64/lib ../JuegoDracula/escogerjugador.h -o moc_escogerjugador.cpp
+
+moc_escogerdireccion.cpp: ../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		../JuegoDracula/escogerdireccion.h
+	/Users/macretinai7/Qt/5.5/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -I/Users/macretinai7/Qt/5.5/clang_64/mkspecs/macx-clang -I/Users/macretinai7/Desktop/ED2016Dracula/JuegoDracula -I/Users/macretinai7/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers -I/Users/macretinai7/Qt/5.5/clang_64/lib/QtGui.framework/Headers -I/Users/macretinai7/Qt/5.5/clang_64/lib/QtCore.framework/Headers -I. -F/Users/macretinai7/Qt/5.5/clang_64/lib ../JuegoDracula/escogerdireccion.h -o moc_escogerdireccion.cpp
+
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_juego.h
+compiler_uic_make_all: ui_juego.h ui_escogerjugador.h ui_escogerdireccion.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_juego.h
+	-$(DEL_FILE) ui_juego.h ui_escogerjugador.h ui_escogerdireccion.h
 ui_juego.h: ../JuegoDracula/juego.ui
 	/Users/macretinai7/Qt/5.5/clang_64/bin/uic ../JuegoDracula/juego.ui -o ui_juego.h
+
+ui_escogerjugador.h: ../JuegoDracula/escogerjugador.ui
+	/Users/macretinai7/Qt/5.5/clang_64/bin/uic ../JuegoDracula/escogerjugador.ui -o ui_escogerjugador.h
+
+ui_escogerdireccion.h: ../JuegoDracula/escogerdireccion.ui
+	/Users/macretinai7/Qt/5.5/clang_64/bin/uic ../JuegoDracula/escogerdireccion.ui -o ui_escogerdireccion.h
 
 compiler_rez_source_make_all:
 compiler_rez_source_clean:
@@ -862,6 +892,8 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 main.o: ../JuegoDracula/main.cpp ../JuegoDracula/juego.h \
 		../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../JuegoDracula/carta.h \
+		../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qpushbutton.h \
 		../../../Qt/5.5/clang_64/lib/QtCore.framework/Headers/QtCore \
 		../../../Qt/5.5/clang_64/lib/QtCore.framework/Headers/qabstractanimation.h \
 		../../../Qt/5.5/clang_64/lib/QtCore.framework/Headers/qanimationgroup.h \
@@ -1027,16 +1059,21 @@ main.o: ../JuegoDracula/main.cpp ../JuegoDracula/juego.h \
 		../../../Qt/5.5/clang_64/lib/QtCore.framework/Headers/qtcoreversion.h \
 		../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QApplication \
 		../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qapplication.h \
-		../JuegoDracula/carta.h \
 		../JuegoDracula/mazo.h \
 		../JuegoDracula/arraylist.h \
 		../../../Qt/5.5/clang_64/lib/QtCore.framework/Headers/QTimer \
-		../JuegoDracula/jugador.h
+		../JuegoDracula/jugador.h \
+		../JuegoDracula/escogerjugador.h \
+		../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		../JuegoDracula/escogerdireccion.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../JuegoDracula/main.cpp
 
 juego.o: ../JuegoDracula/juego.cpp ../JuegoDracula/juego.h \
 		../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../JuegoDracula/carta.h \
+		../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qpushbutton.h \
 		../../../Qt/5.5/clang_64/lib/QtCore.framework/Headers/QtCore \
 		../../../Qt/5.5/clang_64/lib/QtCore.framework/Headers/qabstractanimation.h \
 		../../../Qt/5.5/clang_64/lib/QtCore.framework/Headers/qanimationgroup.h \
@@ -1201,7 +1238,8 @@ juego.o: ../JuegoDracula/juego.cpp ../JuegoDracula/juego.h \
 		../../../Qt/5.5/clang_64/lib/QtCore.framework/Headers/qxmlstream.h \
 		../../../Qt/5.5/clang_64/lib/QtCore.framework/Headers/qtcoreversion.h \
 		ui_juego.h \
-		../../../Qt/5.5/clang_64/lib/QtCore.framework/Headers/QtDebug
+		../../../Qt/5.5/clang_64/lib/QtCore.framework/Headers/QtDebug \
+		../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qdialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o juego.o ../JuegoDracula/juego.cpp
 
 jugador.o: ../JuegoDracula/jugador.cpp ../JuegoDracula/jugador.h \
@@ -1216,11 +1254,29 @@ campodejuego.o: ../JuegoDracula/campodejuego.cpp ../JuegoDracula/campodejuego.h 
 		../JuegoDracula/mazo.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o campodejuego.o ../JuegoDracula/campodejuego.cpp
 
+escogerjugador.o: ../JuegoDracula/escogerjugador.cpp ../JuegoDracula/escogerjugador.h \
+		../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		ui_escogerjugador.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o escogerjugador.o ../JuegoDracula/escogerjugador.cpp
+
+escogerdireccion.o: ../JuegoDracula/escogerdireccion.cpp ../JuegoDracula/escogerdireccion.h \
+		../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		ui_escogerdireccion.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o escogerdireccion.o ../JuegoDracula/escogerdireccion.cpp
+
 qrc_images.o: qrc_images.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_images.o qrc_images.cpp
 
 moc_juego.o: moc_juego.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_juego.o moc_juego.cpp
+
+moc_escogerjugador.o: moc_escogerjugador.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_escogerjugador.o moc_escogerjugador.cpp
+
+moc_escogerdireccion.o: moc_escogerdireccion.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_escogerdireccion.o moc_escogerdireccion.cpp
 
 ####### Install
 

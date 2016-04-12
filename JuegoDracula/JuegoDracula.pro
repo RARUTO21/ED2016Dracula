@@ -15,17 +15,23 @@ TEMPLATE = app
 SOURCES += main.cpp\
         juego.cpp \
         jugador.cpp \
-    campodejuego.cpp
+    campodejuego.cpp \
+    escogerjugador.cpp \
+    escogerdireccion.cpp
 
 HEADERS  += juego.h \
     carta.h \
     mazo.h \
     arraylist.h \
     jugador.h \
-    campodejuego.h
+    campodejuego.h \
+    escogerjugador.h \
+    escogerdireccion.h
 
 
-FORMS    += juego.ui
+FORMS    += juego.ui \
+    escogerjugador.ui \
+    escogerdireccion.ui
 
 RESOURCES += \
     images.qrc

@@ -57,17 +57,28 @@ Juego::~Juego()
 
  //Descripción: Función que retorna el nombre del archivo .png donde se va a mostrar el ícono en el botón del juego
  //Entradas: Una carta de tipo Carta
- /*Salidas: Un QString con el nombre del archivo que se va a utilizar para ponerle un ícono al botón
-QString Juego::generarPathIcono(Carta carta){
+ //Salidas: Un QString con el nombre del archivo que se va a utilizar para ponerle un ícono al botón
+
+string Juego::generarPathIcono(Carta carta){
+
+    string nombre = carta.getNombre();
+    string color = carta.getColor();
+    string simbolo = carta.getSimbolo();
+
+    string fileName = "";
     if(carta.getNombre() == "joker"){
-        QString fileName = carta.getNombre() + "_" + carta.getColor() + ".png";
+        fileName.append(nombre);
+        fileName.append("_");
+        fileName.append(color);
+        fileName.append(".png");
+
     }
     else{
-        QString fileName = carta.getNombre() + "_" + carta.getSimbolo() + ".png";
+        fileName = carta.getNombre() + "_" + carta.getSimbolo() + ".png";
     }
     return fileName;
 }
-*/
+
 void Juego::ponerIcono(QString nombreArchivo){
     QString nada = nombreArchivo;
 }
