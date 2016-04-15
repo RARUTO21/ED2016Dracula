@@ -34,17 +34,6 @@ public:
         valor= pValor;
     }
 
-    ~Carta(){
-    /**Destructor de la clase carta
-    Descripción: Libera la memoria genrada al usar la clase carta.
-
-    Entradas: No tiene.
-    Salidas: No tiene.**/
-
-        //delete []carta;
-        //valor = 0;
-    }
-
 
     string getColor(){
     /**Descripción: Devuelve un string con el color de la carta.

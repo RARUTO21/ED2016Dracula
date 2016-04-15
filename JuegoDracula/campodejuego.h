@@ -15,19 +15,23 @@ private:
     Jugador jugador1;
     Jugador jugador2;
     Mazo mazo;
-    Carta *campo;
+    Carta **campo;
+    Carta cartaVacia;
 public:
     CampoDeJuego();
     ~CampoDeJuego();
     void reparteCartas(int etapa);
     void reparteCartasInversa(int etapa);
     ArrayList<Carta> getManoJugador(int jugador);
-    void moverCartaJugadorACampo(int numeroJugador,  int posMano, int posCampo);
-    void moverCartaCampoAJugador(int numeroJugador, int posCampo);
+    void moverCartaJugadorACampo(int numeroJugador,  int posMano,
+                                 int posCampoColumn, int posCampoRow);
+    void moverCartaCampoAJugador(int numeroJugador,
+                                 int posCampoColumn, int posCammpoRow);
     Jugador getJugador(int jugador);
-    int evaluaCampo(int etapa);
-    void evaluaCampoReversa(int etapa);
-
+    int evaluaFilaHorizontal(int rowArray);
+    int evaluaFilaVertical(int columnArray);
+    int evaluaCampoVertical();
+    int evaluaCampoHorizontal();
 };
 
 #endif // CAMPODEJUEGO_H
