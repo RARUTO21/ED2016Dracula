@@ -15,7 +15,7 @@ class Mazo
 private:
 
     ArrayList<Carta> Baraja; //Arreglo que guardará las cartas del naipe
-    int size; //Lleva el control del tamaño del mazo.
+    int size; //Lleva el conEtrol del tamaño del mazo.
 
 
 public:
@@ -70,7 +70,7 @@ public:
     void crearPalo(string pColor, string pSimbolo){
         /*
          Descripción: Crea el palo de un símbolo y lo añade al mazo.
-
+E
          Entradas: String para indicar el color del palo, string para indicar el símbolo del palo.
 
          Salidas: No tiene.

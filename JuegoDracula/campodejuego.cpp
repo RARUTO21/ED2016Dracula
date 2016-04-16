@@ -3,7 +3,7 @@
 #include "arraylist.h"
 #include "carta.h"
 #include <string>
-
+#include "matriz.h"
 
 
 CampoDeJuego::CampoDeJuego()
@@ -12,24 +12,11 @@ CampoDeJuego::CampoDeJuego()
     jugador2 = Jugador();
     mazo = Mazo();
     cartaVacia = Carta("vacio", "vacio", "vacio", 0);
-    campo = new Carta*[3]; // 3 columnas
-    for (int rowArray = 0; rowArray < 3; rowArray++){
-        campo[rowArray] = new Carta[3];
-        // hace los arrays de las hileras
-    }
+    campo = Matriz();
     jugadorInicialDefinido = false;
 }
 
 CampoDeJuego::~CampoDeJuego(){
-    for(int rowArray = 0; rowArray< 3; rowArray++){
-        delete[] campo[rowArray];
-        //Borra todos los sub arrays que son las hileras
-    }
-    delete[] campo;
-    /*delete jugador1;
-    delete jugador2;
-    delete mazo;
-    delete cartaVacia;*/
 
 }
 
@@ -43,7 +30,9 @@ void CampoDeJuego::reparteCartas(int etapa){
     if(etapa == 1){
         jugador1.putCard(mazo.sacarCarta());
         jugador2.putCard(mazo.sacarCarta());
-    }
+    }//*************************************************************************
+    //*************************************************************************
+
 
     else if(etapa == 2){
         for(int contador = 0; contador < 4; contador++){
@@ -95,6 +84,9 @@ ArrayList<Carta> CampoDeJuego::getManoJugador(int jugador){
     }
 }
 
+//*************************************************************************
+//*************************************************************************
+
 void CampoDeJuego::moverCartaJugadorACampo(int numeroJugador, int posMano,
                                            int posCampoColumn, int posCampoRow){
     /**
@@ -109,12 +101,12 @@ void CampoDeJuego::moverCartaJugadorACampo(int numeroJugador, int posMano,
         la carta
     */
     if (numeroJugador == 1){
-        campo[posCampoColumn][posCampoRow] = jugador1.getCard(posMano);
+        campo.setElement(posCampoRow,posCampoColumn,jugador1.getCard(posMano));
         // ^ pone la carta en el campo
         jugador1.delCarta(posMano);
     }
     else if(numeroJugador == 2){
-        campo[posCampoColumn][posCampoRow] = jugador2.getCard(posMano);
+        campo.setElement(posCampoRow,posCampoColumn,jugador2.getCard(posMano));
         jugador2.delCarta(posMano);
     }
 }
@@ -122,12 +114,10 @@ void CampoDeJuego::moverCartaJugadorACampo(int numeroJugador, int posMano,
 void CampoDeJuego::moverCartaCampoAJugador(int numeroJugador,
                                            int posCampoColumn, int posCampoRow){
     if (numeroJugador == 1){
-        jugador1.putCard(campo[posCampoColumn][posCampoRow]);
-        campo[posCampoColumn][posCampoRow] = cartaVacia;
+        jugador1.putCard(campo.popElement(posCampoRow, posCampoColumn, cartaVacia));
     }
     else if(numeroJugador == 2){
-        jugador2.putCard(campo[posCampoColumn][posCampoRow]);
-        campo[posCampoColumn][posCampoRow] = cartaVacia;
+        jugador2.putCard(campo.popElement(posCampoRow, posCampoColumn,cartaVacia));
     }
 }
 
@@ -143,28 +133,28 @@ Jugador CampoDeJuego::getJugador(int jugador){
 int CampoDeJuego::evaluaFilaHorizontal(int rowArray){
     /**
      * Descripcion:
-     *  Evalua el campo horizontalmente
+     *  Evalua la fila horizontalmente
      * DISCUTIR
      */
     int puntuacion = 0;
     int puntuacionRow = 0;
     int multiplicador = 1;
-    if(campo[rowArray][0].getSimbolo() == campo[rowArray][1].getSimbolo() &&
-                    campo[rowArray][1].getSimbolo() == campo[rowArray][2].getSimbolo()){
+    if(campo.getElement(rowArray,0).getSimbolo() == campo.getElement(rowArray,1).getSimbolo() &&
+            campo.getElement(rowArray,1).getSimbolo() == campo.getElement(rowArray,2).getSimbolo()){
         multiplicador = 4;
     }
-    else if(campo[rowArray][0].getColor() == campo[rowArray][1].getColor() &&
-            campo[rowArray][1].getColor() == campo[rowArray][2].getColor()){
+    else if(campo.getElement(rowArray,0).getColor() == campo.getElement(rowArray,1).getColor() &&
+            campo.getElement(rowArray,1).getColor() == campo.getElement(rowArray,2).getColor()){
         multiplicador = 3;
     }
-    else if(campo[rowArray][0].getSimbolo() == campo[rowArray][1].getSimbolo() ||
-            campo[rowArray][1].getSimbolo() == campo[rowArray][2].getSimbolo() ||
-            campo[rowArray][0].getSimbolo() == campo[rowArray][2].getSimbolo()){
+    else if(campo.getElement(rowArray,0).getSimbolo() == campo.getElement(rowArray,1).getSimbolo() ||
+            campo.getElement(rowArray,1).getSimbolo() == campo.getElement(rowArray,2).getSimbolo() ||
+            campo.getElement(rowArray,0).getSimbolo() == campo.getElement(rowArray,2).getSimbolo()){
         multiplicador = 2;
     }
     for(int columnArray = 0; columnArray < 3; columnArray++){
-        puntuacionRow += campo[rowArray][columnArray].getValor();
-        if(campo[rowArray][columnArray].getSimbolo() == "Joker"){
+        puntuacionRow += campo.getElement(rowArray, columnArray).getValor();
+        if(campo.getElement(rowArray, columnArray).getSimbolo() == "Joker"){
             multiplicador = 0;
         }
     }
@@ -176,28 +166,28 @@ int CampoDeJuego::evaluaFilaHorizontal(int rowArray){
 int CampoDeJuego::evaluaFilaVertical(int columnArray){
     /**
      * Descripcion:
-     *  Evalua el campo horizontalmente
+     *  Evalua la columna horizontalmente
      * DISCUTIR
      */
     int puntuacion = 0;
     int puntuacionColumn = 0;
     int multiplicador = 1;
-    if(campo[0][columnArray].getSimbolo() == campo[1][columnArray].getSimbolo() &&
-                    campo[1][columnArray].getSimbolo() == campo[2][columnArray].getSimbolo()){
+    if(campo.getElement(0,columnArray).getSimbolo() == campo.getElement(1,columnArray).getSimbolo() &&
+            campo.getElement(1,columnArray).getSimbolo() == campo.getElement(2,columnArray).getSimbolo()){
         multiplicador = 4;
     }
-    else if(campo[0][columnArray].getColor() == campo[1][columnArray].getColor() &&
-            campo[1][columnArray].getColor() == campo[2][columnArray].getColor()){
+    else if(campo.getElement(0,columnArray).getColor() == campo.getElement(1,columnArray).getColor() &&
+            campo.getElement(1,columnArray).getColor() == campo.getElement(2,columnArray).getColor()){
         multiplicador = 3;
     }
-    else if(campo[0][columnArray].getSimbolo() == campo[1][columnArray].getSimbolo() ||
-            campo[1][columnArray].getSimbolo() == campo[2][columnArray].getSimbolo() ||
-            campo[0][columnArray].getSimbolo() == campo[2][columnArray].getSimbolo()){
+    else if(campo.getElement(0,columnArray).getSimbolo() == campo.getElement(1,columnArray).getSimbolo() ||
+            campo.getElement(1,columnArray).getSimbolo() == campo.getElement(2,columnArray).getSimbolo() ||
+            campo.getElement(0,columnArray).getSimbolo() == campo.getElement(2,columnArray).getSimbolo()){
         multiplicador = 2;
     }
-    for(int columnArray = 0; columnArray < 3; columnArray++){
-        puntuacionColumn += campo[columnArray][columnArray].getValor();
-        if(campo[columnArray][columnArray].getSimbolo() == "Joker"){
+    for(int rowArray = 0; rowArray < 3; rowArray++){
+        puntuacionColumn += campo.getElement(rowArray,columnArray).getValor();
+        if(campo.getElement(rowArray,columnArray).getSimbolo() == "Joker"){
             multiplicador = 0;
         }
     }
@@ -206,6 +196,8 @@ int CampoDeJuego::evaluaFilaVertical(int columnArray){
 
     return puntuacion;
 }
+
+//
 
 int CampoDeJuego::evaluaCampoHorizontal(){
     /**
@@ -235,6 +227,8 @@ int CampoDeJuego::evaluaCampoVertical(){
     return puntuacion;
 }
 
+//*************************************************************************
+//*************************************************************************
 
 //Anthony
 

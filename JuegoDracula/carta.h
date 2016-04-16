@@ -16,8 +16,7 @@ private:
     string rutaImagenCarta;
 public:
 
-    Carta(){
-    }
+    Carta(){}
 
     Carta(string pColor, string pSimbolo, string pNombre, int pValor){
         /**Constructor de la clase carta
@@ -46,7 +45,6 @@ public:
         }
 
     }
-
 
 
     string getColor(){

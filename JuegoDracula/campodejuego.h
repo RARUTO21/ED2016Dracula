@@ -8,6 +8,7 @@
 #include "arraylist.h"
 #include "carta.h"
 #include "mazo.h"
+#include "matriz.h"
 
 class CampoDeJuego
 {
@@ -15,8 +16,8 @@ private:
     Jugador jugador1;
     Jugador jugador2;
     Mazo mazo;
-    Carta **campo;
     Carta cartaVacia;
+    Matriz campo;
     bool jugadorInicialDefinido;
 public:
     CampoDeJuego();

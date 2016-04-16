@@ -26,7 +26,8 @@ HEADERS  += juego.h \
     jugador.h \
     campodejuego.h \
     escogerjugador.h \
-    escogerdireccion.h
+    escogerdireccion.h \
+    matriz.h
 
 
 FORMS    += juego.ui \

@@ -37,6 +37,7 @@ public:
         EscogerJugador->setStyleSheet(QStringLiteral("background-image: url(:/other/cards/background.jpg);"));
         btnJugador1 = new QPushButton(EscogerJugador);
         btnJugador1->setObjectName(QStringLiteral("btnJugador1"));
+        btnJugador1->setEnabled(false);
         btnJugador1->setGeometry(QRect(390, 90, 81, 111));
         btnJugador1->setAutoFillBackground(false);
         btnJugador1->setStyleSheet(QStringLiteral(""));
@@ -44,6 +45,7 @@ public:
         btnJugador1->setFlat(false);
         btnJugador2 = new QPushButton(EscogerJugador);
         btnJugador2->setObjectName(QStringLiteral("btnJugador2"));
+        btnJugador2->setEnabled(false);
         btnJugador2->setGeometry(QRect(390, 300, 81, 111));
         btnJugador2->setStyleSheet(QStringLiteral(""));
         btnJugador2->setIconSize(QSize(90, 90));

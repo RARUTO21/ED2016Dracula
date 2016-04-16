@@ -209,7 +209,8 @@ DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		../JuegoDracula/jugador.h \
 		../JuegoDracula/campodejuego.h \
 		../JuegoDracula/escogerjugador.h \
-		../JuegoDracula/escogerdireccion.h ../JuegoDracula/main.cpp \
+		../JuegoDracula/escogerdireccion.h \
+		../JuegoDracula/matriz.h ../JuegoDracula/main.cpp \
 		../JuegoDracula/juego.cpp \
 		../JuegoDracula/jugador.cpp \
 		../JuegoDracula/campodejuego.cpp \
@@ -522,7 +523,7 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../JuegoDracula/images.qrc $(DISTDIR)/
-	$(COPY_FILE) --parents ../JuegoDracula/juego.h ../JuegoDracula/carta.h ../JuegoDracula/mazo.h ../JuegoDracula/arraylist.h ../JuegoDracula/jugador.h ../JuegoDracula/campodejuego.h ../JuegoDracula/escogerjugador.h ../JuegoDracula/escogerdireccion.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../JuegoDracula/juego.h ../JuegoDracula/carta.h ../JuegoDracula/mazo.h ../JuegoDracula/arraylist.h ../JuegoDracula/jugador.h ../JuegoDracula/campodejuego.h ../JuegoDracula/escogerjugador.h ../JuegoDracula/escogerdireccion.h ../JuegoDracula/matriz.h $(DISTDIR)/
 	$(COPY_FILE) --parents ../JuegoDracula/main.cpp ../JuegoDracula/juego.cpp ../JuegoDracula/jugador.cpp ../JuegoDracula/campodejuego.cpp ../JuegoDracula/escogerjugador.cpp ../JuegoDracula/escogerdireccion.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../JuegoDracula/juego.ui ../JuegoDracula/escogerjugador.ui ../JuegoDracula/escogerdireccion.ui $(DISTDIR)/
 
@@ -615,7 +616,10 @@ moc_juego.cpp: ../JuegoDracula/carta.h \
 		../JuegoDracula/juego.h
 	/usr/lib/qt/bin/moc $(DEFINES) -I/usr/lib/qt/mkspecs/linux-g++ -I/home/ema/ED2016Dracula/JuegoDracula -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I. -I/usr/include/c++/5.3.0 -I/usr/include/c++/5.3.0/x86_64-unknown-linux-gnu -I/usr/include/c++/5.3.0/backward -I/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/include-fixed -I/usr/include ../JuegoDracula/juego.h -o moc_juego.cpp
 
-moc_escogerjugador.cpp: ../JuegoDracula/escogerjugador.h
+moc_escogerjugador.cpp: ../JuegoDracula/jugador.h \
+		../JuegoDracula/carta.h \
+		../JuegoDracula/arraylist.h \
+		../JuegoDracula/escogerjugador.h
 	/usr/lib/qt/bin/moc $(DEFINES) -I/usr/lib/qt/mkspecs/linux-g++ -I/home/ema/ED2016Dracula/JuegoDracula -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I. -I/usr/include/c++/5.3.0 -I/usr/include/c++/5.3.0/x86_64-unknown-linux-gnu -I/usr/include/c++/5.3.0/backward -I/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/include-fixed -I/usr/include ../JuegoDracula/escogerjugador.h -o moc_escogerjugador.cpp
 
 moc_escogerdireccion.cpp: ../JuegoDracula/escogerdireccion.h
@@ -651,7 +655,9 @@ main.o: ../JuegoDracula/main.cpp ../JuegoDracula/juego.h \
 		../JuegoDracula/arraylist.h \
 		../JuegoDracula/jugador.h \
 		../JuegoDracula/escogerjugador.h \
-		../JuegoDracula/escogerdireccion.h
+		../JuegoDracula/escogerdireccion.h \
+		../JuegoDracula/campodejuego.h \
+		../JuegoDracula/matriz.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../JuegoDracula/main.cpp
 
 juego.o: ../JuegoDracula/juego.cpp ../JuegoDracula/juego.h \
@@ -668,11 +674,16 @@ campodejuego.o: ../JuegoDracula/campodejuego.cpp ../JuegoDracula/campodejuego.h 
 		../JuegoDracula/jugador.h \
 		../JuegoDracula/carta.h \
 		../JuegoDracula/arraylist.h \
-		../JuegoDracula/mazo.h
+		../JuegoDracula/mazo.h \
+		../JuegoDracula/matriz.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o campodejuego.o ../JuegoDracula/campodejuego.cpp
 
 escogerjugador.o: ../JuegoDracula/escogerjugador.cpp ../JuegoDracula/escogerjugador.h \
-		ui_escogerjugador.h
+		../JuegoDracula/jugador.h \
+		../JuegoDracula/carta.h \
+		../JuegoDracula/arraylist.h \
+		ui_escogerjugador.h \
+		../JuegoDracula/mazo.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o escogerjugador.o ../JuegoDracula/escogerjugador.cpp
 
 escogerdireccion.o: ../JuegoDracula/escogerdireccion.cpp ../JuegoDracula/escogerdireccion.h \
