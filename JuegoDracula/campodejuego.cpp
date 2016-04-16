@@ -17,6 +17,7 @@ CampoDeJuego::CampoDeJuego()
         campo[rowArray] = new Carta[3];
         // hace los arrays de las hileras
     }
+    jugadorInicialDefinido = false;
 }
 
 CampoDeJuego::~CampoDeJuego(){
@@ -25,6 +26,11 @@ CampoDeJuego::~CampoDeJuego(){
         //Borra todos los sub arrays que son las hileras
     }
     delete[] campo;
+    /*delete jugador1;
+    delete jugador2;
+    delete mazo;
+    delete cartaVacia;*/
+
 }
 
 void CampoDeJuego::reparteCartas(int etapa){
@@ -167,8 +173,6 @@ int CampoDeJuego::evaluaFilaHorizontal(int rowArray){
     return puntuacion;
 }
 
-
-
 int CampoDeJuego::evaluaFilaVertical(int columnArray){
     /**
      * Descripcion:
@@ -230,3 +234,59 @@ int CampoDeJuego::evaluaCampoVertical(){
     }
     return puntuacion;
 }
+
+
+//Anthony
+
+bool CampoDeJuego::hayJugadorInicialDefinido(){
+    return jugadorInicialDefinido;
+}
+
+Carta CampoDeJuego::getCartaRonda1Jugador(int jugador){
+    return getJugador(jugador).getCard(0);
+}
+
+
+bool CampoDeJuego::evaluarGanadorEtapa1(){
+    reparteCartas(1);
+
+
+    if(getCartaRonda1Jugador(1).getColor() == "negro"){
+        if(getCartaRonda1Jugador(2).getColor()== "rojo"){
+            jugador2.esJugadorInicial(true);
+            return true;
+        }
+        else{
+            if(getCartaRonda1Jugador(2).getColor() == "negro"){
+                return false;
+            }
+        }
+    }
+    else{
+            //cj.getManoJugador(1).getCard(0).getColor()
+        if(getCartaRonda1Jugador(1).getColor() == "rojo"){
+            if(getCartaRonda1Jugador(2).getColor() == "negro"){
+                jugador1.esJugadorInicial(true);
+                return true;
+            }
+            else{
+                if(getCartaRonda1Jugador(2).getColor() == "rojo"){
+                    //detallar esto: cuando dos cartas son rojas
+                    if(getCartaRonda1Jugador(1).getNombre() == "joker"){//cartaJugador1
+                        jugador2.esJugadorInicial(true);
+                        return true;
+                    }
+                    else{
+                        if(getCartaRonda1Jugador(2).getNombre() == "joker"){//cartaJugador2
+                            jugador1.esJugadorInicial(true);
+                            return true;
+                        }
+                    }
+
+                    //if()
+                }
+            }
+        }
+    }
+}
+

@@ -17,6 +17,7 @@ private:
     Mazo mazo;
     Carta **campo;
     Carta cartaVacia;
+    bool jugadorInicialDefinido;
 public:
     CampoDeJuego();
     ~CampoDeJuego();
@@ -32,6 +33,11 @@ public:
     int evaluaFilaVertical(int columnArray);
     int evaluaCampoVertical();
     int evaluaCampoHorizontal();
+
+    bool hayJugadorInicialDefinido();
+    Carta getCartaRonda1Jugador(int jugador);
+    bool evaluarGanadorEtapa1();
+
 };
 
 #endif // CAMPODEJUEGO_H

@@ -2,6 +2,7 @@
 #define ESCOGERJUGADOR_H
 
 #include <QDialog>
+#include "jugador.h"
 
 namespace Ui {
 class EscogerJugador;
@@ -14,9 +15,21 @@ class EscogerJugador : public QDialog
 public:
     explicit EscogerJugador(QWidget *parent = 0);
     ~EscogerJugador();
+    Jugador getJugadorInicial();
+
+
+private slots:
+
+
+    void on_btnMazo_clicked();
 
 private:
     Ui::EscogerJugador *ui;
+
+public slots:
+
+
+
 };
 
 #endif // ESCOGERJUGADOR_H

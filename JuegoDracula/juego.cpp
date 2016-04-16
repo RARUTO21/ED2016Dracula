@@ -25,11 +25,11 @@ Juego::Juego(QWidget *parent) :
     //Método que conecta 2 objetos, en este caso el reloj y this (el widget) con sus respectivas señales:
     //reloj: Señal = timeout() ------  this(widget): Señal = miSlot (método que recibe el timeout)
 
-    connect(reloj,SIGNAL(timeout()),this,SLOT(miSlot()));
+    connect(reloj,SIGNAL(timeout()),this,SLOT(correrReloj()));
     reloj->start(1000);//Aquí es donde se pone a circular el reloj con un intervalo de 1000 milisegundos
 }
 
-void Juego::miSlot(){ //Acá se programa el método miSlot el cual es un Slot que recibe la señal "timeout()" del reloj
+void Juego::correrReloj(){ //Acá se programa el método miSlot el cual es un Slot que recibe la señal "timeout()" del reloj
 
     ui->lblTiempo->setFont(QFont("Arial",36));//Se define una fuente para el label del tiempo en el ui
     //Se concatena un QString con los valores horas:minutos:segundos junto con los dos puntos separadores entre sí
@@ -65,24 +65,21 @@ string Juego::generarPathIcono(Carta carta){
     string color = carta.getColor();
     string simbolo = carta.getSimbolo();
 
-    string fileName = "";
+    string filePath = ":/cards/cards/";
     if(carta.getNombre() == "joker"){
-        fileName.append(nombre);
-        fileName.append("_");
-        fileName.append(color);
-        fileName.append(".png");
-
+        filePath.append(nombre);
+        filePath.append("_");
+        filePath.append(color);
+        filePath.append(".png");
     }
     else{
-        fileName = carta.getNombre() + "_" + carta.getSimbolo() + ".png";
+        filePath.append(nombre);
+        filePath.append("_");
+        filePath.append(simbolo);
+        filePath.append(".png");
     }
-    return fileName;
+    return filePath;
 }
-
-void Juego::ponerIcono(QString nombreArchivo){
-    QString nada = nombreArchivo;
-}
-
 
 //-------------------------------------- ACCIONES DE LOS BOTONES (DON'T TOUCH THEM :) )-------------------------
 

@@ -7,7 +7,9 @@ Jugador::Jugador()
 {
     Mano = ArrayList<Carta>(4);
     Orientacion = "";
+    jugadorInicial = false;
 }
+
 Jugador::~Jugador(){
     /**
       Destructor
@@ -73,3 +75,13 @@ int Jugador::getSizeMano(){
 ArrayList<Carta> Jugador::getMano(){
     return Mano;
 }
+
+bool Jugador::esJugadorInicial(){
+    return jugadorInicial;
+}
+
+void Jugador::esJugadorInicial(bool valor){
+    jugadorInicial = valor;
+}
+
+

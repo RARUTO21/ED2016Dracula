@@ -17,6 +17,9 @@
    <string notr="true">background-image: url(:/other/cards/background.jpg);</string>
   </property>
   <widget class="QPushButton" name="btnJugador1">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>390</x>
@@ -45,6 +48,9 @@
    </property>
   </widget>
   <widget class="QPushButton" name="btnJugador2">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>390</x>

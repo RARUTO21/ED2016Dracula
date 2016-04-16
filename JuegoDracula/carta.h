@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdexcept>
+#include <QIcon>
+#include <QPixmap>
 
 using namespace std;
 
@@ -11,6 +13,7 @@ class Carta
 private:
     string *carta; //Arreglo de tipo string que incluirá el color, símbolo y nombre de la carta
     int valor; //Valor numérico entero de la carta
+    string rutaImagenCarta;
 public:
 
     Carta(){
@@ -32,7 +35,18 @@ public:
         carta[1]= pSimbolo; //En la segunda posición del arreglo se coloca el símbolo.
         carta[2]= pNombre; //En la tercera posición se coloca el valor numérico.
         valor= pValor;
+
+
+        rutaImagenCarta = ":/cards/cards/";
+        if(pNombre == "joker"){
+            rutaImagenCarta += (pNombre + "_" + pColor + ".png");
+        }
+        else{
+            rutaImagenCarta += (pNombre + "_" + pSimbolo + ".png");
+        }
+
     }
+
 
 
     string getColor(){
@@ -92,6 +106,29 @@ public:
 
         return getNombre()+" de "+ getSimbolo();
     }
+
+    string getRutaImagenCarta(){
+        return rutaImagenCarta;
+    }
+
+    /*QIcon getIcono(){
+
+
+        string rutaCarta = ":/cards/cards/";
+
+        if(carta[2] == "joker"){
+            rutaCarta += (carta[2] + "_" + carta[0] + ".png");
+        }
+        else{
+            rutaCarta += (carta[2] + "_" + carta[1] + ".png");
+        }
+
+
+        //QPixmap p()
+        QPixmap pix(getRutaImagenCarta());
+        QIcon iconoCarta(pix);
+        return iconoCarta;
+    } */
 
 
 

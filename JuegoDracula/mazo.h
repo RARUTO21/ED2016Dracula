@@ -55,8 +55,8 @@ public:
         crearPalo("negro", "bastos"); //Invoca a la función que agrega las cartas del palo Bastos al mazo de cartas.
         crearPalo("negro", "flores"); //Invoca a la función que agrega las cartas del palo Flores al mazo de cartas.
 
-        Carta joker1("rojo","Joker","Joker rojo",0); //Crea la carta Joker de color rojo.
-        Carta joker2("negro","Joker","Joker negro",0); //Crea la carta Joker de color negro.
+        Carta joker1("rojo","","joker",0); //Crea la carta Joker de color rojo.
+        Carta joker2("negro","","joker",0); //Crea la carta Joker de color negro.
 
 
         //Añade las cartas Joker al mazo.
@@ -87,9 +87,9 @@ public:
         Carta ocho(pColor,pSimbolo,"8",8);
         Carta nueve(pColor,pSimbolo,"9",9);
         Carta diez(pColor,pSimbolo,"10",10);
-        Carta j(pColor,pSimbolo,"J",0);
-        Carta q(pColor,pSimbolo,"Q",10);
-        Carta k(pColor,pSimbolo,"K",10);
+        Carta j(pColor,pSimbolo,"j",0);
+        Carta q(pColor,pSimbolo,"q",10);
+        Carta k(pColor,pSimbolo,"k",10);
 
 
         //Las cartas creadas son añadidas al mazo.

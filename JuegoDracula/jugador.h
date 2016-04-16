@@ -8,6 +8,7 @@ class Jugador
 private:
     ArrayList<Carta> Mano;
     string Orientacion;
+    bool jugadorInicial;
 
 public:
     //constructor y destructor
@@ -20,6 +21,8 @@ public:
     void setOrientacion(string orientacion);
     int getSizeMano();
     ArrayList<Carta> getMano();
+    bool esJugadorInicial();
+    void esJugadorInicial(bool valor);
 };
 
 #endif // JUGADOR_H
