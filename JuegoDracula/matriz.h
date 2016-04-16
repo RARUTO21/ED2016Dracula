@@ -5,24 +5,10 @@
 class Matriz
 {
 private:
-    Carta **matriz;
+    Carta matriz[3][3];
 public:
-    Matriz(){
-        matriz = new Carta*[3]; // 3 columnas
-        for (int rowArray = 0; rowArray < 3; rowArray++){
-            matriz[rowArray] = new Carta[3];
-            // hace los arrays de las hileras
-        }
-    }
-/*
-    ~Matriz(){
-        for(int rowArray = 0; rowArray< 3; rowArray++){
-            delete[] matriz[rowArray];
-            //Borra todos los sub arrays que son las hileras
-        }
-        delete[] matriz;
-    }
-*/
+    Matriz(){}
+
     void setElement(int row, int column, Carta element){
             matriz[row][column] = element;
     }

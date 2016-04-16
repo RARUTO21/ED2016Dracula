@@ -41,13 +41,13 @@
         cout<<matrizT.getElement(0,0).getColor()<<endl;
         cout<<"prueba"<<endl;
 
-
-        cout<<"La ruta de la carta es: "<<prueba.getRutaImagenCarta()<<endl;
-
-
         cout<<jugador.getCard(0).getNombre()<<endl;
         cout<<jugador.getCard(0).getSimbolo()<<endl;
         cout<<jugador.getSizeMano()<<endl;
+
+
+        cout<<"La ruta de la carta es: "<<prueba.getRutaImagenCarta()<<endl;
+
 
         return a.exec();
         //return 0;

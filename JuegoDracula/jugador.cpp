@@ -69,7 +69,8 @@ void Jugador::setOrientacion(string orientacion){
 }
 
 int Jugador::getSizeMano(){
-    return Mano.getSize();
+    int size = Mano.getSize();
+    return size;
 }
 
 ArrayList<Carta> Jugador::getMano(){
