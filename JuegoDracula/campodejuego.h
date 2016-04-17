@@ -45,7 +45,7 @@ public:
     //string imprimeCampo();
     string imprimeMano(int jugador);
     string imprimeCampo();
-    //void manoAMazo(int jugador);
+    void manoAMazo(int jugador);
 
 
 };
