@@ -23,6 +23,8 @@ public:
 
     void bloquearBotones(QPushButton *boton);
     string generarPathIcono(Carta carta);
+    void desbloquearBotonesJugador(int jugador);
+    void ponerImagenCartasMano(int jugador);
 
     void evaluaCampo();
     ~Juego();
@@ -53,6 +55,22 @@ private slots:
     void on_btnCarta3Jugador2_clicked();
 
     void on_btnCarta4Jugador2_clicked();
+
+    void on_btnMatriz1_clicked();
+
+    void on_btnMatriz2_clicked();
+
+    void on_btnMatriz3_clicked();
+
+    void on_btnMatriz4_clicked();
+
+    void on_btnMatriz6_clicked();
+
+    void on_btnMatriz7_clicked();
+
+    void on_btnMatriz8_clicked();
+
+    void on_btnMatriz9_clicked();
 
 private:
     Ui::Juego *ui;

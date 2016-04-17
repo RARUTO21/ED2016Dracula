@@ -52,7 +52,7 @@ public:
     }
 
     bool isFull(){
-        if(espaciosVacios = 0){
+        if(espaciosVacios == 0){
             return true;
         }
         else{

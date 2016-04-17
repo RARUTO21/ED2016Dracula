@@ -99,6 +99,7 @@ void Juego::bloquearBotones(QPushButton *boton){
     boton->setEnabled(true);
 }
 
+
 void Juego::evaluaCampo(){
 
     // columnas, Columns, vertical
@@ -125,6 +126,42 @@ void Juego::evaluaCampo(){
 
 }
 
+/**
+ * Descripción: Habilita los botones del jugador elegido
+ * Precondiciones: El parámetro debe ser un número entero entre 1-2
+ * Poscondiciones: Sin definir.
+ * */
+void Juego::desbloquearBotonesJugador(int jugador){
+    if(jugador == 1){
+        ui->btnCarta1Jugador1->setEnabled(true);
+        ui->btnCarta2Jugador1->setEnabled(true);
+        ui->btnCarta3Jugador1->setEnabled(true);
+        ui->btnCarta4Jugador1->setEnabled(true);
+    }
+    else{
+        ui->btnCarta1Jugador2->setEnabled(true);
+        ui->btnCarta2Jugador2->setEnabled(true);
+        ui->btnCarta3Jugador2->setEnabled(true);
+        ui->btnCarta4Jugador2->setEnabled(true);
+    }
+}
+
+
+
+void Juego::ponerImagenCartasMano(int jugador){
+    if(jugador == 1){
+        ui->btnCarta1Jugador1->setIcon(campo.getIcono(1, 0));
+        ui->btnCarta2Jugador1->setIcon(campo.getIcono(1, 1));
+        ui->btnCarta3Jugador1->setIcon(campo.getIcono(1, 2));
+        ui->btnCarta4Jugador1->setIcon(campo.getIcono(1, 3));
+    }
+    else{
+        ui->btnCarta1Jugador2->setIcon(campo.getIcono(2, 0));
+        ui->btnCarta2Jugador2->setIcon(campo.getIcono(2, 1));
+        ui->btnCarta3Jugador2->setIcon(campo.getIcono(2, 2));
+        ui->btnCarta4Jugador2->setIcon(campo.getIcono(2, 3));
+    }
+}
 
 
 void Juego::on_btnMazo_clicked()
@@ -144,20 +181,8 @@ void Juego::on_btnMazo_clicked()
     //std::cout<<campo.imprimeMano(1)<<endl;
     //std::cout<<campo.imprimeMano(2)<<endl;
 
-
-    ui->btnCarta1Jugador1->setIcon(campo.getIcono(1, 0));
-    ui->btnCarta2Jugador1->setIcon(campo.getIcono(1, 1));
-    ui->btnCarta3Jugador1->setIcon(campo.getIcono(1, 2));
-    ui->btnCarta4Jugador1->setIcon(campo.getIcono(1, 3));
-
-
-
-
-    ui->btnCarta1Jugador2->setIcon(campo.getIcono(2, 0));
-    ui->btnCarta2Jugador2->setIcon(campo.getIcono(2, 1));
-    ui->btnCarta3Jugador2->setIcon(campo.getIcono(2, 2));
-    ui->btnCarta4Jugador2->setIcon(campo.getIcono(2, 3));
-
+    ponerImagenCartasMano(1);
+    ponerImagenCartasMano(2);
 
     ui->btnMatriz5->setIcon(campo.getIcono(3,1,1));
 
@@ -215,6 +240,7 @@ void Juego::on_btnCarta3Jugador2_clicked()
     cartaActual = 2;
     jugadorActual = 2;
     bloquearBotones(ui->btnCarta3Jugador2);
+    //ui->btnCarta3Jugador2->setVisible(false);
 }
 
 void Juego::on_btnCarta4Jugador2_clicked()
@@ -225,4 +251,78 @@ void Juego::on_btnCarta4Jugador2_clicked()
 }
 
 //------------------------------------ FIN DE LAS ACCIONES DE LOS BOTONES --------------------------------------
+
+
+//                                     Botones de la matriz: Acciones
+void Juego::on_btnMatriz1_clicked()
+{
+    ui->btnMatriz1->setIcon(campo.getIcono(jugadorActual,cartaActual,1));
+    campo.moverCartaJugadorACampo(jugadorActual,cartaActual,0,0);
+    ponerImagenCartasMano(jugadorActual);
+    desbloquearBotonesJugador(1);
+    desbloquearBotonesJugador(2);
+}
+
+void Juego::on_btnMatriz2_clicked()
+{
+    ui->btnMatriz2->setIcon(campo.getIcono(jugadorActual,cartaActual,1));
+    campo.moverCartaJugadorACampo(jugadorActual,cartaActual,1,0);
+    ponerImagenCartasMano(jugadorActual);
+    desbloquearBotonesJugador(1);
+    desbloquearBotonesJugador(2);
+}
+
+void Juego::on_btnMatriz3_clicked()
+{
+    ui->btnMatriz3->setIcon(campo.getIcono(jugadorActual,cartaActual,1));
+    campo.moverCartaJugadorACampo(jugadorActual,cartaActual,2,0);
+    ponerImagenCartasMano(jugadorActual);
+    desbloquearBotonesJugador(1);
+    desbloquearBotonesJugador(2);
+}
+
+void Juego::on_btnMatriz4_clicked()
+{
+    ui->btnMatriz4->setIcon(campo.getIcono(jugadorActual,cartaActual,1));
+    campo.moverCartaJugadorACampo(jugadorActual,cartaActual,0,1);
+    ponerImagenCartasMano(jugadorActual);
+    desbloquearBotonesJugador(1);
+    desbloquearBotonesJugador(2);
+}
+
+void Juego::on_btnMatriz6_clicked()
+{
+    ui->btnMatriz6->setIcon(campo.getIcono(jugadorActual,cartaActual,1));
+    campo.moverCartaJugadorACampo(jugadorActual,cartaActual,2,1);
+    ponerImagenCartasMano(jugadorActual);
+    desbloquearBotonesJugador(1);
+    desbloquearBotonesJugador(2);
+}
+
+void Juego::on_btnMatriz7_clicked()
+{
+    ui->btnMatriz7->setIcon(campo.getIcono(jugadorActual,cartaActual,1));
+    campo.moverCartaJugadorACampo(jugadorActual,cartaActual,0,2);
+    ponerImagenCartasMano(jugadorActual);
+    desbloquearBotonesJugador(1);
+    desbloquearBotonesJugador(2);
+}
+
+void Juego::on_btnMatriz8_clicked()
+{
+    ui->btnMatriz8->setIcon(campo.getIcono(jugadorActual,cartaActual,1));
+    campo.moverCartaJugadorACampo(jugadorActual,cartaActual,1,2);
+    ponerImagenCartasMano(jugadorActual);
+    desbloquearBotonesJugador(1);
+    desbloquearBotonesJugador(2);
+}
+
+void Juego::on_btnMatriz9_clicked()
+{
+    ui->btnMatriz9->setIcon(campo.getIcono(jugadorActual,cartaActual,1));
+    campo.moverCartaJugadorACampo(jugadorActual,cartaActual,2,2);
+    ponerImagenCartasMano(jugadorActual);
+    desbloquearBotonesJugador(1);
+    desbloquearBotonesJugador(2);
+}
 
