@@ -263,6 +263,8 @@ string CampoDeJuego::imprimeCampo(){
 }*/
 
 
+
+
 void CampoDeJuego::manoAMazo(int jugador){
     /**
       Descripcion:
@@ -270,6 +272,7 @@ void CampoDeJuego::manoAMazo(int jugador){
       Entrada:
         int jugador: cual jugador recoger carta
     */
+
     if(jugador == 1){
         mazo.devolverCarta(jugador1.popCarta(0));
     }
@@ -277,9 +280,6 @@ void CampoDeJuego::manoAMazo(int jugador){
         mazo.devolverCarta(jugador2.popCarta(0));
     }
 }
-
-
-
 
 //Anthony
 

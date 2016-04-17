@@ -17,12 +17,12 @@ using namespace std;
     {
         QApplication a(argc, argv);
 
-        CampoDeJuego campo;
+        //CampoDeJuego campo;
         //campo.reparteCartas(1);
 
         //std::cout<<campo.getCartaRonda1Jugador(1).getNombre()<<endl;
 
-        EscogerJugador pantallaInicio(campo);
+        EscogerJugador pantallaInicio;//(campo);
         pantallaInicio.exec();
 
         EscogerDireccion pantallaDireccion;
