@@ -242,21 +242,22 @@ string CampoDeJuego::imprimeMano(int jugador){
     }
 }
 
-/*
+
 string CampoDeJuego::imprimeCampo(){
     string tiraFinal = "";
     for(int hilera = 0; hilera<3; hilera++){
-        tiraFinal+= "hilera numero: " + to_string(hilera);
+        tiraFinal+= "hilera numero: " + to_string(hilera) + "\n";
         for(int columna = 0; columna<3; columna++){
             string tira = "";
             tira += campo.getElement(hilera, columna).getColor() + "|";
             tira += campo.getElement(hilera, columna).getNombre() + "|";
+            tira += to_string(campo.getElement(hilera, columna).getValor());
             tiraFinal += tira + "\n";
         }
     }
     return tiraFinal;
 }
-*/
+
 //Anthony
 
 bool CampoDeJuego::hayJugadorInicialDefinido(){

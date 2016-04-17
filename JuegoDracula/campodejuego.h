@@ -40,7 +40,7 @@ public:
     bool evaluarGanadorEtapa1();
 
     string imprimeMano(int jugador);
-    void imprimeCampo();
+    string imprimeCampo();
 };
 
 #endif // CAMPODEJUEGO_H
