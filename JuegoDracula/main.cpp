@@ -11,7 +11,7 @@
 
 #include "campodejuego.h"
 
-    using namespace std;
+using namespace std;
 
     int main(int argc, char *argv[])
     {
@@ -25,9 +25,13 @@
         Juego w;
         w.show();
 
+        cout<<"----------------empieza campo de juego tests -----------------"<<endl;
         CampoDeJuego campo;
         campo.reparteCartas(2);
-
+        cout<<"mano 1: " +campo.imprimeMano(1)<<endl;
+        cout<<"mano 2: " + campo.imprimeMano(2)<<endl;
+        //cout<<campo.imprimeCampo()<<endl;
+        cout<<"----------------termina campo de juego -----------------"<<endl;
         Mazo miMazo;
         Jugador jugador;
 

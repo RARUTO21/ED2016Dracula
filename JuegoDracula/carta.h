@@ -82,7 +82,7 @@ public:
       Salida: Un entero que representa el valor numérico de la carta.
 
       **/
-        return valor;
+    return valor;
     }
 
     void setValor(int pValor){

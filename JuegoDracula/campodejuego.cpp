@@ -14,6 +14,11 @@ CampoDeJuego::CampoDeJuego(): jugador1(), jugador2(), mazo(), campo()
     cartaVacia = Carta("vacio", "vacio", "vacio", 0);
     //campo = Matriz;
     jugadorInicialDefinido = false;
+    for(int hilera = 0; hilera < 3; hilera++){
+        for(int columna = 0; columna< 3; columna++){
+            campo.setElement(hilera,columna,cartaVacia);
+        }
+    }
 }
 
 CampoDeJuego::~CampoDeJuego(){
@@ -228,6 +233,30 @@ int CampoDeJuego::evaluaCampoVertical(){
 //*************************************************************************
 //*************************************************************************
 
+string CampoDeJuego::imprimeMano(int jugador){
+    if(jugador == 1){
+        return jugador1.imprimeMano();
+    }
+    else if (jugador == 2){
+        return jugador2.imprimeMano();
+    }
+}
+
+/*
+string CampoDeJuego::imprimeCampo(){
+    string tiraFinal = "";
+    for(int hilera = 0; hilera<3; hilera++){
+        tiraFinal+= "hilera numero: " + to_string(hilera);
+        for(int columna = 0; columna<3; columna++){
+            string tira = "";
+            tira += campo.getElement(hilera, columna).getColor() + "|";
+            tira += campo.getElement(hilera, columna).getNombre() + "|";
+            tiraFinal += tira + "\n";
+        }
+    }
+    return tiraFinal;
+}
+*/
 //Anthony
 
 bool CampoDeJuego::hayJugadorInicialDefinido(){

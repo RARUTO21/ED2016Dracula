@@ -2,7 +2,8 @@
 #include "arraylist.h"
 #include "carta.h"
 #include <string>
-
+#include <iostream>
+    using namespace std;
 Jugador::Jugador(): Mano(4)
 {
     Orientacion = "";
@@ -65,6 +66,21 @@ void Jugador::setOrientacion(string orientacion){
         orientacion: string que nos dice la orientacion
     */
     Orientacion = orientacion;
+}
+
+string Jugador::imprimeMano(){
+    Mano.goToStart();
+    string tiraFinal;
+    for(int index = 0; index<4; index++){
+        string tira = "";
+        tira += Mano.getElement().getSimbolo() + "|";
+        tira += Mano.getElement().getNombre() + "|";
+        tira += to_string(Mano.getElement().getValor());
+        tiraFinal += tira + "\n";
+        Mano.next();
+    }
+    Mano.goToStart();
+    return tiraFinal;
 }
 
 int Jugador::getSizeMano(){

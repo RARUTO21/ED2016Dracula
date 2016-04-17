@@ -2,6 +2,7 @@
 #define JUGADOR_H
 #include "carta.h"
 #include "arraylist.h"
+#include <string>
 
 class Jugador
 {
@@ -21,6 +22,7 @@ public:
     void setOrientacion(string orientacion);
     int getSizeMano();
     ArrayList<Carta> getMano();
+    string imprimeMano();
     bool esJugadorInicial();
     void esJugadorInicial(bool valor);
 };

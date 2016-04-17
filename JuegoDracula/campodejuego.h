@@ -39,6 +39,8 @@ public:
     Carta getCartaRonda1Jugador(int jugador);
     bool evaluarGanadorEtapa1();
 
+    string imprimeMano(int jugador);
+    void imprimeCampo();
 };
 
 #endif // CAMPODEJUEGO_H

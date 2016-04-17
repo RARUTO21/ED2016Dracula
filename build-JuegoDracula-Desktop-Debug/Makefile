@@ -656,7 +656,6 @@ main.o: ../JuegoDracula/main.cpp ../JuegoDracula/juego.h \
 		../JuegoDracula/jugador.h \
 		../JuegoDracula/escogerjugador.h \
 		../JuegoDracula/escogerdireccion.h \
-		../JuegoDracula/campodejuego.h \
 		../JuegoDracula/matriz.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../JuegoDracula/main.cpp
 
