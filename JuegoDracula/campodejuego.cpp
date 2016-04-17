@@ -249,6 +249,7 @@ string CampoDeJuego::imprimeCampo(){
         tiraFinal+= "hilera numero: " + to_string(hilera) + "\n";
         for(int columna = 0; columna<3; columna++){
             string tira = "";
+            tira += campo.getElement(hilera, columna).getSimbolo() + "|";
             tira += campo.getElement(hilera, columna).getColor() + "|";
             tira += campo.getElement(hilera, columna).getNombre() + "|";
             tira += to_string(campo.getElement(hilera, columna).getValor());

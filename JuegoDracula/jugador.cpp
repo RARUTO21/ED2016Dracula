@@ -71,9 +71,10 @@ void Jugador::setOrientacion(string orientacion){
 string Jugador::imprimeMano(){
     Mano.goToStart();
     string tiraFinal;
-    for(int index = 0; index<4; index++){
+    for(int index = Mano.getSize(); index!=0; index--){
         string tira = "";
         tira += Mano.getElement().getSimbolo() + "|";
+        tira += Mano.getElement().getColor() + "|";
         tira += Mano.getElement().getNombre() + "|";
         tira += to_string(Mano.getElement().getValor());
         tiraFinal += tira + "\n";

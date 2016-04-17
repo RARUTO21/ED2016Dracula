@@ -32,6 +32,13 @@ using namespace std;
         cout<<"mano 2: \n" + campo.imprimeMano(2)<<endl;
         cout<<campo.imprimeCampo()<<endl;
         cout<<"----------------termina campo de juego -----------------"<<endl;
+
+        cout<<"----------------Pruebas de mover de mano a campo -----------------"<<endl;
+        campo.moverCartaJugadorACampo(1,0,0,0);
+        cout<<"mano 1: \n" +campo.imprimeMano(1)<<endl;
+        cout<<"mano 2: \n" + campo.imprimeMano(2)<<endl;
+        cout<<campo.imprimeCampo()<<endl;
+        cout<<"----------------Pruebas de mover de mano a campo -----------------"<<endl;
         Mazo miMazo;
         Jugador jugador;
 
