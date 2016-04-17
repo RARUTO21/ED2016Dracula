@@ -108,11 +108,14 @@ void CampoDeJuego::moverCartaJugadorACampo(int numeroJugador, int posMano,
     if (numeroJugador == 1){
         campo.setElement(posCampoRow,posCampoColumn,jugador1.getCard(posMano));
         // ^ pone la carta en el campo
+        // y la elimina
         jugador1.delCarta(posMano);
+        jugador1.appendCarta(cartaVacia);
     }
     else if(numeroJugador == 2){
         campo.setElement(posCampoRow,posCampoColumn,jugador2.getCard(posMano));
         jugador2.delCarta(posMano);
+        jugador2.appendCarta(cartaVacia);
     }
 }
 

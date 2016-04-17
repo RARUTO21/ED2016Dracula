@@ -583,6 +583,7 @@ qrc_images.cpp: ../JuegoDracula/images.qrc \
 		../JuegoDracula/cards/8_flores.png \
 		../JuegoDracula/cards/6_oros.png \
 		../JuegoDracula/cards/2_flores.png \
+		../JuegoDracula/cards/no.png \
 		../JuegoDracula/cards/6_corazones.png \
 		../JuegoDracula/cards/q_flores.png \
 		../JuegoDracula/cards/j_bastos.png \
@@ -591,6 +592,7 @@ qrc_images.cpp: ../JuegoDracula/images.qrc \
 		../JuegoDracula/cards/q_oros.png \
 		../JuegoDracula/cards/j_corazones.png \
 		../JuegoDracula/cards/joker_negro.png \
+		../JuegoDracula/cards/ok.png \
 		../JuegoDracula/cards/8_oros.png \
 		../JuegoDracula/cards/6_bastos.png \
 		../JuegoDracula/cards/8_bastos.png \

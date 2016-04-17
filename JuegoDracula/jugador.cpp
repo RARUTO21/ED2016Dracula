@@ -79,7 +79,7 @@ void Jugador::setOrientacion(string orientacion){
 string Jugador::imprimeMano(){
     Mano.goToStart();
     string tiraFinal;
-    for(int index = Mano.getSize(); index!=0; index--){
+    for(int index = Mano.getSize(); index != 0; index--){
         string tira = "";
         tira += Mano.getElement().getSimbolo() + "|";
         tira += Mano.getElement().getColor() + "|";
@@ -109,4 +109,7 @@ void Jugador::esJugadorInicial(bool valor){
     jugadorInicial = valor;
 }
 
+void Jugador::appendCarta(Carta carta){
+    Mano.append(carta);
+}
 
