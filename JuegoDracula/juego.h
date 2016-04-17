@@ -5,6 +5,7 @@
 #include "carta.h"
 #include "qpushbutton.h"
 #include <QtCore>
+#include "campodejuego.h"
 
 
 namespace Ui {
@@ -46,8 +47,11 @@ private slots:
 
     void on_btnMatriz9_clicked();
 
+    void on_btnMazo_clicked();
+
 private:
     Ui::Juego *ui;
+    CampoDeJuego campo;
 
 };
 

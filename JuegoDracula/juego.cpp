@@ -6,6 +6,7 @@
 #include <QtDebug>
 
 #include "qdialog.h"
+#include <iostream>
 
 //Atributos para manejar el reloj del juego
 int segundos = 0;
@@ -17,6 +18,7 @@ Juego::Juego(QWidget *parent) :
     ui(new Ui::Juego)
 {
     ui->setupUi(this);
+
 
 
     //Inicialización de la variable reloj que está declarada en juego.h
@@ -133,3 +135,15 @@ void Juego::on_btnMatriz9_clicked()
 
 
 //------------------------------------ FIN DE LAS ACCIONES DE LOS BOTONES --------------------------------------
+
+void Juego::on_btnMazo_clicked()
+{
+    campo.reparteCartas(2);
+
+    //ui->btnCarta1Jugador1->setIcon(campo.getIcono(1,0));
+    //campo.getManoJugador(1).goToPos(0);
+    ui->btnCarta1Jugador1->setIcon(campo.getManoJugador(1).getElement().getIcono());
+
+    //std::cout<<campo.getManoJugador(1).getElement().getSimbolo()<<endl;
+
+}

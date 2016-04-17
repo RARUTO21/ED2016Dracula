@@ -287,6 +287,19 @@ void CampoDeJuego::ponerIcono(QPushButton boton, Carta carta){
     boton.setIcon(carta.getIcono());
 }
 
+//Devuelve le icono desde el campo de juego
+QIcon CampoDeJuego::getIcono(int jugador, int index){
+    if(jugador == 1){
+
+        jugador1.getMano().goToPos(index);
+        return jugador1.getMano().getElement().getIcono();
+    }
+    else{
+        jugador2.getMano().goToPos(index);
+        return jugador2.getMano().getElement().getIcono();
+    }
+}
+
 
 bool CampoDeJuego::hayJugadorInicialDefinido(){
     return jugadorInicialDefinido;
