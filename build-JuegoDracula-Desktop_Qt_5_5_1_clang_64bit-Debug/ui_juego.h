@@ -48,6 +48,8 @@ public:
     QPushButton *btnCarta3Jugador2;
     QPushButton *btnCarta1Jugador2;
     QPushButton *btnCarta2Jugador2;
+    QLabel *lblJugador1;
+    QLabel *lblJugador2;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
 
@@ -224,6 +226,12 @@ public:
         btnCarta2Jugador2->setGeometry(QRect(680, 550, 81, 111));
         btnCarta2Jugador2->setIconSize(QSize(90, 90));
         btnCarta2Jugador2->setFlat(false);
+        lblJugador1 = new QLabel(centralWidget);
+        lblJugador1->setObjectName(QStringLiteral("lblJugador1"));
+        lblJugador1->setGeometry(QRect(10, 510, 111, 31));
+        lblJugador2 = new QLabel(centralWidget);
+        lblJugador2->setObjectName(QStringLiteral("lblJugador2"));
+        lblJugador2->setGeometry(QRect(870, 510, 111, 31));
         Juego->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(Juego);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -262,6 +270,8 @@ public:
         btnCarta3Jugador2->setText(QString());
         btnCarta1Jugador2->setText(QString());
         btnCarta2Jugador2->setText(QString());
+        lblJugador1->setText(QApplication::translate("Juego", "<html><head/><body><p><span style=\" font-size:18pt; color:#ffffff;\">Jugador 1</span></p></body></html>", 0));
+        lblJugador2->setText(QApplication::translate("Juego", "<html><head/><body><p><span style=\" font-size:18pt; color:#ffffff;\">Jugador 2</span></p></body></html>", 0));
     } // retranslateUi
 
 };
