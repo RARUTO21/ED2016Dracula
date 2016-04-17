@@ -279,52 +279,7 @@ void CampoDeJuego::manoAMazo(int jugador){
 }
 
 
-void CampoDeJuego::manoAMazo(int jugador){
-    /**
-      Descripcion:
-        devuelve la primera carta de un jugador al mazo
-      Entrada:
-        int jugador: cual jugador recoger carta
-    */
-    if(jugador == 1){
-        mazo.devolverCarta(jugador1.popCarta(0));
-    }
-    else if (jugador == 2){
-        mazo.devolverCarta(jugador2.popCarta(0));
-    }
-}
 
-
-void CampoDeJuego::manoAMazo(int jugador){
-    /**
-      Descripcion:
-        devuelve la primera carta de un jugador al mazo
-      Entrada:
-        int jugador: cual jugador recoger carta
-    */
-    if(jugador == 1){
-        mazo.devolverCarta(jugador1.popCarta(0));
-    }
-    else if (jugador == 2){
-        mazo.devolverCarta(jugador2.popCarta(0));
-    }
-}
-
-
-void CampoDeJuego::manoAMazo(int jugador){
-    /**
-      Descripcion:
-        devuelve la primera carta de un jugador al mazo
-      Entrada:
-        int jugador: cual jugador recoger carta
-    */
-    if(jugador == 1){
-        mazo.devolverCarta(jugador1.popCarta(0));
-    }
-    else if (jugador == 2){
-        mazo.devolverCarta(jugador2.popCarta(0));
-    }
-}
 
 //Anthony
 

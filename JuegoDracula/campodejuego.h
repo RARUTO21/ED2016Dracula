@@ -41,23 +41,12 @@ public:
     bool evaluarGanadorEtapa1();
     void ponerIcono(QPushButton boton,Carta carta);
 
-<<<<<<< HEAD
     //string imprimeMano(int jugador);
     //string imprimeCampo();
-=======
     string imprimeMano(int jugador);
     string imprimeCampo();
     void manoAMazo(int jugador);
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> origin/master
-=======
->>>>>>> origin/master
-=======
->>>>>>> origin/master
->>>>>>> Stashed changes
+
 };
 
 #endif // CAMPODEJUEGO_H
