@@ -21,12 +21,17 @@ public:
 
     QTimer * reloj; //Variable de tipo QTimer que se va a utilizar para correr el tiempo
 
+    void bloquearBotones(QPushButton *boton);
+    string generarPathIcono(Carta carta);
+
     ~Juego();
 
 public slots: //Método que se puede utilizar para conectar con otro objeto y recibir señales.
               //Como un contenedor de señales programable :)
     void correrReloj();
-    string generarPathIcono(Carta carta);
+
+
+
 
 private slots:
 

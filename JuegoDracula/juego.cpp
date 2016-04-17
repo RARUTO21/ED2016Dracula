@@ -86,10 +86,21 @@ string Juego::generarPathIcono(Carta carta){
 
 //-------------------------------------- ACCIONES DE LOS BOTONES (DON'T TOUCH THEM :) )-------------------------
 
+void Juego::bloquearBotones(QPushButton *boton){
+    ui->btnCarta1Jugador1->setEnabled(false);
+    ui->btnCarta2Jugador1->setEnabled(false);
+    ui->btnCarta3Jugador1->setEnabled(false);
+    ui->btnCarta4Jugador1->setEnabled(false);
+    ui->btnCarta1Jugador2->setEnabled(false);
+    ui->btnCarta2Jugador2->setEnabled(false);
+    ui->btnCarta3Jugador2->setEnabled(false);
+    ui->btnCarta4Jugador2->setEnabled(false);
+
+    boton->setEnabled(true);
+}
 
 
 
-//------------------------------------ FIN DE LAS ACCIONES DE LOS BOTONES --------------------------------------
 
 void Juego::on_btnMazo_clicked()
 {
@@ -136,50 +147,56 @@ void Juego::on_btnCarta1Jugador1_clicked()
 {
     cartaActual = 0;
     jugadorActual = 1;
+    bloquearBotones(ui->btnCarta1Jugador1);
 }
 
 void Juego::on_btnCarta2Jugador1_clicked()
 {
     cartaActual = 1;
     jugadorActual = 1;
-
+    bloquearBotones(ui->btnCarta2Jugador1);
 }
 
 void Juego::on_btnCarta3Jugador1_clicked()
 {
     cartaActual = 2;
     jugadorActual = 1;
+    bloquearBotones(ui->btnCarta3Jugador1);
 }
 
 void Juego::on_btnCarta4Jugador1_clicked()
 {
     cartaActual = 3;
     jugadorActual = 1;
+    bloquearBotones(ui->btnCarta4Jugador1);
 }
 
 void Juego::on_btnCarta1Jugador2_clicked()
 {
-
     cartaActual = 0;
     jugadorActual = 2;
+    bloquearBotones(ui->btnCarta1Jugador2);
 }
 
 void Juego::on_btnCarta2Jugador2_clicked()
 {
-
     cartaActual = 1;
     jugadorActual = 2;
+    bloquearBotones(ui->btnCarta2Jugador2);
 }
 
 void Juego::on_btnCarta3Jugador2_clicked()
 {
-
     cartaActual = 2;
     jugadorActual = 2;
+    bloquearBotones(ui->btnCarta3Jugador2);
 }
 
 void Juego::on_btnCarta4Jugador2_clicked()
 {
     cartaActual = 3;
     jugadorActual = 2;
+    bloquearBotones(ui->btnCarta4Jugador2);
 }
+
+//------------------------------------ FIN DE LAS ACCIONES DE LOS BOTONES --------------------------------------
