@@ -4,6 +4,7 @@
 #include "carta.h"
 #include <string>
 #include "matriz.h"
+#include <QPushButton>
 
 
 CampoDeJuego::CampoDeJuego(): jugador1(), jugador2(), mazo(), campo()
@@ -234,6 +235,7 @@ int CampoDeJuego::evaluaCampoVertical(){
 //*************************************************************************
 //*************************************************************************
 
+/*
 string CampoDeJuego::imprimeMano(int jugador){
     if(jugador == 1){
         return jugador1.imprimeMano();
@@ -241,9 +243,9 @@ string CampoDeJuego::imprimeMano(int jugador){
     else if (jugador == 2){
         return jugador2.imprimeMano();
     }
-}
+}*/
 
-
+/*
 string CampoDeJuego::imprimeCampo(){
     string tiraFinal = "";
     for(int hilera = 0; hilera<3; hilera++){
@@ -258,6 +260,54 @@ string CampoDeJuego::imprimeCampo(){
         }
     }
     return tiraFinal;
+}*/
+
+
+void CampoDeJuego::manoAMazo(int jugador){
+    /**
+      Descripcion:
+        devuelve la primera carta de un jugador al mazo
+      Entrada:
+        int jugador: cual jugador recoger carta
+    */
+    if(jugador == 1){
+        mazo.devolverCarta(jugador1.popCarta(0));
+    }
+    else if (jugador == 2){
+        mazo.devolverCarta(jugador2.popCarta(0));
+    }
+}
+
+
+void CampoDeJuego::manoAMazo(int jugador){
+    /**
+      Descripcion:
+        devuelve la primera carta de un jugador al mazo
+      Entrada:
+        int jugador: cual jugador recoger carta
+    */
+    if(jugador == 1){
+        mazo.devolverCarta(jugador1.popCarta(0));
+    }
+    else if (jugador == 2){
+        mazo.devolverCarta(jugador2.popCarta(0));
+    }
+}
+
+
+void CampoDeJuego::manoAMazo(int jugador){
+    /**
+      Descripcion:
+        devuelve la primera carta de un jugador al mazo
+      Entrada:
+        int jugador: cual jugador recoger carta
+    */
+    if(jugador == 1){
+        mazo.devolverCarta(jugador1.popCarta(0));
+    }
+    else if (jugador == 2){
+        mazo.devolverCarta(jugador2.popCarta(0));
+    }
 }
 
 
@@ -278,6 +328,11 @@ void CampoDeJuego::manoAMazo(int jugador){
 
 //Anthony
 
+void CampoDeJuego::ponerIcono(QPushButton boton, Carta carta){
+    boton.setIcon(carta.getIcono());
+}
+
+
 bool CampoDeJuego::hayJugadorInicialDefinido(){
     return jugadorInicialDefinido;
 }
@@ -285,7 +340,6 @@ bool CampoDeJuego::hayJugadorInicialDefinido(){
 Carta CampoDeJuego::getCartaRonda1Jugador(int jugador){
     return getJugador(jugador).getCard(0);
 }
-
 
 
 bool CampoDeJuego::evaluarGanadorEtapa1(){
