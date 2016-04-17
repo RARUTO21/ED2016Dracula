@@ -24,6 +24,7 @@ public:
     void bloquearBotones(QPushButton *boton);
     string generarPathIcono(Carta carta);
 
+    void evaluaCampo();
     ~Juego();
 
 public slots: //Método que se puede utilizar para conectar con otro objeto y recibir señales.

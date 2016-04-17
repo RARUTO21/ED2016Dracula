@@ -190,7 +190,7 @@ int CampoDeJuego::evaluaFilaVertical(int columnArray){
      * Descripcion:
      *  Evalua la columna horizontalmente
      * Entradas:
-     *  int columnArray: la columna a la cual evaluar
+     *  int columnArray: la columna a la cual evaluar tiene q ser de 0-2
      * Salida:
      *  int puntuacion la puntuacion total de la columna
      */
@@ -306,6 +306,16 @@ void CampoDeJuego::manoAMazo(int jugador){
     else if (jugador == 2){
         mazo.devolverCarta(jugador2.popCarta(0));
     }
+}
+
+
+bool CampoDeJuego::isFull(){
+    /**
+     * Descripcion:
+     *  retorna true si el campo esta lleno
+     *  else retorna false
+     */
+    return campo.isFull();
 }
 
 //Anthony

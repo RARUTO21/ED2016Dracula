@@ -6,8 +6,11 @@ class Matriz
 {
 private:
     Carta matriz[3][3]; //un array 3x3 que guardara los elementos carta
+    int espaciosVacios;
 public:
-    Matriz(){}
+    Matriz(){
+        espaciosVacios = 6;
+    }
 
     void setElement(int row, int column, Carta element){
         /**
@@ -17,6 +20,7 @@ public:
          *  element: el elemento a introducir
          */
         matriz[row][column] = element;
+        espaciosVacios--;
     }
 
     Carta popElement(int row, int column, Carta elementNull){
@@ -32,6 +36,7 @@ public:
          */
         Carta element = matriz[row][column];
         matriz[row][column] = elementNull;
+        espaciosVacios++;
         return element;
     }
 
@@ -44,6 +49,15 @@ public:
          *  un elemento de la matriz de acuerdo a los parametros
          */
         return matriz[row][column];
+    }
+
+    bool isFull(){
+        if(espaciosVacios = 0){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 };
 

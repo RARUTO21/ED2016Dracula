@@ -99,6 +99,31 @@ void Juego::bloquearBotones(QPushButton *boton){
     boton->setEnabled(true);
 }
 
+void Juego::evaluaCampo(){
+
+    // columnas, Columns, vertical
+
+    int resultadoColumna1 = campo.evaluaFilaVertical(0);
+    ui->lblScoreColumn0->setText(QString::number(resultadoColumna1));
+
+    int resultadoColumna2 = campo.evaluaFilaVertical(1);
+    ui->lblScoreColumn1->setText(QString::number(resultadoColumna2));
+
+    int resultadoColumna3 = campo.evaluaFilaVertical(2);
+    ui->lblScoreColumn2->setText(QString::number(resultadoColumna3));
+
+    // hileras, row, horizontales
+
+    int resultadoHilera1 = campo.evaluaFilaHorizontal(0);
+    ui->lblScoreRow0->setText(QString::number(resultadoHilera1));
+
+    int resultadoHilera2 = campo.evaluaFilaHorizontal(1);
+    ui->lblScoreRow1->setText(QString::number(resultadoHilera2));
+
+    int resultadoHilera3 = campo.evaluaFilaHorizontal(2);
+    ui->lblScoreRow2->setText(QString::number(resultadoHilera3));
+
+}
 
 
 
@@ -200,3 +225,4 @@ void Juego::on_btnCarta4Jugador2_clicked()
 }
 
 //------------------------------------ FIN DE LAS ACCIONES DE LOS BOTONES --------------------------------------
+
