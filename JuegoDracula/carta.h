@@ -5,6 +5,7 @@
 #include <stdexcept>
 #include <QIcon>
 #include <QPixmap>
+#include <iostream>
 
 using namespace std;
 
@@ -13,7 +14,7 @@ class Carta
 private:
     string *carta; //Arreglo de tipo string que incluirá el color, símbolo y nombre de la carta
     int valor; //Valor numérico entero de la carta
-    string rutaImagenCarta;
+    std::string rutaImagenCarta;
 public:
 
     Carta(){}
@@ -39,9 +40,19 @@ public:
         rutaImagenCarta = ":/cards/cards/";
         if(pNombre == "joker"){
             rutaImagenCarta += (pNombre + "_" + pColor + ".png");
+            /*
+            rutaImagenCarta.append(pNombre);
+            rutaImagenCarta.append("_");
+            rutaImagenCarta.append(pColor);
+            rutaImagenCarta.append(".png"); */
         }
         else{
             rutaImagenCarta += (pNombre + "_" + pSimbolo + ".png");
+            /*
+            rutaImagenCarta.append(pNombre);
+            rutaImagenCarta.append("_");
+            rutaImagenCarta.append(pSimbolo);
+            rutaImagenCarta.append(".png");*/
         }
 
     }
@@ -105,28 +116,16 @@ public:
         return getNombre()+" de "+ getSimbolo();
     }
 
-    string getRutaImagenCarta(){
+    std::string getRutaImagenCarta(){
         return rutaImagenCarta;
     }
 
-    /*QIcon getIcono(){
-
-
-        string rutaCarta = ":/cards/cards/";
-
-        if(carta[2] == "joker"){
-            rutaCarta += (carta[2] + "_" + carta[0] + ".png");
-        }
-        else{
-            rutaCarta += (carta[2] + "_" + carta[1] + ".png");
-        }
-
-
-        //QPixmap p()
-        QPixmap pix(getRutaImagenCarta());
-        QIcon iconoCarta(pix);
+    QIcon getIcono(){
+        QString rutaQString = QString::fromLocal8Bit(getRutaImagenCarta().c_str());
+        QPixmap pixmapIcono(rutaQString);
+        QIcon iconoCarta(pixmapIcono);
         return iconoCarta;
-    } */
+    }
 
 
 

@@ -32,3 +32,11 @@ void EscogerJugador::on_btnMazo_clicked()
 {
 
 }
+
+void EscogerJugador::on_btnJugador1_clicked()
+{
+    QPixmap pix(":/cards/cards/9_oros.png");
+    //QPixmap pix(getRutaImagenCarta());
+    QIcon iconoCarta(pix);
+    ui->btnJugador1->setIcon(iconoCarta);
+}
