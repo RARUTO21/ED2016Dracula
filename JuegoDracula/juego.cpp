@@ -155,10 +155,13 @@ void Juego::on_btnMazo_clicked()
     ui->btnCarta3Jugador1->setIcon(campo.getIcono(1, 2));
     ui->btnCarta4Jugador1->setIcon(campo.getIcono(1, 3));
 
-    //ui->btnCarta1Jugador2->setIcon(campo.getIcono(2, 0));
-    //ui->btnCarta2Jugador2->setIcon(campo.getIcono(2, 1));
+    ui->btnCarta1Jugador2->setIcon(campo.getIcono(2, 0));
+    ui->btnCarta2Jugador2->setIcon(campo.getIcono(2, 1));
     ui->btnCarta3Jugador2->setIcon(campo.getIcono(2, 2));
-    //ui->btnCarta4Jugador2->setIcon(campo.getIcono(2, 3));
-    //std::cout<<campo.getManoJugador(1).getElement().getSimbolo()<<endl;
+    ui->btnCarta4Jugador2->setIcon(campo.getIcono(2, 3));
+
+    ui->btnMatriz5->setIcon(campo.getIcono(3,1,1));
+
 
 }
+

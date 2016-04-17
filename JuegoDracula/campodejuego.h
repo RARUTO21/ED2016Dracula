@@ -40,7 +40,7 @@ public:
     Carta getCartaRonda1Jugador(int jugador);
     bool evaluarGanadorEtapa1();
     void ponerIcono(QPushButton boton,Carta carta);
-    QIcon getIcono(int jugador, int index);
+    QIcon getIcono(int jugador, int index, int hilera=1);
 
     string imprimeMano(int jugador);
     string imprimeCampo();

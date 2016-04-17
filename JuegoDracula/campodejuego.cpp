@@ -288,13 +288,15 @@ void CampoDeJuego::ponerIcono(QPushButton boton, Carta carta){
 }
 
 //Devuelve le icono desde el campo de juego
-QIcon CampoDeJuego::getIcono(int jugador, int index){
+QIcon CampoDeJuego::getIcono(int jugador, int index, int hilera){
     if(jugador == 1){
         return jugador1.getCard(index).getIcono();
     }
     else if(jugador == 2){
-        jugador2.getMano().goToPos(index);
         return jugador2.getCard(index).getIcono();
+    }
+    else if(jugador == 3){
+        return campo.getElement(hilera,index).getIcono();
     }
 }
 

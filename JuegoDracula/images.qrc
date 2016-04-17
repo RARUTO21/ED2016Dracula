@@ -21,8 +21,6 @@
         <file>cards/6_flores.png</file>
         <file>cards/6_oros.png</file>
         <file>cards/7_flores.png</file>
-        <file>cards/7_of_hearts.png</file>
-        <file>cards/7_of_spades.png</file>
         <file>cards/7_oros.png</file>
         <file>cards/8_bastos.png</file>
         <file>cards/8_corazones.png</file>
@@ -55,6 +53,8 @@
         <file>cards/q_corazones.png</file>
         <file>cards/q_flores.png</file>
         <file>cards/q_oros.png</file>
+        <file>cards/7_corazones.png</file>
+        <file>cards/7_bastos.png</file>
     </qresource>
     <qresource prefix="/other">
         <file>cards/background.jpg</file>

@@ -49,6 +49,8 @@ private slots:
 
     void on_btnMazo_clicked();
 
+    void on_btnCarta1Jugador2_clicked();
+
 private:
     Ui::Juego *ui;
     CampoDeJuego campo;
