@@ -9,6 +9,7 @@
 #include "escogerdireccion.h"
 #include "matriz.h"
 
+#include "campodejuego.h"
 
     using namespace std;
 
@@ -24,30 +25,28 @@
         Juego w;
         w.show();
 
-        //CampoDeJuego campo;
-        //campo = CampoDeJuego();
+        CampoDeJuego campo;
+        campo.reparteCartas(2);
+
         Mazo miMazo;
         Jugador jugador;
+
         cout<<miMazo.getSize()<<endl;
         Carta prueba = miMazo.sacarCarta();
         cout<<prueba.getSimbolo()<<endl;
         cout<<prueba.getNombre()<<endl;
+
         jugador.putCard(prueba);
 
 
         Matriz matrizT;
-        matrizT = Matriz();
         matrizT.setElement(0, 0, prueba);
         cout<<matrizT.getElement(0,0).getColor()<<endl;
         cout<<"prueba"<<endl;
 
-        cout<<jugador.getCard(0).getNombre()<<endl;
-        cout<<jugador.getCard(0).getSimbolo()<<endl;
-        cout<<jugador.getSizeMano()<<endl;
-
-
         cout<<"La ruta de la carta es: "<<prueba.getRutaImagenCarta()<<endl;
 
+        cout<<jugador.getCard(0).getColor()<<endl;
 
         return a.exec();
         //return 0;

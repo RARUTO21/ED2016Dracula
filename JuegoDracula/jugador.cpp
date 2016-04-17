@@ -3,9 +3,8 @@
 #include "carta.h"
 #include <string>
 
-Jugador::Jugador()
+Jugador::Jugador(): Mano(4)
 {
-    Mano = ArrayList<Carta>(4);
     Orientacion = "";
     jugadorInicial = false;
 }

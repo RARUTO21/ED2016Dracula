@@ -6,13 +6,13 @@
 #include "matriz.h"
 
 
-CampoDeJuego::CampoDeJuego()
+CampoDeJuego::CampoDeJuego(): jugador1(), jugador2(), mazo(), campo()
 {
-    jugador1 = Jugador();
-    jugador2 = Jugador();
-    mazo = Mazo();
+    //jugador1 = Jugador;
+    //jugador2 = Jugador;
+    //mazo = Mazo;
     cartaVacia = Carta("vacio", "vacio", "vacio", 0);
-    campo = Matriz();
+    //campo = Matriz;
     jugadorInicialDefinido = false;
 }
 
@@ -30,9 +30,7 @@ void CampoDeJuego::reparteCartas(int etapa){
     if(etapa == 1){
         jugador1.putCard(mazo.sacarCarta());
         jugador2.putCard(mazo.sacarCarta());
-    }//*************************************************************************
-    //*************************************************************************
-
+    }
 
     else if(etapa == 2){
         for(int contador = 0; contador < 4; contador++){
