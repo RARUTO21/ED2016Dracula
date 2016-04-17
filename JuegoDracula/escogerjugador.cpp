@@ -5,7 +5,9 @@
 
 //CampoDeJuego campoJuego;
 
-EscogerJugador::EscogerJugador(CampoDeJuego campo, QWidget *parent) :
+
+//EscogerJugador::EscogerJugador(CampoDeJuego campo, QWidget *parent) :
+EscogerJugador::EscogerJugador(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::EscogerJugador)
 {
@@ -14,17 +16,17 @@ EscogerJugador::EscogerJugador(CampoDeJuego campo, QWidget *parent) :
 
     //campoJuego = campo;
 
-    campo.reparteCartas(1);
+    //campo.reparteCartas(1);
 
     std::cout<<"hola mundo"<<endl;
 
 
     //std::cout<<"Carta del jugador1: Nombre:"<<campo.getJugador(1).getCard(0).getNombre()<< "simbolo: "<<campo.getJugador(1).getCard(0).getSimbolo()<<endl;
     //std::cout<<campo.getJugador(1).getCard(0).getNombre()<<campo.getJugador(1).getCard(0).getSimbolo()<<endl;
-    std::cout<<campo.getJugador(1).getCard(0).getNombre()<<endl;
+    //std::cout<<campo.getJugador(1).getCard(0).getNombre()<<endl;
     //std::cout<<"Carta del jugador2: Nombre:"<<campo.getJugador(1).getCard(0).getNombre()<< "simbolo: "<<campo.getJugador(1).getCard(0).getSimbolo()<<endl;
     //std::cout<<campo.getJugador(1).getCard(0).getNombre()<<campo.getJugador(2).getCard(0).getSimbolo()<<endl;
-    std::cout<<campo.getJugador(2).getCard(0).getNombre()<<endl;
+    //std::cout<<campo.getJugador(2).getCard(0).getNombre()<<endl;
 
 
     //std::cout<<campo->getJugador(1).getCard(0).getNombre()<<endl;

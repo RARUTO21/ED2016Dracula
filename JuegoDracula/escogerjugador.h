@@ -13,7 +13,8 @@ class EscogerJugador : public QDialog
     Q_OBJECT
 
 public:
-    explicit EscogerJugador(CampoDeJuego campo, QWidget *parent = 0);
+    explicit EscogerJugador(QWidget *parent = 0);
+    //explicit EscogerJugador(CampoDeJuego campo, QWidget *parent = 0);
     ~EscogerJugador();
 
 
