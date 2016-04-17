@@ -118,6 +118,14 @@ void CampoDeJuego::moverCartaJugadorACampo(int numeroJugador, int posMano,
 
 void CampoDeJuego::moverCartaCampoAJugador(int numeroJugador,
                                            int posCampoColumn, int posCampoRow){
+    /**
+      Descripcion:
+        mueve una carta del campo a la mano de un jugador
+      Entradas:
+        int numero Jugador: jugador 1 o 2
+        int posCampoColumn: posicion de la columna en la matriz
+        int posCampoRow: posicion de la hilera en la matriz
+    */
     if (numeroJugador == 1){
         jugador1.putCard(campo.popElement(posCampoRow, posCampoColumn, cartaVacia));
     }
@@ -127,6 +135,12 @@ void CampoDeJuego::moverCartaCampoAJugador(int numeroJugador,
 }
 
 Jugador CampoDeJuego::getJugador(int jugador){
+    /**
+      Descripcion:
+        regresa el jugador para utilizar su mano u otra funcion
+      Entrada:
+        int jugador: numero de jugador 1 o 2
+    */
     if (jugador== 1){
         return jugador1;
     }
@@ -139,7 +153,10 @@ int CampoDeJuego::evaluaFilaHorizontal(int rowArray){
     /**
      * Descripcion:
      *  Evalua la fila horizontalmente
-     * DISCUTIR
+     * Entrada:
+     *  int rowArray: la hilera a la cual evaluar
+     * Salida:
+     *  int puntuacion: la puntuacion total de esa hilera
      */
     int puntuacion = 0;
     int puntuacionRow = 0;
@@ -172,7 +189,10 @@ int CampoDeJuego::evaluaFilaVertical(int columnArray){
     /**
      * Descripcion:
      *  Evalua la columna horizontalmente
-     * DISCUTIR
+     * Entradas:
+     *  int columnArray: la columna a la cual evaluar
+     * Salida:
+     *  int puntuacion la puntuacion total de la columna
      */
     int puntuacion = 0;
     int puntuacionColumn = 0;
@@ -232,11 +252,14 @@ int CampoDeJuego::evaluaCampoVertical(){
     return puntuacion;
 }
 
-//*************************************************************************
-//*************************************************************************
-
 
 string CampoDeJuego::imprimeMano(int jugador){
+    /**
+     * Descripcion:
+     *  imprime la mano de el jugador indicado
+     * Entrada:
+     *  int Jugador: el numero de jugador
+     */
     if(jugador == 1){
         return jugador1.imprimeMano();
     }
@@ -247,6 +270,10 @@ string CampoDeJuego::imprimeMano(int jugador){
 
 
 string CampoDeJuego::imprimeCampo(){
+    /**
+     * Descripcion:
+     *  imprime el campo en la consola, se utiliza para debugging
+     */
     string tiraFinal = "";
     for(int hilera = 0; hilera<3; hilera++){
         //tiraFinal+= "hilera numero: " + to_string(hilera) + "\n";
