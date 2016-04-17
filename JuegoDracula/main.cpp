@@ -55,7 +55,9 @@ using namespace std;
         cout<<matrizT.getElement(0,0).getColor()<<endl;
         cout<<"prueba"<<endl;
 
-        cout<<"La ruta de la carta es: "<<prueba.getRutaImagenCarta()<<endl;
+        //cout<<"La ruta de la carta es: "<<prueba.getRutaImagenCarta()<<endl;
+        prueba.getIcono();
+
 
         cout<<jugador.getCard(0).getColor()<<endl;
 

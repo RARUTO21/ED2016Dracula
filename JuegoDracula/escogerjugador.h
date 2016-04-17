@@ -23,6 +23,8 @@ private slots:
 
     void on_btnMazo_clicked();
 
+    void on_btnJugador1_clicked();
+
 private:
     Ui::EscogerJugador *ui;
 

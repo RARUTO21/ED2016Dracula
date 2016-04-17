@@ -270,43 +270,89 @@ Carta CampoDeJuego::getCartaRonda1Jugador(int jugador){
 }
 
 
+
 bool CampoDeJuego::evaluarGanadorEtapa1(){
     reparteCartas(1);
 
-
+    //Si el jugador1 tiene carta negra:
     if(getCartaRonda1Jugador(1).getColor() == "negro"){
+        //Si el jugador2 tiene carta roja: gana el jugador2
         if(getCartaRonda1Jugador(2).getColor()== "rojo"){
             jugador2.esJugadorInicial(true);
             return true;
         }
         else{
+            //Pero, si el jugador 2 tiene carta negra también: se rebaraja
             if(getCartaRonda1Jugador(2).getColor() == "negro"){
                 return false;
             }
         }
     }
     else{
-            //cj.getManoJugador(1).getCard(0).getColor()
+
+        //Si el jugador1 tiene un joker
+        if(getCartaRonda1Jugador(1).getNombre() == "joker"){
+            //Y el jugador2 también: va de nuevo: false
+            if(getCartaRonda1Jugador(2).getNombre() == "joker"){
+                return false;
+            }
+        }
+
+
+        //Si el jugador1 tiene carta roja:
         if(getCartaRonda1Jugador(1).getColor() == "rojo"){
+            //Si el jugador2 tiene carta negra: gana el jugador1
             if(getCartaRonda1Jugador(2).getColor() == "negro"){
                 jugador1.esJugadorInicial(true);
                 return true;
             }
             else{
+                //Si el jugador2 también tiene una carta roja:
                 if(getCartaRonda1Jugador(2).getColor() == "rojo"){
-                    //detallar esto: cuando dos cartas son rojas
-                    if(getCartaRonda1Jugador(1).getNombre() == "joker"){//cartaJugador1
-                        jugador2.esJugadorInicial(true);
-                        return true;
-                    }
-                    else{
-                        if(getCartaRonda1Jugador(2).getNombre() == "joker"){//cartaJugador2
+                    //Si el jugador1 tiene una carta de corazones
+                    if(getCartaRonda1Jugador(1).getSimbolo() == "corazones"){
+                        //Y el jugador2 también tiene una carta de corazones
+                        if(getCartaRonda1Jugador(2).getSimbolo() == "corazones"){
+                            //Si la carta de corazones del jugador1 tiene mayor valor que la carta del jugador2
+                            if(getCartaRonda1Jugador(1).getValor() > getCartaRonda1Jugador(2).getValor()){
+                                jugador1.esJugadorInicial(true);
+                                return true;
+                            }
+                            else{
+                                jugador2.esJugadorInicial(true);
+                                return true;
+                            }
+
+                        }
+                        else{
+                            //Si el jugador1 tiene carta de corazones y el jugador tiene carta de oros
                             jugador1.esJugadorInicial(true);
                             return true;
                         }
-                    }
 
-                    //if()
+
+                    }
+                    else{
+                        //El jugador1 tiene carta de oros
+                        if(getCartaRonda1Jugador(2).getSimbolo() == "corazones"){
+                            //Y el jugador2 tiene carta de corazones
+                            jugador2.esJugadorInicial(true);
+                            return true;
+                        }
+                        else{
+                            //O el jugador2 tiene también carta de oros
+                            if(getCartaRonda1Jugador(2).getSimbolo() == "oros"){
+                                if(getCartaRonda1Jugador(1).getValor() > getCartaRonda1Jugador(2).getValor()){
+                                    //El jugador1 tiene la carta de oros de mayor valor
+                                    jugador1.esJugadorInicial(true);
+                                }
+                                else{
+                                    //El jugador2 tiene la carta de mayor valor
+                                    jugador2.esJugadorInicial(true);
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }

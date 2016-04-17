@@ -37,7 +37,7 @@ public:
         EscogerJugador->setStyleSheet(QStringLiteral("background-image: url(:/other/cards/background.jpg);"));
         btnJugador1 = new QPushButton(EscogerJugador);
         btnJugador1->setObjectName(QStringLiteral("btnJugador1"));
-        btnJugador1->setEnabled(false);
+        btnJugador1->setEnabled(true);
         btnJugador1->setGeometry(QRect(390, 90, 81, 111));
         btnJugador1->setAutoFillBackground(false);
         btnJugador1->setStyleSheet(QStringLiteral(""));
