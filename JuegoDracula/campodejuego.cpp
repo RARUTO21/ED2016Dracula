@@ -42,6 +42,7 @@ void CampoDeJuego::reparteCartas(int etapa){
             jugador1.putCard(mazo.sacarCarta());
             jugador2.putCard(mazo.sacarCarta());
         }
+        campo.setElement(1,1,mazo.sacarCarta());
     }
 }
 
@@ -257,6 +258,22 @@ string CampoDeJuego::imprimeCampo(){
         }
     }
     return tiraFinal;
+}
+
+
+void CampoDeJuego::manoAMazo(int jugador){
+    /**
+      Descripcion:
+        devuelve la primera carta de un jugador al mazo
+      Entrada:
+        int jugador: cual jugador recoger carta
+    */
+    if(jugador == 1){
+        mazo.devolverCarta(jugador1.popCarta(0));
+    }
+    else if (jugador == 2){
+        mazo.devolverCarta(jugador2.popCarta(0));
+    }
 }
 
 //Anthony

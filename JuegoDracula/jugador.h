@@ -25,6 +25,7 @@ public:
     string imprimeMano();
     bool esJugadorInicial();
     void esJugadorInicial(bool valor);
+    Carta popCarta(int index);
 };
 
 #endif // JUGADOR_H

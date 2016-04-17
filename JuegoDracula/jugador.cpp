@@ -10,6 +10,7 @@ Jugador::Jugador(): Mano(4)
     jugadorInicial = false;
 }
 
+
 Jugador::~Jugador(){
     /**
       Destructor
@@ -56,6 +57,12 @@ void Jugador::delCarta(int posicion){
     */
     Mano.goToPos(posicion);
     Mano.remove();
+}
+
+Carta Jugador::popCarta(int index){
+    Carta cartaTemp = getCard(index);
+    delCarta(index);
+    return cartaTemp;
 }
 
 void Jugador::setOrientacion(string orientacion){

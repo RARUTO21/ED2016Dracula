@@ -34,11 +34,24 @@ using namespace std;
         cout<<"----------------termina campo de juego -----------------"<<endl;
 
         cout<<"----------------Pruebas de mover de mano a campo -----------------"<<endl;
+        campo.moverCartaJugadorACampo(1,0,1,0);
+        campo.moverCartaJugadorACampo(2,0,0,1);
+        campo.moverCartaJugadorACampo(1,0,2,1);
+        campo.moverCartaJugadorACampo(2,0,0,2);
+        campo.moverCartaJugadorACampo(1,0,1,2);
+        campo.moverCartaJugadorACampo(2,0,2,0);
         campo.moverCartaJugadorACampo(1,0,0,0);
+        campo.moverCartaJugadorACampo(2,0,2,2);
+
         cout<<"mano 1: \n" +campo.imprimeMano(1)<<endl;
         cout<<"mano 2: \n" + campo.imprimeMano(2)<<endl;
         cout<<campo.imprimeCampo()<<endl;
+
+        cout<<"puntuacion fila horizontal 0: "<<to_string(campo.evaluaFilaHorizontal(0))<<endl;
+        cout<<"puntuacion fila horizontal 1: "<<to_string(campo.evaluaFilaHorizontal(1))<<endl;
+        cout<<"puntuacion fila horizontal 2: "<<to_string(campo.evaluaFilaHorizontal(2))<<endl;
         cout<<"----------------Pruebas de mover de mano a campo -----------------"<<endl;
+
         Mazo miMazo;
         Jugador jugador;
 
