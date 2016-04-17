@@ -145,7 +145,7 @@ int CampoDeJuego::evaluaFilaHorizontal(int rowArray){
     int multiplicador = 1;
     if(campo.getElement(rowArray,0).getSimbolo() == campo.getElement(rowArray,1).getSimbolo() &&
             campo.getElement(rowArray,1).getSimbolo() == campo.getElement(rowArray,2).getSimbolo()){
-        multiplicador = 4;
+        multiplicador = 5;
     }
     else if(campo.getElement(rowArray,0).getColor() == campo.getElement(rowArray,1).getColor() &&
             campo.getElement(rowArray,1).getColor() == campo.getElement(rowArray,2).getColor()){
