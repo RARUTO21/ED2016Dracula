@@ -45,6 +45,7 @@ public:
     string imprimeMano(int jugador);
     string imprimeCampo();
     void manoAMazo(int jugador);
+    int getSizeMazo();
 
 
 };

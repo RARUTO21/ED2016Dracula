@@ -53,8 +53,15 @@
         <file>cards/q_corazones.png</file>
         <file>cards/q_flores.png</file>
         <file>cards/q_oros.png</file>
+<<<<<<< Updated upstream
         <file>cards/7_corazones.png</file>
         <file>cards/7_bastos.png</file>
+=======
+        <file>cards/7_bastos.png</file>
+        <file>cards/7_corazones.png</file>
+        <file>cards/no.png</file>
+        <file>cards/ok.png</file>
+>>>>>>> Stashed changes
     </qresource>
     <qresource prefix="/other">
         <file>cards/background.jpg</file>

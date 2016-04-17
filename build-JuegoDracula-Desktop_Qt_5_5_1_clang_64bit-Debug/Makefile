@@ -625,6 +625,7 @@ qrc_images.cpp: ../JuegoDracula/images.qrc \
 		../JuegoDracula/cards/undo.png \
 		../JuegoDracula/cards/background.jpg \
 		../JuegoDracula/cards/5_bastos.png \
+		../JuegoDracula/cards/7_bastos.png \
 		../JuegoDracula/cards/4_flores.png \
 		../JuegoDracula/cards/6_flores.png \
 		../JuegoDracula/cards/back.png \
@@ -635,8 +636,8 @@ qrc_images.cpp: ../JuegoDracula/images.qrc \
 		../JuegoDracula/cards/3_oros.png \
 		../JuegoDracula/cards/3_corazones.png \
 		../JuegoDracula/cards/4_bastos.png \
-		../JuegoDracula/cards/9_flores.png \
 		../JuegoDracula/cards/as_flores.png \
+		../JuegoDracula/cards/9_flores.png \
 		../JuegoDracula/cards/3_flores.png \
 		../JuegoDracula/cards/5_flores.png \
 		../JuegoDracula/cards/as_corazones.png \
@@ -654,6 +655,7 @@ qrc_images.cpp: ../JuegoDracula/images.qrc \
 		../JuegoDracula/cards/8_flores.png \
 		../JuegoDracula/cards/6_oros.png \
 		../JuegoDracula/cards/2_flores.png \
+		../JuegoDracula/cards/no.png \
 		../JuegoDracula/cards/6_corazones.png \
 		../JuegoDracula/cards/q_flores.png \
 		../JuegoDracula/cards/j_bastos.png \
@@ -661,8 +663,8 @@ qrc_images.cpp: ../JuegoDracula/images.qrc \
 		../JuegoDracula/cards/2_oros.png \
 		../JuegoDracula/cards/q_oros.png \
 		../JuegoDracula/cards/j_corazones.png \
-		../JuegoDracula/cards/7_of_spades.png \
 		../JuegoDracula/cards/joker_negro.png \
+		../JuegoDracula/cards/ok.png \
 		../JuegoDracula/cards/8_oros.png \
 		../JuegoDracula/cards/6_bastos.png \
 		../JuegoDracula/cards/8_bastos.png \
@@ -671,8 +673,8 @@ qrc_images.cpp: ../JuegoDracula/images.qrc \
 		../JuegoDracula/cards/5_corazones.png \
 		../JuegoDracula/cards/q_bastos.png \
 		../JuegoDracula/cards/4_oros.png \
+		../JuegoDracula/cards/7_corazones.png \
 		../JuegoDracula/cards/9_corazones.png \
-		../JuegoDracula/cards/7_of_hearts.png \
 		../JuegoDracula/cards/5_oros.png \
 		../JuegoDracula/cards/as_oros.png \
 		../JuegoDracula/cards/k_corazones.png \
@@ -855,11 +857,18 @@ moc_juego.cpp: ../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QMainWin
 		../../../Qt/5.5/clang_64/lib/QtCore.framework/Headers/qvector.h \
 		../../../Qt/5.5/clang_64/lib/QtCore.framework/Headers/qxmlstream.h \
 		../../../Qt/5.5/clang_64/lib/QtCore.framework/Headers/qtcoreversion.h \
+		../JuegoDracula/campodejuego.h \
+		../JuegoDracula/jugador.h \
+		../JuegoDracula/arraylist.h \
+		../JuegoDracula/mazo.h \
+		../JuegoDracula/matriz.h \
+		../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QPushButton \
 		../JuegoDracula/juego.h
 	/Users/macretinai7/Qt/5.5/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -I/Users/macretinai7/Qt/5.5/clang_64/mkspecs/macx-clang -I/Users/macretinai7/Desktop/ED2016Dracula/JuegoDracula -I/Users/macretinai7/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers -I/Users/macretinai7/Qt/5.5/clang_64/lib/QtGui.framework/Headers -I/Users/macretinai7/Qt/5.5/clang_64/lib/QtCore.framework/Headers -I. -F/Users/macretinai7/Qt/5.5/clang_64/lib ../JuegoDracula/juego.h -o moc_juego.cpp
 
 moc_escogerjugador.cpp: ../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QDialog \
 		../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		../JuegoDracula/campodejuego.h \
 		../JuegoDracula/jugador.h \
 		../JuegoDracula/carta.h \
 		../../../Qt/5.5/clang_64/lib/QtGui.framework/Headers/QIcon \
@@ -867,6 +876,10 @@ moc_escogerjugador.cpp: ../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers
 		../../../Qt/5.5/clang_64/lib/QtGui.framework/Headers/QPixmap \
 		../../../Qt/5.5/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
 		../JuegoDracula/arraylist.h \
+		../JuegoDracula/mazo.h \
+		../JuegoDracula/matriz.h \
+		../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QPushButton \
+		../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qpushbutton.h \
 		../JuegoDracula/escogerjugador.h
 	/Users/macretinai7/Qt/5.5/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -I/Users/macretinai7/Qt/5.5/clang_64/mkspecs/macx-clang -I/Users/macretinai7/Desktop/ED2016Dracula/JuegoDracula -I/Users/macretinai7/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers -I/Users/macretinai7/Qt/5.5/clang_64/lib/QtGui.framework/Headers -I/Users/macretinai7/Qt/5.5/clang_64/lib/QtCore.framework/Headers -I. -F/Users/macretinai7/Qt/5.5/clang_64/lib ../JuegoDracula/escogerjugador.h -o moc_escogerjugador.cpp
 
@@ -1073,18 +1086,19 @@ main.o: ../JuegoDracula/main.cpp ../JuegoDracula/juego.h \
 		../../../Qt/5.5/clang_64/lib/QtCore.framework/Headers/qvector.h \
 		../../../Qt/5.5/clang_64/lib/QtCore.framework/Headers/qxmlstream.h \
 		../../../Qt/5.5/clang_64/lib/QtCore.framework/Headers/qtcoreversion.h \
+		../JuegoDracula/campodejuego.h \
+		../JuegoDracula/jugador.h \
+		../JuegoDracula/arraylist.h \
+		../JuegoDracula/mazo.h \
+		../JuegoDracula/matriz.h \
+		../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QPushButton \
 		../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QApplication \
 		../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qapplication.h \
-		../JuegoDracula/mazo.h \
-		../JuegoDracula/arraylist.h \
 		../../../Qt/5.5/clang_64/lib/QtCore.framework/Headers/QTimer \
-		../JuegoDracula/jugador.h \
 		../JuegoDracula/escogerjugador.h \
 		../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QDialog \
 		../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
-		../JuegoDracula/escogerdireccion.h \
-		../JuegoDracula/matriz.h \
-		../JuegoDracula/campodejuego.h
+		../JuegoDracula/escogerdireccion.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../JuegoDracula/main.cpp
 
 juego.o: ../JuegoDracula/juego.cpp ../JuegoDracula/juego.h \
@@ -1259,6 +1273,12 @@ juego.o: ../JuegoDracula/juego.cpp ../JuegoDracula/juego.h \
 		../../../Qt/5.5/clang_64/lib/QtCore.framework/Headers/qvector.h \
 		../../../Qt/5.5/clang_64/lib/QtCore.framework/Headers/qxmlstream.h \
 		../../../Qt/5.5/clang_64/lib/QtCore.framework/Headers/qtcoreversion.h \
+		../JuegoDracula/campodejuego.h \
+		../JuegoDracula/jugador.h \
+		../JuegoDracula/arraylist.h \
+		../JuegoDracula/mazo.h \
+		../JuegoDracula/matriz.h \
+		../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QPushButton \
 		ui_juego.h \
 		../../../Qt/5.5/clang_64/lib/QtCore.framework/Headers/QtDebug \
 		../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qdialog.h
@@ -1282,12 +1302,15 @@ campodejuego.o: ../JuegoDracula/campodejuego.cpp ../JuegoDracula/campodejuego.h 
 		../../../Qt/5.5/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
 		../JuegoDracula/arraylist.h \
 		../JuegoDracula/mazo.h \
-		../JuegoDracula/matriz.h
+		../JuegoDracula/matriz.h \
+		../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QPushButton \
+		../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qpushbutton.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o campodejuego.o ../JuegoDracula/campodejuego.cpp
 
 escogerjugador.o: ../JuegoDracula/escogerjugador.cpp ../JuegoDracula/escogerjugador.h \
 		../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QDialog \
 		../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		../JuegoDracula/campodejuego.h \
 		../JuegoDracula/jugador.h \
 		../JuegoDracula/carta.h \
 		../../../Qt/5.5/clang_64/lib/QtGui.framework/Headers/QIcon \
@@ -1295,8 +1318,11 @@ escogerjugador.o: ../JuegoDracula/escogerjugador.cpp ../JuegoDracula/escogerjuga
 		../../../Qt/5.5/clang_64/lib/QtGui.framework/Headers/QPixmap \
 		../../../Qt/5.5/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
 		../JuegoDracula/arraylist.h \
-		ui_escogerjugador.h \
-		../JuegoDracula/mazo.h
+		../JuegoDracula/mazo.h \
+		../JuegoDracula/matriz.h \
+		../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QPushButton \
+		../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		ui_escogerjugador.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o escogerjugador.o ../JuegoDracula/escogerjugador.cpp
 
 escogerdireccion.o: ../JuegoDracula/escogerdireccion.cpp ../JuegoDracula/escogerdireccion.h \

@@ -48,6 +48,10 @@
     <property name="text">
      <string/>
     </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>:/cards/cards/no.png</normaloff>:/cards/cards/no.png</iconset>
+    </property>
     <property name="iconSize">
      <size>
       <width>90</width>
@@ -70,6 +74,10 @@
     <property name="text">
      <string/>
     </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>:/cards/cards/ok.png</normaloff>:/cards/cards/ok.png</iconset>
+    </property>
     <property name="iconSize">
      <size>
       <width>90</width>
@@ -91,6 +99,10 @@
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>:/cards/cards/no.png</normaloff>:/cards/cards/no.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -139,6 +151,10 @@
     <property name="text">
      <string/>
     </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>:/cards/cards/ok.png</normaloff>:/cards/cards/ok.png</iconset>
+    </property>
     <property name="iconSize">
      <size>
       <width>90</width>
@@ -160,6 +176,10 @@
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>:/cards/cards/ok.png</normaloff>:/cards/cards/ok.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -183,6 +203,10 @@
     <property name="text">
      <string/>
     </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>:/cards/cards/ok.png</normaloff>:/cards/cards/ok.png</iconset>
+    </property>
     <property name="iconSize">
      <size>
       <width>90</width>
@@ -205,6 +229,10 @@
     <property name="text">
      <string/>
     </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>:/cards/cards/no.png</normaloff>:/cards/cards/no.png</iconset>
+    </property>
     <property name="iconSize">
      <size>
       <width>90</width>
@@ -226,6 +254,10 @@
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>:/cards/cards/no.png</normaloff>:/cards/cards/no.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -336,94 +368,6 @@
     <property name="geometry">
      <rect>
       <x>340</x>
-      <y>550</y>
-      <width>81</width>
-      <height>111</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="iconSize">
-     <size>
-      <width>90</width>
-      <height>90</height>
-     </size>
-    </property>
-    <property name="flat">
-     <bool>false</bool>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="btnCarta4Jugador2">
-    <property name="geometry">
-     <rect>
-      <x>900</x>
-      <y>550</y>
-      <width>81</width>
-      <height>111</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="iconSize">
-     <size>
-      <width>90</width>
-      <height>90</height>
-     </size>
-    </property>
-    <property name="flat">
-     <bool>false</bool>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="btnCarta1Jugador2">
-    <property name="geometry">
-     <rect>
-      <x>570</x>
-      <y>550</y>
-      <width>81</width>
-      <height>111</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="iconSize">
-     <size>
-      <width>90</width>
-      <height>90</height>
-     </size>
-    </property>
-    <property name="flat">
-     <bool>false</bool>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="btnCarta2Jugador2">
-    <property name="geometry">
-     <rect>
-      <x>680</x>
-      <y>550</y>
-      <width>81</width>
-      <height>111</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="iconSize">
-     <size>
-      <width>90</width>
-      <height>90</height>
-     </size>
-    </property>
-    <property name="flat">
-     <bool>false</bool>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="btnCarta3Jugador2">
-    <property name="geometry">
-     <rect>
-      <x>790</x>
       <y>550</y>
       <width>81</width>
       <height>111</height>
@@ -667,9 +611,7 @@
      </palette>
     </property>
     <property name="font">
-     <font>
-      <pointsize>-1</pointsize>
-     </font>
+     <font/>
     </property>
     <property name="autoFillBackground">
      <bool>false</bool>
@@ -688,6 +630,94 @@
      </size>
     </property>
    </widget>
+   <widget class="QPushButton" name="btnCarta4Jugador2">
+    <property name="geometry">
+     <rect>
+      <x>900</x>
+      <y>550</y>
+      <width>81</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>90</width>
+      <height>90</height>
+     </size>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnCarta3Jugador2">
+    <property name="geometry">
+     <rect>
+      <x>790</x>
+      <y>550</y>
+      <width>81</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>90</width>
+      <height>90</height>
+     </size>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnCarta1Jugador2">
+    <property name="geometry">
+     <rect>
+      <x>570</x>
+      <y>550</y>
+      <width>81</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>90</width>
+      <height>90</height>
+     </size>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnCarta2Jugador2">
+    <property name="geometry">
+     <rect>
+      <x>680</x>
+      <y>550</y>
+      <width>81</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>90</width>
+      <height>90</height>
+     </size>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -695,7 +725,7 @@
      <x>0</x>
      <y>0</y>
      <width>992</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>

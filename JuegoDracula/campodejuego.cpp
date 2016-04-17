@@ -249,13 +249,13 @@ string CampoDeJuego::imprimeMano(int jugador){
 string CampoDeJuego::imprimeCampo(){
     string tiraFinal = "";
     for(int hilera = 0; hilera<3; hilera++){
-        tiraFinal+= "hilera numero: " + to_string(hilera) + "\n";
+        //tiraFinal+= "hilera numero: " + to_string(hilera) + "\n";
         for(int columna = 0; columna<3; columna++){
             string tira = "";
             tira += campo.getElement(hilera, columna).getSimbolo() + "|";
             tira += campo.getElement(hilera, columna).getColor() + "|";
             tira += campo.getElement(hilera, columna).getNombre() + "|";
-            tira += to_string(campo.getElement(hilera, columna).getValor());
+            //tira += to_string(campo.getElement(hilera, columna).getValor());
             tiraFinal += tira + "\n";
         }
     }
@@ -298,6 +298,10 @@ QIcon CampoDeJuego::getIcono(int jugador, int index, int hilera){
     else if(jugador == 3){
         return campo.getElement(hilera,index).getIcono();
     }
+}
+
+int CampoDeJuego::getSizeMazo(){
+    return mazo.getSize();
 }
 
 

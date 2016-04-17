@@ -86,52 +86,6 @@ string Juego::generarPathIcono(Carta carta){
 
 //-------------------------------------- ACCIONES DE LOS BOTONES (DON'T TOUCH THEM :) )-------------------------
 
-void Juego::on_btnMatriz1_clicked()
-{
-    qDebug()<<"Boton 1 de la matriz";
-    //ui->btnMatriz1->setIcon();
-    qDebug() << "";//url(:/other/cards/undo.png);//qApp->applicationDirPath().remove("/build-JuegoDracula-Desktop_Qt_5_5_1_clang_64bit-Debug/JuegoDracula.app/Contents/MacOS");
-}
-
-void Juego::on_btnMatriz2_clicked()
-{
-    qDebug()<<"Boton 2 de la matriz";
-}
-
-void Juego::on_btnMatriz3_clicked()
-{
-    qDebug()<<"Boton 3 de la matriz";
-}
-
-void Juego::on_btnMatriz4_clicked()
-{
-    qDebug()<<"Boton 4 de la matriz";
-}
-
-void Juego::on_btnMatriz5_clicked()
-{
-    qDebug()<<"Boton 5 de la matriz";
-}
-
-void Juego::on_btnMatriz6_clicked()
-{
-    qDebug()<<"Boton 6 de la matriz";
-}
-
-void Juego::on_btnMatriz7_clicked()
-{
-    qDebug()<<"Boton 7 de la matriz";
-}
-
-void Juego::on_btnMatriz8_clicked()
-{
-    qDebug()<<"Boton 8 de la matriz";
-}
-
-void Juego::on_btnMatriz9_clicked()
-{
-    qDebug()<<"Boton 9 de la matriz";
-}
 
 
 
@@ -144,24 +98,88 @@ void Juego::on_btnMazo_clicked()
     cout<<"----------------empieza campo de juego tests -----------------"<<endl;
     cout<<"mano 1: \n" +campo.imprimeMano(1)<<endl;
     cout<<"mano 2: \n" + campo.imprimeMano(2)<<endl;
-    cout<<campo.imprimeCampo()<<endl;
+    //cout<<campo.imprimeCampo()<<endl;
     cout<<"----------------termina campo de juego -----------------"<<endl;
 
     //ui->btnCarta1Jugador1->setIcon(campo.getIcono(1,0));
     //campo.getManoJugador(1).goToPos(0);
+
+
+    //std::cout<<campo.imprimeMano(1)<<endl;
+    //std::cout<<campo.imprimeMano(2)<<endl;
+
 
     ui->btnCarta1Jugador1->setIcon(campo.getIcono(1, 0));
     ui->btnCarta2Jugador1->setIcon(campo.getIcono(1, 1));
     ui->btnCarta3Jugador1->setIcon(campo.getIcono(1, 2));
     ui->btnCarta4Jugador1->setIcon(campo.getIcono(1, 3));
 
+
+
+
     ui->btnCarta1Jugador2->setIcon(campo.getIcono(2, 0));
     ui->btnCarta2Jugador2->setIcon(campo.getIcono(2, 1));
     ui->btnCarta3Jugador2->setIcon(campo.getIcono(2, 2));
     ui->btnCarta4Jugador2->setIcon(campo.getIcono(2, 3));
 
+
     ui->btnMatriz5->setIcon(campo.getIcono(3,1,1));
 
+    std::cout<<"El mazo tiene "<<campo.getSizeMazo()<<endl;
+
+    ui->btnMazo->setEnabled(false);
 
 }
 
+
+void Juego::on_btnCarta1Jugador1_clicked()
+{
+    cartaActual = 0;
+    jugadorActual = 1;
+}
+
+void Juego::on_btnCarta2Jugador1_clicked()
+{
+    cartaActual = 1;
+    jugadorActual = 1;
+
+}
+
+void Juego::on_btnCarta3Jugador1_clicked()
+{
+    cartaActual = 2;
+    jugadorActual = 1;
+}
+
+void Juego::on_btnCarta4Jugador1_clicked()
+{
+    cartaActual = 3;
+    jugadorActual = 1;
+}
+
+void Juego::on_btnCarta1Jugador2_clicked()
+{
+
+    cartaActual = 0;
+    jugadorActual = 2;
+}
+
+void Juego::on_btnCarta2Jugador2_clicked()
+{
+
+    cartaActual = 1;
+    jugadorActual = 2;
+}
+
+void Juego::on_btnCarta3Jugador2_clicked()
+{
+
+    cartaActual = 2;
+    jugadorActual = 2;
+}
+
+void Juego::on_btnCarta4Jugador2_clicked()
+{
+    cartaActual = 3;
+    jugadorActual = 2;
+}

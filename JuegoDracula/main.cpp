@@ -53,9 +53,9 @@ using namespace std;
         cout<<"mano 2: \n" + campo.imprimeMano(2)<<endl;
         cout<<campo.imprimeCampo()<<endl;
 
-        cout<<"puntuacion fila horizontal 0: "<<to_string(campo.evaluaFilaHorizontal(0))<<endl;
-        cout<<"puntuacion fila horizontal 1: "<<to_string(campo.evaluaFilaHorizontal(1))<<endl;
-        cout<<"puntuacion fila horizontal 2: "<<to_string(campo.evaluaFilaHorizontal(2))<<endl;
+        cout<<"puntuacion fila horizontal 0: "<<campo.evaluaFilaHorizontal(0)<<endl;
+        cout<<"puntuacion fila horizontal 1: "<<campo.evaluaFilaHorizontal(1)<<endl;
+        cout<<"puntuacion fila horizontal 2: "<<campo.evaluaFilaHorizontal(2)<<endl;
         cout<<"----------------Pruebas de mover de mano a campo -----------------"<<endl;
 
         Mazo miMazo;

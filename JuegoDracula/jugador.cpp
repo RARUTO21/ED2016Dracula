@@ -84,7 +84,7 @@ string Jugador::imprimeMano(){
         tira += Mano.getElement().getSimbolo() + "|";
         tira += Mano.getElement().getColor() + "|";
         tira += Mano.getElement().getNombre() + "|";
-        tira += to_string(Mano.getElement().getValor());
+        //tira += std::string::Mano.getElement().getValor();
         tiraFinal += tira + "\n";
         Mano.next();
     }
