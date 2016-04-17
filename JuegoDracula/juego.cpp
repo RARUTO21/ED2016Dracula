@@ -124,6 +124,23 @@ void Juego::evaluaCampo(){
     int resultadoHilera3 = campo.evaluaFilaHorizontal(2);
     ui->lblScoreRow2->setText(QString::number(resultadoHilera3));
 
+    int resultadoColumnas = resultadoColumna1 + resultadoColumna2 + resultadoColumna3;
+    int resultadoHileras = resultadoHilera1 + resultadoHilera2 + resultadoHilera3;
+
+    int diferencia;
+    if(resultadoColumnas > resultadoHileras){
+        diferencia = resultadoColumnas - resultadoHileras;
+        resultadoColumnas += diferencia;
+    }
+    else if(resultadoColumnas < resultadoHileras){
+        diferencia = resultadoHileras - resultadoColumnas;
+        resultadoHileras += diferencia;
+    }
+    else{
+        diferencia = 0;
+    }
+
+
 }
 
 /**
@@ -261,6 +278,9 @@ void Juego::on_btnMatriz1_clicked()
     ponerImagenCartasMano(jugadorActual);
     desbloquearBotonesJugador(1);
     desbloquearBotonesJugador(2);
+    if(campo.isFull()){
+        ui->btnEvalua->setEnabled(true);
+    }
 }
 
 void Juego::on_btnMatriz2_clicked()
@@ -270,6 +290,9 @@ void Juego::on_btnMatriz2_clicked()
     ponerImagenCartasMano(jugadorActual);
     desbloquearBotonesJugador(1);
     desbloquearBotonesJugador(2);
+    if(campo.isFull()){
+        ui->btnEvalua->setEnabled(true);
+    }
 }
 
 void Juego::on_btnMatriz3_clicked()
@@ -279,6 +302,9 @@ void Juego::on_btnMatriz3_clicked()
     ponerImagenCartasMano(jugadorActual);
     desbloquearBotonesJugador(1);
     desbloquearBotonesJugador(2);
+    if(campo.isFull()){
+        ui->btnEvalua->setEnabled(true);
+    }
 }
 
 void Juego::on_btnMatriz4_clicked()
@@ -288,6 +314,9 @@ void Juego::on_btnMatriz4_clicked()
     ponerImagenCartasMano(jugadorActual);
     desbloquearBotonesJugador(1);
     desbloquearBotonesJugador(2);
+    if(campo.isFull()){
+        ui->btnEvalua->setEnabled(true);
+    }
 }
 
 void Juego::on_btnMatriz6_clicked()
@@ -297,6 +326,9 @@ void Juego::on_btnMatriz6_clicked()
     ponerImagenCartasMano(jugadorActual);
     desbloquearBotonesJugador(1);
     desbloquearBotonesJugador(2);
+    if(campo.isFull()){
+        ui->btnEvalua->setEnabled(true);
+    }
 }
 
 void Juego::on_btnMatriz7_clicked()
@@ -306,6 +338,9 @@ void Juego::on_btnMatriz7_clicked()
     ponerImagenCartasMano(jugadorActual);
     desbloquearBotonesJugador(1);
     desbloquearBotonesJugador(2);
+    if(campo.isFull()){
+        ui->btnEvalua->setEnabled(true);
+    }
 }
 
 void Juego::on_btnMatriz8_clicked()
@@ -315,6 +350,9 @@ void Juego::on_btnMatriz8_clicked()
     ponerImagenCartasMano(jugadorActual);
     desbloquearBotonesJugador(1);
     desbloquearBotonesJugador(2);
+    if(campo.isFull()){
+        ui->btnEvalua->setEnabled(true);
+    }
 }
 
 void Juego::on_btnMatriz9_clicked()
@@ -324,5 +362,24 @@ void Juego::on_btnMatriz9_clicked()
     ponerImagenCartasMano(jugadorActual);
     desbloquearBotonesJugador(1);
     desbloquearBotonesJugador(2);
+    if(campo.isFull()){
+        ui->btnEvalua->setEnabled(true);
+    }
 }
 
+
+void Juego::on_btnEvalua_clicked()
+{
+    evaluaCampo();
+}
+
+
+void Juego::on_ImprimeConsola_clicked()
+{
+    cout<<"----------------empieza campo de juego tests -----------------"<<endl;
+    cout<<"mano 1: \n" +campo.imprimeMano(1)<<endl;
+    cout<<"mano 2: \n" + campo.imprimeMano(2)<<endl;
+    cout<<campo.imprimeCampo()<<endl;
+    cout<<campo.isFull()<<endl;
+    cout<<"----------------termina campo de juego -----------------"<<endl;
+}

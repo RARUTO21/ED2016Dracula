@@ -53,6 +53,7 @@ public:
     string imprimeCampo();
     void manoAMazo(int jugador);
     int getSizeMazo();
+    int evaluaDiferencia();
 
 
 };

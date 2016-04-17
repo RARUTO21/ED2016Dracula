@@ -9,7 +9,7 @@ private:
     int espaciosVacios;
 public:
     Matriz(){
-        espaciosVacios = 6;
+        espaciosVacios = 9;
     }
 
     void setElement(int row, int column, Carta element){
@@ -20,7 +20,9 @@ public:
          *  element: el elemento a introducir
          */
         matriz[row][column] = element;
-        espaciosVacios--;
+        if(element.getNombre() != "vacio"){
+            espaciosVacios--;
+        }
     }
 
     Carta popElement(int row, int column, Carta elementNull){
@@ -52,7 +54,7 @@ public:
     }
 
     bool isFull(){
-        if(espaciosVacios == 0){
+        if(espaciosVacios <= 0){
             return true;
         }
         else{

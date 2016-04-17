@@ -255,6 +255,27 @@ int CampoDeJuego::evaluaCampoVertical(){
     return puntuacion;
 }
 
+int CampoDeJuego::evaluaDiferencia(){
+    /**
+     * Descripcion:
+     *  evalua la diferencia de puntaje entre el jugador vertical y el horizontal
+     * Salida:
+     *  int diferencia: la diferencia
+     */
+    int puntuacion1 = evaluaCampoHorizontal();
+    int puntuacion2 = evaluaCampoVertical();
+    int diferencia;
+    if(puntuacion1 > puntuacion2){
+        diferencia = puntuacion1 - puntuacion2;
+    }
+    else if(puntuacion1 < puntuacion2){
+        diferencia = puntuacion2 - puntuacion1;
+    }
+    else{
+        diferencia = 0;
+    }
+
+}
 
 string CampoDeJuego::imprimeMano(int jugador){
     /**
@@ -279,13 +300,13 @@ string CampoDeJuego::imprimeCampo(){
      */
     string tiraFinal = "";
     for(int hilera = 0; hilera<3; hilera++){
-        //tiraFinal+= "hilera numero: " + to_string(hilera) + "\n";
+        tiraFinal+= "hilera numero: " + to_string(hilera) + "\n";
         for(int columna = 0; columna<3; columna++){
             string tira = "";
             tira += campo.getElement(hilera, columna).getSimbolo() + "|";
             tira += campo.getElement(hilera, columna).getColor() + "|";
             tira += campo.getElement(hilera, columna).getNombre() + "|";
-            //tira += to_string(campo.getElement(hilera, columna).getValor());
+            tira += to_string(campo.getElement(hilera, columna).getValor());
             tiraFinal += tira + "\n";
         }
     }
