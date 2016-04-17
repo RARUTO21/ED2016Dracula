@@ -77,7 +77,7 @@ E
          */
 
         //Este bloque crea las cartas de un palo, desde As hasta la K
-        Carta as(pColor,pSimbolo,"As",1);
+        Carta as(pColor,pSimbolo,"as",1);
         Carta dos(pColor,pSimbolo,"2",2);
         Carta tres(pColor,pSimbolo,"3",3);
         Carta cuatro(pColor,pSimbolo,"4",4);

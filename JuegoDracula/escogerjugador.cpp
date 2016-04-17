@@ -18,7 +18,7 @@ EscogerJugador::EscogerJugador(QWidget *parent) :
 
     //campo.reparteCartas(1);
 
-    std::cout<<"hola mundo"<<endl;
+    //std::cout<<"hola mundo"<<endl;
 
 
     //std::cout<<"Carta del jugador1: Nombre:"<<campo.getJugador(1).getCard(0).getNombre()<< "simbolo: "<<campo.getJugador(1).getCard(0).getSimbolo()<<endl;

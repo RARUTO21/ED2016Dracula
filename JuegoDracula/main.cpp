@@ -17,9 +17,6 @@ using namespace std;
     {
         QApplication a(argc, argv);
 
-        CampoDeJuego campo;
-        campo.reparteCartas(1);
-
         //std::cout<<campo.getCartaRonda1Jugador(1).getNombre()<<endl;
 
         EscogerJugador pantallaInicio;
@@ -32,7 +29,7 @@ using namespace std;
         w.show();
 
 
-        /*
+
         cout<<"----------------empieza campo de juego tests -----------------"<<endl;
         CampoDeJuego campo;
         campo.reparteCartas(2);
@@ -81,7 +78,7 @@ using namespace std;
 
 
         cout<<jugador.getCard(0).getColor()<<endl;
-        */
+
         return a.exec();
         //return 0;
     }

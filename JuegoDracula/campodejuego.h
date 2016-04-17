@@ -42,8 +42,6 @@ public:
     void ponerIcono(QPushButton boton,Carta carta);
     QIcon getIcono(int jugador, int index);
 
-    //string imprimeMano(int jugador);
-    //string imprimeCampo();
     string imprimeMano(int jugador);
     string imprimeCampo();
     void manoAMazo(int jugador);

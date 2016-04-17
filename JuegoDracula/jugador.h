@@ -22,7 +22,7 @@ public:
     void setOrientacion(string orientacion);
     int getSizeMano();
     ArrayList<Carta> getMano();
-    //string imprimeMano();
+    string imprimeMano();
     bool esJugadorInicial();
     void esJugadorInicial(bool valor);
     Carta popCarta(int index);

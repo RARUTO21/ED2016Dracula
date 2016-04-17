@@ -235,7 +235,7 @@ int CampoDeJuego::evaluaCampoVertical(){
 //*************************************************************************
 //*************************************************************************
 
-/*
+
 string CampoDeJuego::imprimeMano(int jugador){
     if(jugador == 1){
         return jugador1.imprimeMano();
@@ -243,9 +243,9 @@ string CampoDeJuego::imprimeMano(int jugador){
     else if (jugador == 2){
         return jugador2.imprimeMano();
     }
-}*/
+}
 
-/*
+
 string CampoDeJuego::imprimeCampo(){
     string tiraFinal = "";
     for(int hilera = 0; hilera<3; hilera++){
@@ -260,7 +260,7 @@ string CampoDeJuego::imprimeCampo(){
         }
     }
     return tiraFinal;
-}*/
+}
 
 
 
@@ -290,13 +290,11 @@ void CampoDeJuego::ponerIcono(QPushButton boton, Carta carta){
 //Devuelve le icono desde el campo de juego
 QIcon CampoDeJuego::getIcono(int jugador, int index){
     if(jugador == 1){
-
-        jugador1.getMano().goToPos(index);
-        return jugador1.getMano().getElement().getIcono();
+        return jugador1.getCard(index).getIcono();
     }
-    else{
+    else if(jugador == 2){
         jugador2.getMano().goToPos(index);
-        return jugador2.getMano().getElement().getIcono();
+        return jugador2.getCard(index).getIcono();
     }
 }
 

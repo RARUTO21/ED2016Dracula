@@ -75,7 +75,7 @@ void Jugador::setOrientacion(string orientacion){
     Orientacion = orientacion;
 }
 
-/*
+
 string Jugador::imprimeMano(){
     Mano.goToStart();
     string tiraFinal;
@@ -90,7 +90,7 @@ string Jugador::imprimeMano(){
     }
     Mano.goToStart();
     return tiraFinal;
-}*/
+}
 
 int Jugador::getSizeMano(){
     int size = Mano.getSize();
