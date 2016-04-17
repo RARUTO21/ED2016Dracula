@@ -46,6 +46,9 @@ public:
             rutaImagenCarta.append(pColor);
             rutaImagenCarta.append(".png"); */
         }
+        else if(pNombre == "vacio"){
+            rutaImagenCarta += "cartaVacia";
+        }
         else{
             rutaImagenCarta += (pNombre + "_" + pSimbolo + ".png");
             /*

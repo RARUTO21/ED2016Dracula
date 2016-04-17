@@ -57,6 +57,7 @@
         <file>cards/7_bastos.png</file>
         <file>cards/no.png</file>
         <file>cards/ok.png</file>
+        <file>cards/cartaVacia.png</file>
     </qresource>
     <qresource prefix="/other">
         <file>cards/background.jpg</file>
