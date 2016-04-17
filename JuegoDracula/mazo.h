@@ -120,11 +120,15 @@ E
         srand(time(0)); //inicializa el random de acuerdo al tiempo en cero.
 
         //Ciclo que intercambia cartas hasta que se hayan realizado 27 mezclas.
-        for(int mezclas= 27; mezclas>0; mezclas--){
+        for(int mezclas= 25; mezclas>0; mezclas--){
 
             //variables para obtener dos posiciones aleatorias en el mazo
             int posicion1= rand()%53;
             int posicion2= rand()%53;
+            while(posicion1==posicion2){
+                posicion1= rand()%53;
+                posicion2= rand()%53;
+            }
 
             /*Variables temporales para guardar los elementos que se encuentran en las posiciones
             obtenidas anteriormente
@@ -136,8 +140,10 @@ E
 
             //Intercambio de los dos elementos.
             Baraja.goToPos(posicion2);
+            Baraja.remove();
             Baraja.insert(temp1);
             Baraja.goToPos(posicion1);
+            Baraja.remove();
             Baraja.insert(temp2);
         }
     }

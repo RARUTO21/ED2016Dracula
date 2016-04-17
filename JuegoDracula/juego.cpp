@@ -7,6 +7,7 @@
 
 #include "qdialog.h"
 #include <iostream>
+using namespace std;
 
 //Atributos para manejar el reloj del juego
 int segundos = 0;
@@ -140,14 +141,21 @@ void Juego::on_btnMazo_clicked()
 {
     campo.reparteCartas(2);
 
+    cout<<"----------------empieza campo de juego tests -----------------"<<endl;
+    cout<<"mano 1: \n" +campo.imprimeMano(1)<<endl;
+    cout<<"mano 2: \n" + campo.imprimeMano(2)<<endl;
+    cout<<campo.imprimeCampo()<<endl;
+    cout<<"----------------termina campo de juego -----------------"<<endl;
+
     //ui->btnCarta1Jugador1->setIcon(campo.getIcono(1,0));
     //campo.getManoJugador(1).goToPos(0);
+
     ui->btnCarta1Jugador1->setIcon(campo.getIcono(1, 0));
     ui->btnCarta2Jugador1->setIcon(campo.getIcono(1, 1));
     ui->btnCarta3Jugador1->setIcon(campo.getIcono(1, 2));
     ui->btnCarta4Jugador1->setIcon(campo.getIcono(1, 3));
 
-    ui->btnCarta1Jugador2->setIcon(campo.getIcono(2, 0));
+    //ui->btnCarta1Jugador2->setIcon(campo.getIcono(2, 0));
     //ui->btnCarta2Jugador2->setIcon(campo.getIcono(2, 1));
     ui->btnCarta3Jugador2->setIcon(campo.getIcono(2, 2));
     //ui->btnCarta4Jugador2->setIcon(campo.getIcono(2, 3));

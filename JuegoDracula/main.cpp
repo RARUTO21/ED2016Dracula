@@ -19,25 +19,26 @@ using namespace std;
 
         //std::cout<<campo.getCartaRonda1Jugador(1).getNombre()<<endl;
 
-        EscogerJugador pantallaInicio;
-        pantallaInicio.exec();
+        //EscogerJugador pantallaInicio;
+        //pantallaInicio.exec();
 
-        EscogerDireccion pantallaDireccion;
-        pantallaDireccion.exec();
+        //EscogerDireccion pantallaDireccion;
+        //pantallaDireccion.exec();
 
         Juego w;
         w.show();
 
 
-
+        /*
         cout<<"----------------empieza campo de juego tests -----------------"<<endl;
         CampoDeJuego campo;
-        campo.reparteCartas(2);
+
         cout<<"mano 1: \n" +campo.imprimeMano(1)<<endl;
         cout<<"mano 2: \n" + campo.imprimeMano(2)<<endl;
         cout<<campo.imprimeCampo()<<endl;
         cout<<"----------------termina campo de juego -----------------"<<endl;
-
+        */
+        /*
         cout<<"----------------Pruebas de mover de mano a campo -----------------"<<endl;
         campo.moverCartaJugadorACampo(1,0,1,0);
         campo.moverCartaJugadorACampo(2,0,0,1);
@@ -78,7 +79,7 @@ using namespace std;
 
 
         cout<<jugador.getCard(0).getColor()<<endl;
-
+        */
         return a.exec();
         //return 0;
     }
