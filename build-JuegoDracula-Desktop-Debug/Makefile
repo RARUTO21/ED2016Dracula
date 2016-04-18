@@ -53,20 +53,24 @@ SOURCES       = ../JuegoDracula/main.cpp \
 		../JuegoDracula/jugador.cpp \
 		../JuegoDracula/campodejuego.cpp \
 		../JuegoDracula/escogerjugador.cpp \
-		../JuegoDracula/escogerdireccion.cpp qrc_images.cpp \
+		../JuegoDracula/escogerdireccion.cpp \
+		../JuegoDracula/ganador.cpp qrc_images.cpp \
 		moc_juego.cpp \
 		moc_escogerjugador.cpp \
-		moc_escogerdireccion.cpp
+		moc_escogerdireccion.cpp \
+		moc_ganador.cpp
 OBJECTS       = main.o \
 		juego.o \
 		jugador.o \
 		campodejuego.o \
 		escogerjugador.o \
 		escogerdireccion.o \
+		ganador.o \
 		qrc_images.o \
 		moc_juego.o \
 		moc_escogerjugador.o \
-		moc_escogerdireccion.o
+		moc_escogerdireccion.o \
+		moc_ganador.o
 DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		/usr/lib/qt/mkspecs/common/unix.conf \
 		/usr/lib/qt/mkspecs/common/linux.conf \
@@ -210,12 +214,14 @@ DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		../JuegoDracula/campodejuego.h \
 		../JuegoDracula/escogerjugador.h \
 		../JuegoDracula/escogerdireccion.h \
-		../JuegoDracula/matriz.h ../JuegoDracula/main.cpp \
+		../JuegoDracula/matriz.h \
+		../JuegoDracula/ganador.h ../JuegoDracula/main.cpp \
 		../JuegoDracula/juego.cpp \
 		../JuegoDracula/jugador.cpp \
 		../JuegoDracula/campodejuego.cpp \
 		../JuegoDracula/escogerjugador.cpp \
-		../JuegoDracula/escogerdireccion.cpp
+		../JuegoDracula/escogerdireccion.cpp \
+		../JuegoDracula/ganador.cpp
 QMAKE_TARGET  = JuegoDracula
 DESTDIR       = 
 TARGET        = JuegoDracula
@@ -224,7 +230,7 @@ TARGET        = JuegoDracula
 first: all
 ####### Build rules
 
-$(TARGET): ui_juego.h ui_escogerjugador.h ui_escogerdireccion.h $(OBJECTS)  
+$(TARGET): ui_juego.h ui_escogerjugador.h ui_escogerdireccion.h ui_ganador.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: ../JuegoDracula/JuegoDracula.pro /usr/lib/qt/mkspecs/linux-g++/qmake.conf /usr/lib/qt/mkspecs/features/spec_pre.prf \
@@ -523,9 +529,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../JuegoDracula/images.qrc $(DISTDIR)/
-	$(COPY_FILE) --parents ../JuegoDracula/juego.h ../JuegoDracula/carta.h ../JuegoDracula/mazo.h ../JuegoDracula/arraylist.h ../JuegoDracula/jugador.h ../JuegoDracula/campodejuego.h ../JuegoDracula/escogerjugador.h ../JuegoDracula/escogerdireccion.h ../JuegoDracula/matriz.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../JuegoDracula/main.cpp ../JuegoDracula/juego.cpp ../JuegoDracula/jugador.cpp ../JuegoDracula/campodejuego.cpp ../JuegoDracula/escogerjugador.cpp ../JuegoDracula/escogerdireccion.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../JuegoDracula/juego.ui ../JuegoDracula/escogerjugador.ui ../JuegoDracula/escogerdireccion.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../JuegoDracula/juego.h ../JuegoDracula/carta.h ../JuegoDracula/mazo.h ../JuegoDracula/arraylist.h ../JuegoDracula/jugador.h ../JuegoDracula/campodejuego.h ../JuegoDracula/escogerjugador.h ../JuegoDracula/escogerdireccion.h ../JuegoDracula/matriz.h ../JuegoDracula/ganador.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../JuegoDracula/main.cpp ../JuegoDracula/juego.cpp ../JuegoDracula/jugador.cpp ../JuegoDracula/campodejuego.cpp ../JuegoDracula/escogerjugador.cpp ../JuegoDracula/escogerdireccion.cpp ../JuegoDracula/ganador.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../JuegoDracula/juego.ui ../JuegoDracula/escogerjugador.ui ../JuegoDracula/escogerdireccion.ui ../JuegoDracula/ganador.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -550,6 +556,7 @@ compiler_rcc_make_all: qrc_images.cpp
 compiler_rcc_clean:
 	-$(DEL_FILE) qrc_images.cpp
 qrc_images.cpp: ../JuegoDracula/images.qrc \
+		../JuegoDracula/logo.png \
 		../JuegoDracula/cards/undo.png \
 		../JuegoDracula/cards/background.jpg \
 		../JuegoDracula/cards/5_bastos.png \
@@ -612,15 +619,16 @@ qrc_images.cpp: ../JuegoDracula/images.qrc \
 		../JuegoDracula/cards/10_flores.png
 	/usr/lib/qt/bin/rcc -name images ../JuegoDracula/images.qrc -o qrc_images.cpp
 
-compiler_moc_header_make_all: moc_juego.cpp moc_escogerjugador.cpp moc_escogerdireccion.cpp
+compiler_moc_header_make_all: moc_juego.cpp moc_escogerjugador.cpp moc_escogerdireccion.cpp moc_ganador.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_juego.cpp moc_escogerjugador.cpp moc_escogerdireccion.cpp
+	-$(DEL_FILE) moc_juego.cpp moc_escogerjugador.cpp moc_escogerdireccion.cpp moc_ganador.cpp
 moc_juego.cpp: ../JuegoDracula/carta.h \
 		../JuegoDracula/campodejuego.h \
 		../JuegoDracula/jugador.h \
 		../JuegoDracula/arraylist.h \
 		../JuegoDracula/mazo.h \
 		../JuegoDracula/matriz.h \
+		../JuegoDracula/ganador.h \
 		../JuegoDracula/juego.h
 	/usr/lib/qt/bin/moc $(DEFINES) -I/usr/lib/qt/mkspecs/linux-g++ -I/home/ema/ED2016Dracula/JuegoDracula -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I. -I/usr/include/c++/5.3.0 -I/usr/include/c++/5.3.0/x86_64-unknown-linux-gnu -I/usr/include/c++/5.3.0/backward -I/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/include-fixed -I/usr/include ../JuegoDracula/juego.h -o moc_juego.cpp
 
@@ -636,11 +644,14 @@ moc_escogerjugador.cpp: ../JuegoDracula/campodejuego.h \
 moc_escogerdireccion.cpp: ../JuegoDracula/escogerdireccion.h
 	/usr/lib/qt/bin/moc $(DEFINES) -I/usr/lib/qt/mkspecs/linux-g++ -I/home/ema/ED2016Dracula/JuegoDracula -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I. -I/usr/include/c++/5.3.0 -I/usr/include/c++/5.3.0/x86_64-unknown-linux-gnu -I/usr/include/c++/5.3.0/backward -I/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/include-fixed -I/usr/include ../JuegoDracula/escogerdireccion.h -o moc_escogerdireccion.cpp
 
+moc_ganador.cpp: ../JuegoDracula/ganador.h
+	/usr/lib/qt/bin/moc $(DEFINES) -I/usr/lib/qt/mkspecs/linux-g++ -I/home/ema/ED2016Dracula/JuegoDracula -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I. -I/usr/include/c++/5.3.0 -I/usr/include/c++/5.3.0/x86_64-unknown-linux-gnu -I/usr/include/c++/5.3.0/backward -I/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/include-fixed -I/usr/include ../JuegoDracula/ganador.h -o moc_ganador.cpp
+
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_juego.h ui_escogerjugador.h ui_escogerdireccion.h
+compiler_uic_make_all: ui_juego.h ui_escogerjugador.h ui_escogerdireccion.h ui_ganador.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_juego.h ui_escogerjugador.h ui_escogerdireccion.h
+	-$(DEL_FILE) ui_juego.h ui_escogerjugador.h ui_escogerdireccion.h ui_ganador.h
 ui_juego.h: ../JuegoDracula/juego.ui
 	/usr/lib/qt/bin/uic ../JuegoDracula/juego.ui -o ui_juego.h
 
@@ -649,6 +660,9 @@ ui_escogerjugador.h: ../JuegoDracula/escogerjugador.ui
 
 ui_escogerdireccion.h: ../JuegoDracula/escogerdireccion.ui
 	/usr/lib/qt/bin/uic ../JuegoDracula/escogerdireccion.ui -o ui_escogerdireccion.h
+
+ui_ganador.h: ../JuegoDracula/ganador.ui
+	/usr/lib/qt/bin/uic ../JuegoDracula/ganador.ui -o ui_ganador.h
 
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
@@ -667,6 +681,7 @@ main.o: ../JuegoDracula/main.cpp ../JuegoDracula/juego.h \
 		../JuegoDracula/arraylist.h \
 		../JuegoDracula/mazo.h \
 		../JuegoDracula/matriz.h \
+		../JuegoDracula/ganador.h \
 		../JuegoDracula/escogerjugador.h \
 		../JuegoDracula/escogerdireccion.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../JuegoDracula/main.cpp
@@ -678,6 +693,7 @@ juego.o: ../JuegoDracula/juego.cpp ../JuegoDracula/juego.h \
 		../JuegoDracula/arraylist.h \
 		../JuegoDracula/mazo.h \
 		../JuegoDracula/matriz.h \
+		../JuegoDracula/ganador.h \
 		ui_juego.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o juego.o ../JuegoDracula/juego.cpp
 
@@ -708,6 +724,10 @@ escogerdireccion.o: ../JuegoDracula/escogerdireccion.cpp ../JuegoDracula/escoger
 		ui_escogerdireccion.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o escogerdireccion.o ../JuegoDracula/escogerdireccion.cpp
 
+ganador.o: ../JuegoDracula/ganador.cpp ../JuegoDracula/ganador.h \
+		ui_ganador.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ganador.o ../JuegoDracula/ganador.cpp
+
 qrc_images.o: qrc_images.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_images.o qrc_images.cpp
 
@@ -719,6 +739,9 @@ moc_escogerjugador.o: moc_escogerjugador.cpp
 
 moc_escogerdireccion.o: moc_escogerdireccion.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_escogerdireccion.o moc_escogerdireccion.cpp
+
+moc_ganador.o: moc_ganador.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_ganador.o moc_ganador.cpp
 
 ####### Install
 

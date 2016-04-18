@@ -62,5 +62,6 @@
     <qresource prefix="/other">
         <file>cards/background.jpg</file>
         <file>cards/undo.png</file>
+        <file>logo.png</file>
     </qresource>
 </RCC>

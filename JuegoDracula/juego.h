@@ -6,6 +6,7 @@
 #include "qpushbutton.h"
 #include <QtCore>
 #include "campodejuego.h"
+#include "ganador.h"
 
 
 namespace Ui {
@@ -27,6 +28,7 @@ public:
     void ponerImagenCartasMano(int jugador);
     //void habilitarEspaciosDisponibles();
     void habilitarEspaciosIniciales();
+    void deshabilitarEspacios(int jugadorJugandoActualmente);
 
 
     void evaluaCampo();

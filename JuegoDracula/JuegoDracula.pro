@@ -17,7 +17,8 @@ SOURCES += main.cpp\
         jugador.cpp \
     campodejuego.cpp \
     escogerjugador.cpp \
-    escogerdireccion.cpp
+    escogerdireccion.cpp \
+    ganador.cpp
 
 HEADERS  += juego.h \
     carta.h \
@@ -27,12 +28,14 @@ HEADERS  += juego.h \
     campodejuego.h \
     escogerjugador.h \
     escogerdireccion.h \
-    matriz.h
+    matriz.h \
+    ganador.h
 
 
 FORMS    += juego.ui \
     escogerjugador.ui \
-    escogerdireccion.ui
+    escogerdireccion.ui \
+    ganador.ui
 
 RESOURCES += \
     images.qrc
