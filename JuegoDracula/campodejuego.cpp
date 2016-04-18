@@ -178,13 +178,19 @@ int CampoDeJuego::evaluaFilaHorizontal(int rowArray){
         multiplicador = 2;
     }
     for(int columnArray = 0; columnArray < 3; columnArray++){
-        puntuacionRow += campo.getElement(rowArray, columnArray).getValor();
-        if(campo.getElement(rowArray, columnArray).getSimbolo() == "Joker"){
+        if(campo.getElement(rowArray, columnArray).getNombre() == "j"){
+            puntuacionRow +=0;
+        }
+        else{
+            puntuacionRow += campo.getElement(rowArray, columnArray).getValor();
+        }
+        if(campo.getElement(rowArray, columnArray).getNombre() == "joker"){
             multiplicador = 0;
         }
     }
-    puntuacionRow *= multiplicador;
     puntuacion += puntuacionRow;
+    puntuacion *= multiplicador;
+
     return puntuacion;
 }
 
@@ -214,13 +220,19 @@ int CampoDeJuego::evaluaFilaVertical(int columnArray){
         multiplicador = 2;
     }
     for(int rowArray = 0; rowArray < 3; rowArray++){
-        puntuacionColumn += campo.getElement(rowArray,columnArray).getValor();
-        if(campo.getElement(rowArray,columnArray).getSimbolo() == "Joker"){
+        if(campo.getElement(rowArray,columnArray).getNombre() == "q"){
+            puntuacionColumn +=0;
+        }
+        else{
+            puntuacionColumn += campo.getElement(rowArray,columnArray).getValor();
+        }
+        if(campo.getElement(rowArray,columnArray).getNombre() == "joker"){
             multiplicador = 0;
         }
     }
-    puntuacionColumn *= multiplicador;
     puntuacion += puntuacionColumn;
+    puntuacion *= multiplicador;
+
 
     return puntuacion;
 }
