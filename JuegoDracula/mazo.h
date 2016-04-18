@@ -156,13 +156,18 @@ E
          Salidas: Una carta.
          */
 
+        Baraja.goToEnd();
+        Carta result = Baraja.remove();
+        size--;
+        Baraja.goToStart();
+        /**
         srand(time(0));
         int posicion= rand()%53;
         Baraja.goToPos(posicion);
         Carta result= Baraja.remove();
         Baraja.goToStart();
         size--;
-
+        */
         return result;
         
     }

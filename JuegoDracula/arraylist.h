@@ -87,7 +87,7 @@ class ArrayList
         }
 
         void goToEnd(){
-            pos = size;
+            pos = size-1;
         }
 
         void goToPos(int pPos)throw(runtime_error){
