@@ -74,7 +74,6 @@ private slots:
 
     void on_btnEvalua_clicked();
 
-
     void on_ImprimeConsola_clicked();
 
 private:

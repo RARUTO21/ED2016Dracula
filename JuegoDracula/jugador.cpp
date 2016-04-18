@@ -113,3 +113,6 @@ void Jugador::appendCarta(Carta carta){
     Mano.append(carta);
 }
 
+void Jugador::clearMano(){
+    Mano.clear();
+}

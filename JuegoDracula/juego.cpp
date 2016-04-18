@@ -205,7 +205,7 @@ void Juego::on_btnMazo_clicked()
 
     std::cout<<"El mazo tiene "<<campo.getSizeMazo()<<endl;
 
-    ui->btnMazo->setEnabled(false);
+    //ui->btnMazo->setEnabled(false);
 
 }
 

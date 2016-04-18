@@ -27,6 +27,7 @@ public:
     void esJugadorInicial(bool valor);
     Carta popCarta(int index);
     void appendCarta(Carta carta);
+    void clearMano();
 };
 
 #endif // JUGADOR_H

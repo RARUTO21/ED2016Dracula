@@ -39,9 +39,16 @@ void CampoDeJuego::reparteCartas(int etapa){
     }
 
     else if(etapa == 2){
+        jugador1.clearMano();
+        jugador2.clearMano();
         for(int contador = 0; contador < 4; ++contador){
             jugador1.putCard(mazo.sacarCarta());
             jugador2.putCard(mazo.sacarCarta());
+        }
+        for(int hilera = 0; hilera < 3; hilera++){
+            for(int columna = 0; columna< 3; columna++){
+                campo.setElement(hilera,columna,cartaVacia);
+            }
         }
         campo.setElement(1,1,mazo.sacarCarta());
     }
