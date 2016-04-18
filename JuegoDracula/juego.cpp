@@ -24,6 +24,9 @@ Juego::Juego(QWidget *parent) :
 
     //Inicialización de la variable reloj que está declarada en juego.h
     reloj = new QTimer(this);
+    rondaActual = 0;
+    puntuacionJugador1 = 0;
+    puntuacionJugador2 = 0;
 
     //Método que conecta 2 objetos, en este caso el reloj y this (el widget) con sus respectivas señales:
     //reloj: Señal = timeout() ------  this(widget): Señal = miSlot (método que recibe el timeout)
@@ -140,7 +143,35 @@ void Juego::evaluaCampo(){
         diferencia = 0;
     }
 
+    if(rondaActual == 1){
+        ui->lblPuntuacionJugador1ronda1->setText(QString::number(resultadoColumnas));
+        ui->lblPuntuacionJugador2ronda1->setText(QString::number(resultadoHileras));
+    }
+    else if(rondaActual == 2){
+        ui->lblPuntuacionJugador1ronda2->setText(QString::number(resultadoColumnas));
+        ui->lblPuntuacionJugador2ronda2->setText(QString::number(resultadoHileras));
+    }
+    else if(rondaActual == 3){
+        ui->lblPuntuacionJugador1ronda3->setText(QString::number(resultadoColumnas));
+        ui->lblPuntuacionJugador2ronda3->setText(QString::number(resultadoHileras));
+    }
+    else if(rondaActual == 4){
+        ui->lblPuntuacionJugador1ronda4->setText(QString::number(resultadoColumnas));
+        ui->lblPuntuacionJugador2ronda4->setText(QString::number(resultadoHileras));
+    }
+    else if(rondaActual == 5){
+        ui->lblPuntuacionJugador1ronda5->setText(QString::number(resultadoColumnas));
+        ui->lblPuntuacionJugador2ronda5->setText(QString::number(resultadoHileras));
+    }
+    else if(rondaActual == 6){
+        ui->lblPuntuacionJugador1ronda6->setText(QString::number(resultadoColumnas));
+        ui->lblPuntuacionJugador2ronda6->setText(QString::number(resultadoHileras));
+    }
+    puntuacionJugador1+=resultadoHileras;
+    puntuacionJugador2+=resultadoColumnas;
 
+    ui->lblPuntuacionTotalJugador1->setText(QString::number(puntuacionJugador1));
+    ui->lblPuntuacionTotalJugador2->setText(QString::number(puntuacionJugador2));
 }
 
 /**
@@ -269,7 +300,7 @@ void Juego::on_btnMazo_clicked()
     ui->btnMatriz5->setIcon(campo.getIcono(3,1,1));
 
     std::cout<<"El mazo tiene "<<campo.getSizeMazo()<<endl;
-
+    rondaActual++;
     //ui->btnMazo->setEnabled(false);
 
 }

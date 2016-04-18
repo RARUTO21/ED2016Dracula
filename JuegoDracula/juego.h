@@ -85,6 +85,9 @@ private:
     CampoDeJuego campo;
     int cartaActual;
     int jugadorActual;
+    int rondaActual;
+    int puntuacionJugador1;
+    int puntuacionJugador2;
 
 };
 
