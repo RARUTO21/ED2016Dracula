@@ -37,6 +37,9 @@
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QPushButton" name="btnMatriz1">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>330</x>
@@ -63,6 +66,9 @@
     </property>
    </widget>
    <widget class="QPushButton" name="btnMatriz2">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>450</x>
@@ -89,6 +95,9 @@
     </property>
    </widget>
    <widget class="QPushButton" name="btnMatriz3">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>570</x>
@@ -116,7 +125,7 @@
    </widget>
    <widget class="QPushButton" name="btnMatriz5">
     <property name="enabled">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
     <property name="geometry">
      <rect>
@@ -129,6 +138,10 @@
     <property name="text">
      <string/>
     </property>
+    <property name="icon">
+     <iconset resource="images.qrc">
+      <normaloff>:/cards/cards/cartaVacia.png</normaloff>:/cards/cards/cartaVacia.png</iconset>
+    </property>
     <property name="iconSize">
      <size>
       <width>90</width>
@@ -140,6 +153,9 @@
     </property>
    </widget>
    <widget class="QPushButton" name="btnMatriz6">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>570</x>
@@ -166,6 +182,9 @@
     </property>
    </widget>
    <widget class="QPushButton" name="btnMatriz4">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>330</x>
@@ -192,6 +211,9 @@
     </property>
    </widget>
    <widget class="QPushButton" name="btnMatriz8">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>450</x>
@@ -218,6 +240,9 @@
     </property>
    </widget>
    <widget class="QPushButton" name="btnMatriz9">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>570</x>
@@ -244,6 +269,9 @@
     </property>
    </widget>
    <widget class="QPushButton" name="btnMatriz7">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>330</x>
@@ -310,6 +338,10 @@
     <property name="text">
      <string/>
     </property>
+    <property name="icon">
+     <iconset resource="images.qrc">
+      <normaloff>:/cards/cards/cartaVacia.png</normaloff>:/cards/cards/cartaVacia.png</iconset>
+    </property>
     <property name="iconSize">
      <size>
       <width>90</width>
@@ -331,6 +363,10 @@
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="images.qrc">
+      <normaloff>:/cards/cards/cartaVacia.png</normaloff>:/cards/cards/cartaVacia.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -354,6 +390,10 @@
     <property name="text">
      <string/>
     </property>
+    <property name="icon">
+     <iconset resource="images.qrc">
+      <normaloff>:/cards/cards/cartaVacia.png</normaloff>:/cards/cards/cartaVacia.png</iconset>
+    </property>
     <property name="iconSize">
      <size>
       <width>90</width>
@@ -375,6 +415,10 @@
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="images.qrc">
+      <normaloff>:/cards/cards/cartaVacia.png</normaloff>:/cards/cards/cartaVacia.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -611,9 +655,7 @@
      </palette>
     </property>
     <property name="font">
-     <font>
-      <pointsize>-1</pointsize>
-     </font>
+     <font/>
     </property>
     <property name="autoFillBackground">
      <bool>false</bool>
@@ -644,6 +686,10 @@
     <property name="text">
      <string/>
     </property>
+    <property name="icon">
+     <iconset resource="images.qrc">
+      <normaloff>:/cards/cards/cartaVacia.png</normaloff>:/cards/cards/cartaVacia.png</iconset>
+    </property>
     <property name="iconSize">
      <size>
       <width>90</width>
@@ -665,6 +711,10 @@
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="images.qrc">
+      <normaloff>:/cards/cards/cartaVacia.png</normaloff>:/cards/cards/cartaVacia.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -688,6 +738,10 @@
     <property name="text">
      <string/>
     </property>
+    <property name="icon">
+     <iconset resource="images.qrc">
+      <normaloff>:/cards/cards/cartaVacia.png</normaloff>:/cards/cards/cartaVacia.png</iconset>
+    </property>
     <property name="iconSize">
      <size>
       <width>90</width>
@@ -709,6 +763,10 @@
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="images.qrc">
+      <normaloff>:/cards/cards/cartaVacia.png</normaloff>:/cards/cards/cartaVacia.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -822,22 +880,6 @@
     </property>
     <property name="text">
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; color:#ffffff;&quot;&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="btnEvalua">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>450</x>
-      <y>590</y>
-      <width>101</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>PushButton</string>
     </property>
    </widget>
    <widget class="QPushButton" name="ImprimeConsola">
@@ -1009,6 +1051,22 @@
      <string>0</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="btnEvalua">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>590</y>
+      <width>80</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Evaluar</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -1016,7 +1074,7 @@
      <x>0</x>
      <y>0</y>
      <width>992</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>

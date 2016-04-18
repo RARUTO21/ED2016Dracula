@@ -25,6 +25,9 @@ public:
     string generarPathIcono(Carta carta);
     void desbloquearBotonesJugador(int jugador);
     void ponerImagenCartasMano(int jugador);
+    //void habilitarEspaciosDisponibles();
+    void habilitarEspaciosIniciales();
+
 
     void evaluaCampo();
     ~Juego();
@@ -75,6 +78,7 @@ private slots:
     void on_btnEvalua_clicked();
 
     void on_ImprimeConsola_clicked();
+
 
 private:
     Ui::Juego *ui;

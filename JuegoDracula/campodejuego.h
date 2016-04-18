@@ -44,6 +44,7 @@ public:
     bool hayJugadorInicialDefinido();
     Carta getCartaRonda1Jugador(int jugador);
     bool evaluarGanadorEtapa1();
+    bool estaDisponible(int row, int column);
 
     //icono
     void ponerIcono(QPushButton boton,Carta carta);

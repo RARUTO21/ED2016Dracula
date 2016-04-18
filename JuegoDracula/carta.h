@@ -17,7 +17,7 @@ private:
     std::string rutaImagenCarta;
 public:
 
-    Carta(){}
+    Carta(){    }
 
     Carta(string pColor, string pSimbolo, string pNombre, int pValor){
         /**Constructor de la clase carta
@@ -38,6 +38,8 @@ public:
 
 
         rutaImagenCarta = ":/cards/cards/";
+
+
         if(pNombre == "joker"){
             rutaImagenCarta += (pNombre + "_" + pColor + ".png");
             /*

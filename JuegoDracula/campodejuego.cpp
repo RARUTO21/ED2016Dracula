@@ -319,13 +319,13 @@ string CampoDeJuego::imprimeCampo(){
      */
     string tiraFinal = "";
     for(int hilera = 0; hilera<3; hilera++){
-        tiraFinal+= "hilera numero: " + to_string(hilera) + "\n";
+        //tiraFinal+= "hilera numero: " + to_string(hilera) + "\n";
         for(int columna = 0; columna<3; columna++){
             string tira = "";
             tira += campo.getElement(hilera, columna).getSimbolo() + "|";
             tira += campo.getElement(hilera, columna).getColor() + "|";
             tira += campo.getElement(hilera, columna).getNombre() + "|";
-            tira += to_string(campo.getElement(hilera, columna).getValor());
+            //tira += to_string(campo.getElement(hilera, columna).getValor());
             tiraFinal += tira + "\n";
         }
     }
@@ -362,6 +362,55 @@ bool CampoDeJuego::isFull(){
 }
 
 //Anthony
+
+bool CampoDeJuego::estaDisponible(int row, int column){
+    if(row == 0){
+        //(0,0)
+        if(column == 0){
+            if(campo.getElement(0,1).getNombre() == "vacio" & campo.getElement(1,0).getNombre() == "vacio"){
+                //std::cout<<"(0,0)=    (0,1)=='vacio'"<<campo.getElement(0,1).getNombre()=="vacio"<<endl;
+                return false;
+            }
+            else{
+                return true;
+            }
+        }
+        else{
+            //(0,2)
+            if(column == 2){
+                if(campo.getElement(0,1).getNombre() == "vacio" & campo.getElement(1,2).getNombre() == "vacio"){
+                    return false;
+                }
+                else{
+                    return true;
+                }
+            }
+        }
+
+    }
+    else{//row = 2
+        //(2,0)
+        if(column == 0){
+            if(campo.getElement(2,1).getNombre() == "vacio" & campo.getElement(1,0).getNombre() == "vacio"){
+                return false;
+            }
+            else{
+                return true;
+            }
+
+        }
+        else{
+            if(column == 2){
+                if(campo.getElement(2,1).getNombre() == "vacio" & campo.getElement(1,2).getNombre() == "vacio"){
+                    return false;
+                }
+                else{
+                    return true;
+                }
+            }
+        }
+    }
+}
 
 void CampoDeJuego::ponerIcono(QPushButton boton, Carta carta){
     boton.setIcon(carta.getIcono());

@@ -150,10 +150,27 @@ void Juego::evaluaCampo(){
  * */
 void Juego::desbloquearBotonesJugador(int jugador){
     if(jugador == 1){
-        ui->btnCarta1Jugador1->setEnabled(true);
-        ui->btnCarta2Jugador1->setEnabled(true);
-        ui->btnCarta3Jugador1->setEnabled(true);
-        ui->btnCarta4Jugador1->setEnabled(true);
+        //if(campo.getJugador(1).getCard(0).getNombre() == "vacio"){
+            //ui->btnCarta1Jugador1->setEnabled(false);
+        //}
+        //else{
+            ui->btnCarta1Jugador1->setEnabled(true);
+        //}
+        //if(campo.getJugador(1).getCard(1).getNombre() != "vacio"){
+            ui->btnCarta2Jugador1->setEnabled(true);
+        //}
+        //if(campo.getJugador(1).getCard(2).getNombre() != "vacio"){
+            ui->btnCarta3Jugador1->setEnabled(true);
+        //}
+
+        //if(campo.getJugador(1).getCard(3).getNombre() == "vacio"){
+            //ui->btnCarta4Jugador1->setEnabled(false);
+        //}
+        //else{
+            ui->btnCarta4Jugador1->setEnabled(true);
+        //}
+
+
     }
     else{
         ui->btnCarta1Jugador2->setEnabled(true);
@@ -167,6 +184,7 @@ void Juego::desbloquearBotonesJugador(int jugador){
 
 void Juego::ponerImagenCartasMano(int jugador){
     if(jugador == 1){
+
         ui->btnCarta1Jugador1->setIcon(campo.getIcono(1, 0));
         ui->btnCarta2Jugador1->setIcon(campo.getIcono(1, 1));
         ui->btnCarta3Jugador1->setIcon(campo.getIcono(1, 2));
@@ -180,10 +198,55 @@ void Juego::ponerImagenCartasMano(int jugador){
     }
 }
 
+/*
+void Juego::habilitarEspaciosDisponibles(int row, int column){
+    if(campo.estaDisponible(row,column) == true){
+
+        ui->btnMatriz1->setEnabled(true);
+        ui->btnMatriz1->setIcon(QIcon(QPixmap(":/cards/cards/ok.png")));
+    }
+    if(campo.estaDisponible(0,2) == true){
+        ui->btnMatriz3->setEnabled(true);
+        ui->btnMatriz3->setIcon(QIcon(QPixmap(":/cards/cards/ok.png")));
+    }
+    if(campo.estaDisponible(2,0) == true){
+        ui->btnMatriz7->setEnabled(true);
+        ui->btnMatriz7->setIcon(QIcon(QPixmap(":/cards/cards/ok.png")));
+    }
+    if(campo.estaDisponible(2,2) == true){
+        ui->btnMatriz9->setEnabled(true);
+        ui->btnMatriz9->setIcon(QIcon(QPixmap(":/cards/cards/ok.png")));
+    }
+}*/
+
+void Juego::habilitarEspaciosIniciales(){
+
+    ui->btnMatriz2->setEnabled(true);
+    ui->btnMatriz2->setIcon(QIcon(QPixmap(":cards/cards/ok.png")));
+    ui->btnMatriz4->setEnabled(true);
+    ui->btnMatriz4->setIcon(QIcon(QPixmap(":cards/cards/ok.png")));
+    ui->btnMatriz6->setEnabled(true);
+    ui->btnMatriz6->setIcon(QIcon(QPixmap(":cards/cards/ok.png")));
+    ui->btnMatriz8->setEnabled(true);
+    ui->btnMatriz8->setIcon(QIcon(QPixmap(":cards/cards/ok.png")));
+
+    ui->btnMatriz1->setEnabled(false);
+    ui->btnMatriz1->setIcon(QIcon(QPixmap(":cards/cards/no.png")));
+    ui->btnMatriz3->setEnabled(false);
+    ui->btnMatriz3->setIcon(QIcon(QPixmap(":cards/cards/no.png")));
+    ui->btnMatriz7->setEnabled(false);
+    ui->btnMatriz7->setIcon(QIcon(QPixmap(":cards/cards/no.png")));
+    ui->btnMatriz9->setEnabled(false);
+    ui->btnMatriz9->setIcon(QIcon(QPixmap(":cards/cards/no.png")));
+}
+
 
 void Juego::on_btnMazo_clicked()
 {
-    campo.reparteCartas(2);
+    if(campo.getSizeMazo() > 0){
+        campo.reparteCartas(2);
+    }
+
 
     cout<<"----------------empieza campo de juego tests -----------------"<<endl;
     cout<<"mano 1: \n" +campo.imprimeMano(1)<<endl;
@@ -200,6 +263,8 @@ void Juego::on_btnMazo_clicked()
 
     ponerImagenCartasMano(1);
     ponerImagenCartasMano(2);
+
+    habilitarEspaciosIniciales();
 
     ui->btnMatriz5->setIcon(campo.getIcono(3,1,1));
 
@@ -278,9 +343,13 @@ void Juego::on_btnMatriz1_clicked()
     ponerImagenCartasMano(jugadorActual);
     desbloquearBotonesJugador(1);
     desbloquearBotonesJugador(2);
+
     if(campo.isFull()){
         ui->btnEvalua->setEnabled(true);
     }
+
+    ui->btnMatriz1->setEnabled(false);
+
 }
 
 void Juego::on_btnMatriz2_clicked()
@@ -290,9 +359,21 @@ void Juego::on_btnMatriz2_clicked()
     ponerImagenCartasMano(jugadorActual);
     desbloquearBotonesJugador(1);
     desbloquearBotonesJugador(2);
+
     if(campo.isFull()){
         ui->btnEvalua->setEnabled(true);
     }
+
+    //habilitarEspaciosDisponibles();
+
+    if(campo.estaDisponible(0,0) == true){
+        ui->btnMatriz1->setEnabled(true);
+    }
+    if(campo.estaDisponible(0,2) == true){
+        ui->btnMatriz3->setEnabled(true);
+    }
+
+    ui->btnMatriz2->setEnabled(false);
 }
 
 void Juego::on_btnMatriz3_clicked()
@@ -302,9 +383,12 @@ void Juego::on_btnMatriz3_clicked()
     ponerImagenCartasMano(jugadorActual);
     desbloquearBotonesJugador(1);
     desbloquearBotonesJugador(2);
+
     if(campo.isFull()){
         ui->btnEvalua->setEnabled(true);
     }
+
+    ui->btnMatriz3->setEnabled(false);
 }
 
 void Juego::on_btnMatriz4_clicked()
@@ -314,9 +398,22 @@ void Juego::on_btnMatriz4_clicked()
     ponerImagenCartasMano(jugadorActual);
     desbloquearBotonesJugador(1);
     desbloquearBotonesJugador(2);
+
     if(campo.isFull()){
         ui->btnEvalua->setEnabled(true);
     }
+
+
+    //habilitarEspaciosDisponibles();
+    if(campo.estaDisponible(0,0) == true){
+        ui->btnMatriz1->setEnabled(true);
+    }
+    if(campo.estaDisponible(2,0) == true){
+        ui->btnMatriz7->setEnabled(true);
+    }
+
+    ui->btnMatriz4->setEnabled(false);
+
 }
 
 void Juego::on_btnMatriz6_clicked()
@@ -326,9 +423,22 @@ void Juego::on_btnMatriz6_clicked()
     ponerImagenCartasMano(jugadorActual);
     desbloquearBotonesJugador(1);
     desbloquearBotonesJugador(2);
+
     if(campo.isFull()){
         ui->btnEvalua->setEnabled(true);
     }
+
+
+    //habilitarEspaciosDisponibles();
+    if(campo.estaDisponible(0,2) == true){
+        ui->btnMatriz3->setEnabled(true);
+    }
+    if(campo.estaDisponible(2,2) == true){
+        ui->btnMatriz9->setEnabled(true);
+    }
+
+    ui->btnMatriz6->setEnabled(false);
+
 }
 
 void Juego::on_btnMatriz7_clicked()
@@ -338,9 +448,14 @@ void Juego::on_btnMatriz7_clicked()
     ponerImagenCartasMano(jugadorActual);
     desbloquearBotonesJugador(1);
     desbloquearBotonesJugador(2);
+
     if(campo.isFull()){
         ui->btnEvalua->setEnabled(true);
     }
+
+
+    ui->btnMatriz7->setEnabled(false);
+
 }
 
 void Juego::on_btnMatriz8_clicked()
@@ -350,10 +465,23 @@ void Juego::on_btnMatriz8_clicked()
     ponerImagenCartasMano(jugadorActual);
     desbloquearBotonesJugador(1);
     desbloquearBotonesJugador(2);
+
     if(campo.isFull()){
         ui->btnEvalua->setEnabled(true);
     }
+
+    //habilitarEspaciosDisponibles();
+    if(campo.estaDisponible(2,0) == true){
+        ui->btnMatriz7->setEnabled(true);
+    }
+    if(campo.estaDisponible(2,2) == true){
+        ui->btnMatriz9->setEnabled(true);
+    }
+
+    ui->btnMatriz8->setEnabled(false);
+
 }
+
 
 void Juego::on_btnMatriz9_clicked()
 {
@@ -362,15 +490,14 @@ void Juego::on_btnMatriz9_clicked()
     ponerImagenCartasMano(jugadorActual);
     desbloquearBotonesJugador(1);
     desbloquearBotonesJugador(2);
+
     if(campo.isFull()){
         ui->btnEvalua->setEnabled(true);
     }
-}
 
 
-void Juego::on_btnEvalua_clicked()
-{
-    evaluaCampo();
+    ui->btnMatriz9->setEnabled(false);
+
 }
 
 
@@ -382,4 +509,13 @@ void Juego::on_ImprimeConsola_clicked()
     cout<<campo.imprimeCampo()<<endl;
     cout<<campo.isFull()<<endl;
     cout<<"----------------termina campo de juego -----------------"<<endl;
+}
+
+
+
+
+void Juego::on_btnEvalua_clicked()
+{
+    evaluaCampo();
+    ui->btnMazo->setEnabled(true);
 }
